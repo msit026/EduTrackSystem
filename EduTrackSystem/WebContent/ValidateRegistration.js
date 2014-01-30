@@ -50,7 +50,7 @@ function validatePassword()
   var pwd=document.registration.password.value;
   if(pwd="" || pwd.length < 8)
   {
-     document.getElementById("error6").innerHTML="Invalid Password ";
+     document.getElementById("error6").innerHTML="minimum 8 characters ";
      return false;
   }
   else
@@ -66,6 +66,8 @@ function validateRePassword()
 	if(pwd!=pwd2)
 	{
 		document.getElementById("error7").innerHTML="Password mismatch";
+		document.getElementById("password").value="";
+		document.getElementById("reenter").value="";
 	}
 	else
 	{
@@ -151,9 +153,7 @@ function verifyUser()
 {
 	
 	var v1=document.getElementById( "role").value;
-	
 	//alert(v1);	
-		
 	if(v1=="mentor")
 	{
 		document.getElementById("show").style.visibility="visible";
@@ -219,12 +219,12 @@ function alertError(){
 		document.getElementById("gender").style.border = "solid 1px red";
 		flag = 0;
 	}	
-	if(document.registration.mobileno.value=="")
-	{		
-		document.getElementById("mobileno").style.display="block";
-		document.getElementById("mobileno").style.border = "solid 1px red";
-		flag = 0;
-	}	
+//	if(document.registration.mobileno.value=="")
+//	{		
+//		document.getElementById("mobileno").style.display="block";
+//		document.getElementById("mobileno").style.border = "solid 1px red";
+//		flag = 0;
+//	}	
 	if(document.registration.emailId.value=="")
 	{		
 		document.getElementById("emailId").style.display="block";
@@ -260,7 +260,7 @@ function alertError(){
 	else
 		return true;
 }
-function resetFields()
+function resetField()
 {
 	document.getElementById("role").style.border="solid 1px black";	
 	document.getElementById("id").style.border="solid 1px black";
@@ -268,9 +268,23 @@ function resetFields()
 	document.getElementById("lname").style.border="solid 1px black";
 	document.getElementById("address").style.border="solid 1px black";
 	document.getElementById("dob").style.border="solid 1px black";
-	document.getElementById("gender").style.border="solid 1px black";
+	//document.getElementById("gender").style.border="solid 1px black";
 	document.getElementById("mobileno").style.border="solid 1px black";
 	document.getElementById("emailId").style.border="solid 1px black";
 	document.getElementById("password").style.border="solid 1px black";
 	document.getElementById("reenter").style.border="solid 1px black";
 }
+function resetFields()
+{		
+	document.getElementById("id").value="";
+	document.getElementById("fname").value="";
+	document.getElementById("lname").value="";
+	document.getElementById("address").value="";
+	document.getElementById("dob").value="0000-00-00";
+	document.getElementById("gender").value="";
+	document.getElementById("mobileno").value="";
+	document.getElementById("emailId").value="";
+	document.getElementById("password").value="";
+	document.getElementById("reenter").value="";
+}
+
