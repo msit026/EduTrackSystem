@@ -9,14 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <description></description>
-    <display-name>forget</display-name>
-    <servlet-name>forget</servlet-name>
-    <servlet-class>servlet.forget</servlet-class>
+    <display-name>ForgetPassword</display-name>
+    <servlet-name>ForgetPassword</servlet-name>
+    <servlet-class>servlet.ForgetPassword</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>forget</servlet-name>
-    <url-pattern>/forget</url-pattern>
+    <servlet-name>ForgetPassword</servlet-name>
+    <url-pattern>/ForgetPassword</url-pattern>
   </servlet-mapping>
 </web-app>
