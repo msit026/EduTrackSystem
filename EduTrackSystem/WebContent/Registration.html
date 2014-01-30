@@ -22,19 +22,18 @@
 				<tr>
 					<td>Register as:<font color="red"> *</font></td>
 					<td><select name="role" id="role" required=""
-						onchange="verifyUser();resetFields()"><span style="color: red;"
+						onchange="verifyUser();resetFields();setFormat()"><span style="color: red;"
 							id="error0" value=""> </span>
 							<option>--select--</option>
-							<option>mentor</option>
-							<option>student</option>
+							<option>Mentor</option>
+							<option>Student</option>
 					</select></td>
-				</tr>
-
+					</tr>
 				<tr>
-					<td>UniqueID:<font color="red"> *</font></td>
+				<td>RegistrationID:<font color="red"> *</font></td>
 					<td><input type="text" name="ID" id="id" onblur="validateID"
-						placeholder="regNo" onchange="resetField()"></td>
-					<span style="color: red;" id="error00"> </span>
+						placeholder="regNo" onchange="resetField()"><span style="color: black;" id="error00"> </span></td>
+					
 				</tr>
 
 				<tr>
@@ -97,28 +96,17 @@
 						size="30" placeholder="re-enter" onblur="validateRePassword()" onchange="resetField()"><span
 						style="color: red;" id="error7"> </span></td>
 				</tr>
-				<span id="show">
+				
 				<tr>
-					<td><label id="programmeLabel">Programme:<font color="red"> *</font></label></td>
-					<td><select name="programme" ID="programme"
-						onblur="validateProgramme()" onchange="resetField()"><option>2-year MSIT</option>
-							<option>3-year MSIT</option>
-							<span style="color: red;" id="error8"> </span></td>
-				</tr>
-				</span>
-				<div id="show1" height="200">
-				<tr>
-					<td><label id="designationLabel">Designation:</label></td>
-					<td><input type="text" name="designation" id="designation"
-						onblur="validateDesignation()" onchange="resetField()"> <span style="color: red;"
-						id="error9"> </span></td>
-				</tr>
-				</div>
+				 <td id="fill1" name="name1"></td>
+              <td id="fill2" name="name2"></td>
+              </tr>
+              
 				<div id="show2" height="200">
 				<tr>
 					<td colspan="3">
-						<center>  <input type="reset" value="reset" name="reset"id="reset" >
-					              <input type="submit" value="register" name="register" id="register" >
+						<center>  <input type="reset" value="Reset" name="reset"id="reset" >
+					              <input type="submit" value="Register" name="register" id="register" >
 					   </center>
 					</td>
 				</tr> 

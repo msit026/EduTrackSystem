@@ -151,25 +151,19 @@ function funcDisplay()
 }
 function verifyUser()
 {
+	var e = document.getElementById("role");
+	var v1=e.options[e.selectedIndex].value;
 	
-	var v1=document.getElementById( "role").value;
-	//alert(v1);	
-	if(v1=="mentor")
-	{
-		document.getElementById("show").style.visibility="visible";
-		document.getElementById("designationLabel").style.visibility="visible";
-		document.getElementById("designation").style.visibility="visible";
-		document.getElementById("programmeLabel").style.visibility="hidden";
-		document.getElementById("programme").style.visibility="hidden";
-	}
-	else
-	{
-		document.getElementById("programme").style.visibility="visible";
-		document.getElementById("programmeLabel").style.visibility="visible";
-		document.getElementById("designation").style.visibility="hidden";
-		document.getElementById("designationLabel").style.visibility="hidden";
-		document.getElementById("show1").style.visibility="visible";
-	}
+		if(v1=="Mentor")
+		{
+		document.getElementById('fill1').innerHTML ="Designation";
+		document.getElementById('fill2').innerHTML ="<select id='designation' name='design' required> <option>Select</option><option>D1</option><option>D2</option></select>";
+		}
+		if(v1=="Student")
+		{
+		document.getElementById('fill1').innerHTML ="Programme";
+		document.getElementById('fill2').innerHTML ="<select id='programme' name='programme' required> <option>Select</option><option>MSIT 2 Years</option><option>MSIT 3 Years</option></select>";
+		}
 }
 
 
@@ -288,3 +282,18 @@ function resetFields()
 	document.getElementById("reenter").value="";
 }
 
+function setFormat()
+{
+
+	if(document.getElementById("role").value="Student")
+	{
+		   document.getElementById("error00").innerHTML="(IH2013850XX) ";
+		  
+	}
+
+	if(document.getElementById("role").value="Mentor")
+	{
+		   document.getElementById("error00").innerHTML="(XXXXXXXX) ";
+		  
+	}
+}
