@@ -144,10 +144,10 @@ function validateMobile()
 
 function funcDisplay()
 {
-	document.getElementById("designation").style.visibility="hidden";
-    document.getElementById("programme").style.visibility="hidden";
-    document.getElementById("programmeLabel").style.visibility="hidden";
-    document.getElementById("designationLabel").style.visibility="hidden";
+	document.getElementById("fill2").style.visibility="hidden";
+    //document.getElementById("programme").style.visibility="hidden";
+    //document.getElementById("programmeLabel").style.visibility="hidden";
+    document.getElementById("fill1").style.visibility="hidden";
 }
 function verifyUser()
 {
@@ -156,22 +156,25 @@ function verifyUser()
 	
 		if(v1=="Mentor")
 		{
-		document.getElementById('fill1').innerHTML ="Designation";
-		document.getElementById('fill2').innerHTML ="<select id='designation' name='design' required> <option>Select</option><option>D1</option><option>D2</option></select>";
+		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Designation</span>";
+		document.getElementById('fill2').innerHTML ="<select id='designation' name='designation' required> <option>Select</option><option>D1</option><option>D2</option></select>";
+		 document.getElementById("fill1").style.visibility="visible";
+		 document.getElementById("fill2").style.visibility="visible";
 		}
 		if(v1=="Student")
 		{
-		document.getElementById('fill1').innerHTML ="Programme";
+		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Programme</span>";
 		document.getElementById('fill2').innerHTML ="<select id='programme' name='programme' required> <option>Select</option><option>MSIT 2 Years</option><option>MSIT 3 Years</option></select>";
+		 document.getElementById("fill1").style.visibility="visible";
+		 document.getElementById("fill2").style.visibility="visible";
 		}
 }
 
 
-function alertError(){
+function alertError1(){
 	var flag = 1;
-	//window.alert("test");
 	if(document.registration.role.value=="--select--")
-	{		//window.alert("test1");
+	{	
 		document.getElementById("role").style.display="block";
 		document.getElementById("role").style.border = "solid 1px red";
 		flag = 0;
@@ -207,12 +210,12 @@ function alertError(){
 		document.getElementById("dob").style.border = "solid 1px red";
 		flag = 0;
 	}	
-	if(document.registration.address.value=="")
+	/*if(document.registration.address.value=="")
 	{		
 		document.getElementById("gender").style.display="block";
 		document.getElementById("gender").style.border = "solid 1px red";
 		flag = 0;
-	}	
+	}	*/
 //	if(document.registration.mobileno.value=="")
 //	{		
 //		document.getElementById("mobileno").style.display="block";
@@ -237,18 +240,18 @@ function alertError(){
 		document.getElementById("password").style.border = "solid 1px red";
 		flag = 0;
 	}	
-	if(document.registration.designation.value=="")
+	if(document.registration.designation != null && document.registration.designation.value=="")
 	{		
 		document.getElementById("designation").style.display="block";
 		document.getElementById("designation").style.border = "solid 1px red";
 		flag = 0;
 	}	
-	if(document.registration.programme.value=="")
-	{		
+	if(document.registration.programme != null && document.registration.programme.value=="")
+	{
 		document.getElementById("programme").style.display="block";
 		document.getElementById("programme").style.border = "solid 1px red";
 		flag = 0;
-	}	
+	}
 	if(flag == 0)
 		return false;
 	else
@@ -284,14 +287,13 @@ function resetFields()
 
 function setFormat()
 {
-
-	if(document.getElementById("role").value="Student")
+	if(document.getElementById("role").value=="Student")
 	{
 		   document.getElementById("error00").innerHTML="(IH2013850XX) ";
 		  
 	}
 
-	if(document.getElementById("role").value="Mentor")
+	if(document.getElementById("role").value=="Mentor")
 	{
 		   document.getElementById("error00").innerHTML="(XXXXXXXX) ";
 		  

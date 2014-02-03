@@ -1,4 +1,4 @@
-package servlet;
+package com.ets.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -27,7 +27,7 @@ public class ForgetPassword extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println ("<html><body>Please check your mail for further details</body></html>");
 	     // out.println("<p align =\"center\"> <a  href=\"blogger.html\" onClick=\"return targetopener(this,true)\">Back</a> </p>") ;
-		 out.println("<html><p align =\"center\"> <a  href=\"Login.html\" onClick=\"return targetopener(this,true)\">BACK</a> </p></html>") ;
+		 out.println("<html><p align =\"center\"> <a  href=\"homePage.html\" onClick=\"return targetopener(this,true)\">BACK</a> </p></html>") ;
     	 
 		// TODO Auto-generated method stub
 	}
