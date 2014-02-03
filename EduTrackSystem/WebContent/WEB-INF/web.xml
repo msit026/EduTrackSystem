@@ -2,22 +2,21 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>EduTrackSystem</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>homePage.html</welcome-file>
+    <welcome-file>homePage.htm</welcome-file>
+    <welcome-file>homePage.jsp</welcome-file>
+    <welcome-file>homePage.html</welcome-file>
+    <welcome-file>homePage.htm</welcome-file>
+    <welcome-file>homePage.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>
-    <description></description>
-    <display-name>ForgetPassword</display-name>
-    <servlet-name>ForgetPassword</servlet-name>
-    <servlet-class>servlet.ForgetPassword</servlet-class>
+  	<servlet-name>LoginCheck</servlet-name>
+  	<servlet-class>com.ets.servlets.LoginCheck</servlet-class>
   </servlet>
+  
   <servlet-mapping>
-    <servlet-name>ForgetPassword</servlet-name>
-    <url-pattern>/ForgetPassword</url-pattern>
+  	<servlet-name>LoginCheck</servlet-name>
+  	<url-pattern>/LoginCheck</url-pattern>
   </servlet-mapping>
 </web-app>
