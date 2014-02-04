@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_25">
 		<attributes>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files/Java/jre7/bin"/>
 			<attribute name="owner.project.facets" value="java"/>
@@ -14,17 +14,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 6.0/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 6.0/lib/jasper-el.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/commons-fileupload-1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/commons-io-2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/mysql-connector-java-5.1.28-bin - Copy.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/mysql-connector-java-5.1.28-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/poi-3.10-beta2-20130904.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/poi-examples-3.10-beta2-20130904.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/poi-excelant-3.10-beta2-20130904.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/poi-ooxml-3.10-beta2-20130904.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/poi-ooxml-schemas-3.10-beta2-20130904.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sneha/Desktop/poi-scratchpad-3.10-beta2-20130904.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Sunil/Desktop/JARFiles/mysql-connector-java-5.1.28/mysql-connector-java-5.1.28-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Sunil/Desktop/JARFiles/poi-3.10-beta2/poi-3.10-beta2-20130904.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
