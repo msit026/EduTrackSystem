@@ -37,4 +37,24 @@
     <servlet-name>Registrations</servlet-name>
     <url-pattern>/Registrations</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowPendingRequestsServlet</display-name>
+    <servlet-name>ShowPendingRequestsServlet</servlet-name>
+    <servlet-class>com.ets.servlets.ShowPendingRequestsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowPendingRequestsServlet</servlet-name>
+    <url-pattern>/ShowPendingRequestsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Approve</display-name>
+    <servlet-name>Approve</servlet-name>
+    <servlet-class>com.ets.servlets.Approve</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Approve</servlet-name>
+    <url-pattern>/Approve</url-pattern>
+  </servlet-mapping>
 </web-app>
