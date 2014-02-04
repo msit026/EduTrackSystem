@@ -13,6 +13,8 @@ public class Admin {
 	private MySQLCon connection;
 	private Statement st;
 	private ResultSet rs;
+	String admin_username="admin";
+	String admin_password="admin";
 	
 	public Admin()
 	{
@@ -54,4 +56,39 @@ public class Admin {
 		}
 		return flag;
 	}
+public boolean isValidUser(String username, String password)
+	{
+	
+		if(username.equals(admin_username)&&password.equals(admin_password))
+		{
+			return true;  // if the user is admin return 1
+		}
+		
+		/*else
+		{
+			try 
+			{
+				String query="select * from credentials;"; // query for the database
+				rs=s.executeQuery(query);
+				
+				while(rs.next())
+				{
+					if(rs.getString(3).equals(username)&&rs.getString(4).equals(password)) //search via indices
+					{
+						return 2; //if user is student similarly search for the mentor if they are in different tables....as i dont know the structure of the tables
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println("Error: "+e);
+			}
+			
+		}*/
+		
+		return false; // if nothing matches
+	}
+
 }
+
+

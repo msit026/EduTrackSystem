@@ -116,8 +116,8 @@
         <div id="content">
           <h2>Upload files</h2>
          <div id="respond">
-          <form name = "myForm" id = "myForm" method="post" action="" onSubmit="return alertError()" >
-            <fieldset> <legend>NewsLetter</legend>
+           <form name = "myForm" id = "myForm" method="post" action="FileUploadServlet" enctype="multipart/form-data" onSubmit="return alertError()" >
+             <fieldset> <legend>NewsLetter</legend>
               <!-- <input type="text" value="Name&hellip;"  onfocus="this.value=(this.value=='Name&hellip;')? '' : this.value ;" /> -->
               <label id = "fileType" name = "fileType">File Regarding</label>
 			  <!-- <input type="text" id="userName" name="userName" placeholder="User name&#8230;" onclick = "resetAll()"/> <input
@@ -132,7 +132,7 @@
 			  <option value="grades">Grades</option>
 			</select><br>
 			Choose File
-			  <input type="file" id="fileChosen" name="fileChosen" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /><br />
+			  <input type="file" id="fileChosen" name="fileChosen" accept=" application/vnd.ms-excel" /><br />
               <br/><input type="submit" value="Upload" id="fileSubmit" name="fileSubmit" /><br />
               <br />
           </form>

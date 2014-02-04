@@ -10,14 +10,6 @@
     <welcome-file>homePage.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>LoginCheck</servlet-name>
-    <servlet-class>com.ets.servlets.LoginCheck</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoginCheck</servlet-name>
-    <url-pattern>/LoginCheck</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <description></description>
     <display-name>ForgetPassword</display-name>
     <servlet-name>ForgetPassword</servlet-name>
@@ -56,5 +48,30 @@
   <servlet-mapping>
     <servlet-name>Approve</servlet-name>
     <url-pattern>/Approve</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <description>Location to store uploaded file</description>
+    <param-name>Create</param-name>
+    <param-value>E:\data\</param-value>
+  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>FileUploadServlet</display-name>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>com.ets.servlets.FileUploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/FileUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginCheck</display-name>
+    <servlet-name>LoginCheck</servlet-name>
+    <servlet-class>com.ets.servlets.LoginCheck</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginCheck</servlet-name>
+    <url-pattern>/LoginCheck</url-pattern>
   </servlet-mapping>
 </web-app>
