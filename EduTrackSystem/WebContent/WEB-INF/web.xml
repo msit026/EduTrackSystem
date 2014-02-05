@@ -74,4 +74,24 @@
     <servlet-name>LoginCheck</servlet-name>
     <url-pattern>/LoginCheck</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>showStudentDetails</display-name>
+    <servlet-name>showStudentDetails</servlet-name>
+    <servlet-class>com.ets.servlets.showStudentDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showStudentDetails</servlet-name>
+    <url-pattern>/showStudentDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>showMentorDetails</display-name>
+    <servlet-name>showMentorDetails</servlet-name>
+    <servlet-class>com.ets.servlets.showMentorDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showMentorDetails</servlet-name>
+    <url-pattern>/showMentorDetails</url-pattern>
+  </servlet-mapping>
 </web-app>
