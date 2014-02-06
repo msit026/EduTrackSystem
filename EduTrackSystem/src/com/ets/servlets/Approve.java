@@ -1,6 +1,8 @@
 package com.ets.servlets;
 
-
+/**
+ * @author Mani
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -25,6 +27,13 @@ public class Approve extends HttpServlet {
         super();
     }
 
+    /**
+     * It Processes the Request
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	Admin admin = new Admin();

@@ -94,4 +94,44 @@
     <servlet-name>showMentorDetails</servlet-name>
     <url-pattern>/showMentorDetails</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowCoursesServelt</display-name>
+    <servlet-name>ShowCoursesServelt</servlet-name>
+    <servlet-class>com.ets.servlets.ShowCoursesServelt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCoursesServelt</servlet-name>
+    <url-pattern>/ShowCoursesServelt</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowGradesServlet</display-name>
+    <servlet-name>ShowGradesServlet</servlet-name>
+    <servlet-class>com.ets.servlets.ShowGradesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowGradesServlet</servlet-name>
+    <url-pattern>/ShowGradesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowRegisteredStudentsServlet</display-name>
+    <servlet-name>ShowRegisteredStudentsServlet</servlet-name>
+    <servlet-class>com.ets.servlets.ShowRegisteredStudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowRegisteredStudentsServlet</servlet-name>
+    <url-pattern>/ShowRegisteredStudentsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowUnRegisteredStudentsServlet</display-name>
+    <servlet-name>ShowUnRegisteredStudentsServlet</servlet-name>
+    <servlet-class>com.ets.servlets.ShowUnRegisteredStudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowUnRegisteredStudentsServlet</servlet-name>
+    <url-pattern>/ShowUnRegisteredStudentsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

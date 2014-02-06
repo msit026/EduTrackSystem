@@ -1,269 +1,283 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="EN" dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml">
-  <head profile="http://gmpg.org/xfn/11">
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
-    <title>Admin Home Page</title>
-    <meta content="no" http-equiv="imagetoolbar" />
-    <link type="text/css" href="styles/layout.css" rel="stylesheet" />
-	<script src="ValidateRegistration.js"></script>
-	<style>
-	#regBg{
-                display:none;
-                position:fixed;
-                width:100%;
-                top:0;
-                left:0;
-                background:#333;
-                z-index:9999998;
+<html lang="EN" dir="ltr" xml:lang="EN"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="content-type"
+	content="application/xhtml+xml; charset=iso-8859-1" />
+<title>Admin Home Page</title>
+<meta content="no" http-equiv="imagetoolbar" />
+<link type="text/css" href="styles/layout.css" rel="stylesheet" />
+<script src="ValidateRegistration.js"></script>
+<style>
+#regBg {
+	display: none;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #333;
+	z-index: 9999998;
+}
 
-            }
+#main {
+	min-width: 350px;
+	position: absolute;
+	left: -99999px;
+	top: 500;
+	background: #fff;
+	z-index: 9999999;
+	border: 3px solid #222;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	-webkit-border-radius: 9px;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	text-align: left;
+	font-family: arial, sans-serif;
+	font-size: 13px
+}
+</style>
+<script>
+	function unHide() {
+		document.getElementById("regDiv").style.display = "block";
+		funcDisplay();
+	}
 
-            #main{
-                min-width: 350px;
-                position:absolute;
-                left:-99999px;
-                top:500;
-                background:#fff;
-                z-index:9999999;
-                border:3px solid #222;
-                -moz-border-radius:9px;
-                border-radius:9px;
-                -webkit-border-radius:9px;
-                margin:0;
-                padding:0;
-                color:#333;
-                text-align:left;
-                font-family:arial,sans-serif;
-                font-size:13px
+	function hide() {
+		document.getElementById("regDiv").style.display = "none";
+	}
 
-            }
-	</style>
-	<script>
-            function unHide()
-            {
-                document.getElementById("regDiv").style.display = "block";
-				funcDisplay();
-            }
+	function resetAll() {
+		document.getElementById("userName").style.border = "solid 1px #7F9DB9";
+		document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
+	}
 
-            function hide()
-            {
-                document.getElementById("regDiv").style.display = "none";
-            }
-            
-			function resetAll(){
-				document.getElementById("userName").style.border = "solid 1px #7F9DB9";
-				document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
-			}
+	function alertError() {
 
+		var flag = 1;
 
-			function alertError(){
-				
-				var flag = 1;
-				
-				if(document.myForm.LoginPassword.value=="")
-				{	
-					document.getElementById("errMsg").innerHTML="Password cannot be blank";
-					document.getElementById("LoginPassword").style.border = "solid 1px red";
-					flag = 0;
-				}
-				
-				if(document.myForm.userName.value=="")
-				{		
-					document.getElementById("errMsg").innerHTML="Username cannot be blank";
-					document.getElementById("userName").style.border = "solid 1px red";
-					flag = 0;
-				}
-						
-					
-				if(flag == 0)
-					return false;
-				else
-					return true;
-			}
-	</script>
-  </head>
-  <body id="top">
-  <div id="regDiv" style="display : none;">
-            <div id="regBg" style=" opacity:0.68; height:643px; display:block" onclick="hide()">
-                </div>
-			<div id="main" style="position: absolute;top:30px;left: 400px;">
-				<form name="registration" onsubmit="return alertError()">
-					<center>
-						<h3>
-							<b>Registration Form</b>
-						</h3>
-					</center>
-					<fieldset style="margin:auto; width:600px;  ">
-						<legend>Registration Form</legend>
-						<table align="center" cellpadding="5" width="70%">
+		if (document.myForm.LoginPassword.value == "") {
+			document.getElementById("errMsg").innerHTML = "Password cannot be blank";
+			document.getElementById("LoginPassword").style.border = "solid 1px red";
+			flag = 0;
+		}
 
-							<tr>
-								<td>Register as:<font color="red"> *</font></td>
-								<td><select name="role" id="role" onchange="verifyUser();resetFields()"><span style="color: red;"
-										id="error0" value=""> </span>
-										<option>--select--</option>
-										<option>mentor</option>
-										<option>student</option>
-								</select></td>
-							</tr>
+		if (document.myForm.userName.value == "") {
+			document.getElementById("errMsg").innerHTML = "Username cannot be blank";
+			document.getElementById("userName").style.border = "solid 1px red";
+			flag = 0;
+		}
 
-							<tr>
-								<td>UniqueID:<font color="red"> *</font></td>
-								<td><input type="text" name="ID" id="id" onblur="validateID"
-									placeholder="regNo" onchange="resetFields()"></td>
-								<span style="color: red;" id="error00"> </span>
-							</tr>
+		if (flag == 0)
+			return false;
+		else
+			return true;
+	}
+</script>
+</head>
+<body id="top">
+	<div id="regDiv" style="display: none;">
+		<div id="regBg" style="opacity: 0.68; height: 643px; display: block"
+			onclick="hide()"></div>
+		<div id="main" style="position: absolute; top: 30px; left: 400px;">
+			<form name="registration" onsubmit="return alertError()">
+				<center>
+					<h3>
+						<b>Registration Form</b>
+					</h3>
+				</center>
+				<fieldset style="margin: auto; width: 600px;">
+					<legend>Registration Form</legend>
+					<table align="center" cellpadding="5" width="70%">
 
-							<tr>
-								<td>First Name:<font color="red"> *</font></td>
-								<td><input name="fname" id="fname" size="30"
-									placeholder="first name" onblur="validateName()"
-									placeholder="first Name"onchange="resetFields()">
-									<span style="color: red;" id="error"> </span></td>
-							</tr>
+						<tr>
+							<td>Register as:<font color="red"> *</font></td>
+							<td><select name="role" id="role"
+								onchange="verifyUser();resetFields()"><span
+									style="color: red;" id="error0" value=""> </span>
+									<option>--select--</option>
+									<option>mentor</option>
+									<option>student</option>
+							</select></td>
+						</tr>
 
-							<tr>
-								<td>Last Name:<font color="red"> *</font></td>
-								<td><input name="lname" id="lname"
-									size="30" placeholder="last name" onblur="validateLname()"onchange="resetFields()">
-									<span style="color: red;" id="error000"> </span></td>
-							</tr>
-							<tr>
-								<td>Address:<font color="red"> *</font></td>
-								<td><textarea name="address" id="address" rows="5"
-										onblur="validateAdress()" cols="24" placeholder="Address"onchange="resetFields()"></textarea><span
-									style="color: red;" id="error1"> </span></td>
-							</tr>
+						<tr>
+							<td>UniqueID:<font color="red"> *</font></td>
+							<td><input type="text" name="ID" id="id" onblur="validateID"
+								placeholder="regNo" onchange="resetFields()"></td>
+							<span style="color: red;" id="error00"> </span>
+						</tr>
 
-							<tr>
-								<td>Date of birth:<font color="red"> *</font></td>
-								<td><input name="dob" id="dob" size="30"
-									placeholder="yyyy-mm-dd" type="date" onblur="validateDate()"onchange="resetFields()">
-									<span style="color: red;" id="error2"> </span></td>
-							</tr>
+						<tr>
+							<td>First Name:<font color="red"> *</font></td>
+							<td><input name="fname" id="fname" size="30"
+								placeholder="first name" onblur="validateName()"
+								placeholder="first Name" onchange="resetFields()"> <span
+									style="color: red;" id="error"> </span></td>
+						</tr>
 
-							<tr>
-								<td>Gender:<font color="red"> *</font></td>
-								<td><input name="gender" id="gender" value="male" size="10"
-									type="radio" onblur="validateGender()">Male <input
+						<tr>
+							<td>Last Name:<font color="red"> *</font></td>
+							<td><input name="lname" id="lname" size="30"
+								placeholder="last name" onblur="validateLname()"
+								onchange="resetFields()"> <span style="color: red;"
+									id="error000"> </span></td>
+						</tr>
+						<tr>
+							<td>Address:<font color="red"> *</font></td>
+							<td><textarea name="address" id="address" rows="5"
+									onblur="validateAdress()" cols="24" placeholder="Address"
+									onchange="resetFields()"></textarea><span style="color: red;"
+								id="error1"> </span></td>
+						</tr>
+
+						<tr>
+							<td>Date of birth:<font color="red"> *</font></td>
+							<td><input name="dob" id="dob" size="30"
+								placeholder="yyyy-mm-dd" type="date" onblur="validateDate()"
+								onchange="resetFields()"> <span style="color: red;"
+									id="error2"> </span></td>
+						</tr>
+
+						<tr>
+							<td>Gender:<font color="red"> *</font></td>
+							<td><input name="gender" id="gender" value="male" size="10"
+								type="radio" onblur="validateGender()">Male <input
 									name="gender" id="gender" value="female" size="10" type="radio"
-									onblur="validateGender()" onchange="resetFields()">Female <span style="color: red;"
-									id="error3"> </span></td>
-							</tr>
+									onblur="validateGender()" onchange="resetFields()">Female
+										<span style="color: red;" id="error3"> </span></td>
+						</tr>
 
-							<tr>
-								<td>MobileNo:</td>
-								<td>+91 <input name="mobileno" id="mobileno" size="25"
-									placeholder="10 digits" type="text" onblur="validateMobile()" onchange="resetFields()"><span
-									style="color: red;" id="error4"> </span></td>
-							</tr>
+						<tr>
+							<td>MobileNo:</td>
+							<td>+91 <input name="mobileno" id="mobileno" size="25"
+								placeholder="10 digits" type="text" onblur="validateMobile()"
+								onchange="resetFields()"><span style="color: red;"
+									id="error4"> </span></td>
+						</tr>
 
+						<tr>
+							<td>emailId:<font color="red"> *</font></td>
+							<td><input name="emailId" id="emailId" size="30"
+								placeholder="id@example.com" onblur="validateEmail()"
+								onchange="resetFields()"> <span style="color: red;"
+									id="error5"> </span></td>
+						</tr>
+						<tr>
+							<td>Choose Password:<font color="red"> *</font></td>
+							<td><input name="password" id="password" type="password"
+								placeholder="min 8 characters" onblur="validatePassword()"
+								onchange="resetFields()"><span style="color: red;"
+									id="error6"> </span></td>
+						</tr>
+						<tr>
+							<td>Re-Enter Password:<font color="red"> *</font></td>
+							<td><input name="reenter" id="reenter" type="password"
+								size="30" placeholder="re-enter" onblur="validateRePassword()"
+								onchange="resetFields()"><span style="color: red;"
+									id="error7"> </span></td>
+						</tr>
+						<span id="show">
 							<tr>
-								<td>emailId:<font color="red"> *</font></td>
-								<td><input name="emailId" id="emailId" size="30"
-									placeholder="id@example.com" onblur="validateEmail()" onchange="resetFields()">
-									<span style="color: red;" id="error5"> </span></td>
-							</tr>
-							<tr>
-								<td>Choose Password:<font color="red"> *</font></td>
-								<td><input name="password" id="password" type="password"
-									placeholder="min 8 characters" onblur="validatePassword()" onchange="resetFields()"><span
-									style="color: red;" id="error6"> </span></td>
-							</tr>
-							<tr>
-								<td>Re-Enter Password:<font color="red"> *</font></td>
-								<td><input name="reenter" id="reenter" type="password"
-									size="30" placeholder="re-enter" onblur="validateRePassword()" onchange="resetFields()"><span
-									style="color: red;" id="error7"> </span></td>
-							</tr>
-							<span id="show">
-							<tr>
-								<td><label id="programmeLabel">Programme:<font color="red"> *</font></label></td>
+								<td><label id="programmeLabel">Programme:<font
+										color="red"> *</font></label></td>
 								<td><select name="programme" ID="programme"
-									onblur="validateProgramme()" onchange="resetFields()"><option>2-year MSIT</option>
+									onblur="validateProgramme()" onchange="resetFields()"><option>2-year
+											MSIT</option>
 										<option>3-year MSIT</option>
 										<span style="color: red;" id="error8"> </span></td>
 							</tr>
-							</span>
-							<div id="show1" height="200">
+						</span>
+						<div id="show1" height="200">
 							<tr>
 								<td><label id="designationLabel">Designation:</label></td>
 								<td><input type="text" name="designation" id="designation"
-									onblur="validateDesignation()" onchange="resetFields()"> <span style="color: red;"
-									id="error9"> </span></td>
+									onblur="validateDesignation()" onchange="resetFields()">
+										<span style="color: red;" id="error9"> </span></td>
 							</tr>
-							</div>
-							<div id="show2" height="200">
+						</div>
+						<div id="show2" height="200">
 							<tr>
 								<td colspan="3">
-									<center>  <input type="reset" value="reset" name="reset"id="reset" >
-											  <input type="submit" value="register" name="register" id="register" >
-								   </center>
+									<center>
+										<input type="reset" value="reset" name="reset" id="reset">
+											<input type="submit" value="register" name="register"
+											id="register">
+									</center>
 								</td>
-							</tr> 
-							</div>
-						</table>
-					</fieldset>
-					</center>
-				</form>
+							</tr>
+						</div>
+					</table>
+				</fieldset>
+				</center>
+			</form>
+		</div>
+	</div>
+	<div class="wrapper col1">
+		<div id="header">
+			<div id="logo">
+				<h1>
+					<a href="#">LC Solutions</a>
+				</h1>
+				<p>
+					<strong>Helping you build your dream</strong>
+				</p>
 			</div>
+			<br class="clear" />
+		</div>
+	</div>
+	<div class="wrapper col2">
+		<div id="topbar">
+			<div id="topnav">
+				<ul>
+					<li class="active"><a href="#">Home</a></li>
+
+					<li><a href="fileUploadPage.html">Upload Files</a></li>
+					<li><a href="#">Approve User</a></li>
+					<li><a href="#">Edit Profile</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
 			</div>
-    <div class="wrapper col1">
-      <div id="header">
-        <div id="logo">
-          <h1><a href="#">LC Solutions</a></h1>
-          <p><strong>Helping you build your dream</strong></p>
-        </div>
-        <br class="clear" />
-      </div>
-    </div>
-    <div class="wrapper col2">
-      <div id="topbar">
-        <div id="topnav">
-          <ul>
-            <li class="active"><a href="#">Home</a></li>
-            
-            <li><a href="fileUploadPage.html">Upload Files</a>
-            </li>
-			<li><a href="#">Approve User</a></li>
-			<li><a href="#">Edit Profile</a></li>
-			<li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        
-        <br class="clear" />
-      </div>
-    </div>
-    
-    <div class="wrapper col4">
-	  <div id="container">
-        <div id="content">
-          <h2>Updates</h2>
-          <ul>
-			<li><b>24</b> pending student requests. <a href = "www.google.com"><input type="submit" value="View pending requests" id="buttonSubmit" name="buttonSubmit"></a></input></li>
-			<br><li><b>12</b> new student requests. <a href = "www.google.com"><input type="submit" value="View new requests" id="buttonSubmit" name="buttonSubmit"></a></input></li>
-			<br><li><b>10</b> pending mentor requests. <a href = "www.google.com"><input type="submit" value="View pending requests" id="buttonSubmit" name="buttonSubmit"></a></input></li>
-			<br><li><b>1</b> new mentor requests. <a href = "www.google.com"><input type="submit" value="View new requests" id="buttonSubmit" name="buttonSubmit"></a></input></li>
-		  </ul>
-        </div>
-    </div>
-	<br class="clear" />
-	<br class="clear" />
-	<br class="clear" />
-	<br class="clear" />
-	<br class="clear" /><br class="clear" />
-	<br class="clear" />
-	<br class="clear" /><br class="clear" />
-	<br class="clear" />
-	<br class="clear" /><br class="clear" />
-	<br class="clear" />
-	<br class="clear" />
-    <div class="wrapper col7">
-      <div id="copyright">
-        <p class="fl_left">Copyright © 2014 - All Rights Reserved - <a href="#">MSITMedhas</a></p>
-        <a href="#"></a>
-        <br class="clear" />
-      </div>
-    </div>
-  </body>
+
+			<br class="clear" />
+		</div>
+	</div>
+
+	<div class="wrapper col4">
+		<div id="container">
+			<div id="content">
+				<h2>Updates</h2>
+				<ul>
+					<li><b>24</b> pending student requests. <a
+						href="www.google.com"><input type="submit"
+							value="View pending requests" id="buttonSubmit"
+							name="buttonSubmit"></a></input></li>
+					<br><li><b>12</b> new student requests. <a
+							href="www.google.com"><input type="submit"
+								value="View new requests" id="buttonSubmit" name="buttonSubmit"></a></input></li>
+						<br><li><b>10</b> pending mentor requests. <a
+								href="www.google.com"><input type="submit"
+									value="View pending requests" id="buttonSubmit"
+									name="buttonSubmit"></a></input></li> <br><li><b>1</b> new
+									mentor requests. <a href="www.google.com"><input
+										type="submit" value="View new requests" id="buttonSubmit"
+										name="buttonSubmit"></a></input></li>
+				</ul>
+			</div>
+		</div>
+		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" />
+		<br class="clear" /> <br class="clear" /> <br class="clear" />
+		<br class="clear" /> <br class="clear" /> <br class="clear" />
+		<br class="clear" /> <br class="clear" /> <br class="clear" />
+		<div class="wrapper col7">
+			<div id="copyright">
+				<p class="fl_left">
+					Copyright © 2014 - All Rights Reserved - <a href="#">MSITMedhas</a>
+				</p>
+				<a href="#"></a> <br class="clear" />
+			</div>
+		</div>
+</body>
 </html>

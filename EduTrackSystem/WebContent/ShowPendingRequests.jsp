@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*;"%>
+
+<!--  @Author Mani -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,11 +13,11 @@
 <body>
 	<form action="Approve" method="get">
 
-			<%
-				boolean flag = true;
-				ResultSet rs = (ResultSet) request.getAttribute("studentRequests");
-			%>
-			<table name="showRequest">
+		<%
+			boolean flag = true;
+			ResultSet rs = (ResultSet) request.getAttribute("studentRequests");
+		%>
+		<table name="showRequest">
 			<tr>
 				<th>Select</th>
 				<th>Student Id</th>
@@ -29,10 +31,9 @@
 					flag = false;
 			%>
 			<tr>
-				<td><input type="checkbox"
-					name="checkedRows"
+				<td><input type="checkbox" name="checkedRows"
 					value="<%=rs.getString("sd_student_id")%>" /></td>
-					<td><%=rs.getString("sd_student_id")%></td>
+				<td><%=rs.getString("sd_student_id")%></td>
 				<td><%=rs.getString("sd_name")%></td>
 				<td><%=rs.getString("sd_program")%></td>
 				<td><%=rs.getString("sd_admitted_year")%></td>
@@ -48,6 +49,7 @@
 					}
 					rs.close();
 				%>
+			
 			<tr>
 				<td colspan=5>
 					<center>

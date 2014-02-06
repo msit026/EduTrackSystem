@@ -12,14 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ets.classes.Admin;
-import java.sql.*;
 /**
  * Servlet implementation class ApproveRequests
  */
 public class ShowPendingRequestsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ResultSet rs;
 	private Admin admin;
     /**
      * Default constructor. 
@@ -27,6 +25,14 @@ public class ShowPendingRequestsServlet extends HttpServlet {
     public ShowPendingRequestsServlet() {
     }
 
+    /**
+     * Processes the Request
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	admin = new Admin();
