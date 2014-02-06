@@ -77,7 +77,7 @@ public class FileUploadServlet extends HttpServlet {
 		factory.setSizeThreshold(maxMemSize);// maximum size that will be stored
 												// in memory
 
-		factory.setRepository(new File("F:\\temp"));// Location to save data
+		factory.setRepository(new File("E:\\temp"));// Location to save data
 													// that is larger than
 													// maxMemSize.
 
@@ -135,14 +135,13 @@ public class FileUploadServlet extends HttpServlet {
 			} else if (fileType.equals("MentorDetails")) {
 				Mentor mentor = new Mentor();
 				mentor.getMentorDetails(fileName);
-			} else if (fileType.equals("CourseDetails")) {			//if coursedetails is selected
+			} else if (fileType.equals("CourseDetails")) {
 				Course course = new Course();
 				course.getCourseDetails(fileName);
-			}else if (fileType.equals("AttendanceDetails")) {      //if attendance is selected
+			}else if (fileType.equals("AttendanceDetails")) {      
 				Attendance attendance = new Attendance();
 				attendance.getAttendanceDetails(fileName);
 			}
-
 
 		} catch (Exception e) {
 			e.printStackTrace();

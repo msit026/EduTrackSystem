@@ -8,7 +8,7 @@ public class MySQLCon
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://10.10.10.165/ets", "ets","ets");//insert the db name
+			return DriverManager.getConnection("jdbc:mysql://localhost/ets", "root","root");//insert the db name
 		}
 		catch(Exception e)
 		{

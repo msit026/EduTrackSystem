@@ -1,6 +1,9 @@
 package com.ets.classes;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * 
@@ -11,7 +14,6 @@ import java.sql.*;
 public class Admin {
 	private Connection con;
 	private String query;
-	private MySQLCon connection;
 	private Statement st;
 	private ResultSet rs;
 	String admin_username = "admin";
@@ -24,6 +26,17 @@ public class Admin {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * @author Mano
+	 * 
+	 * Change the password of the Admin
+	 */
+	public boolean changePassword(String password)
+	{
+		admin_password = password;
+		return true;
 	}
 
 	/**

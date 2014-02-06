@@ -52,7 +52,7 @@
   <context-param>
     <description>Location to store uploaded file</description>
     <param-name>Create</param-name>
-    <param-value>F:\</param-value>
+    <param-value>E:\data\</param-value>
   </context-param>
   <servlet>
     <description></description>
