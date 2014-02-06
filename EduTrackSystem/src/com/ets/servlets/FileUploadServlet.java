@@ -16,9 +16,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.ets.classes.CourseDetails;
-import com.ets.classes.MentorDetails;
-import com.ets.classes.StudentDetails;
+import com.ets.classes.Attendance;
+import com.ets.classes.Course;
+import com.ets.classes.Mentor;
+import com.ets.classes.Student;
 
 /**
  * Servlet implementation class BasicPageServlet
@@ -31,7 +32,6 @@ public class FileUploadServlet extends HttpServlet {
 	private int maxFileSize = 500 * 1024;
 	private int maxMemSize = 40 * 1024;
 	private File file;
-	String path;
 
 	/**
 	 * @throws SQLException
@@ -59,6 +59,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unused" })
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, java.io.IOException {
 		response.setContentType("text/html");
@@ -76,7 +77,7 @@ public class FileUploadServlet extends HttpServlet {
 		factory.setSizeThreshold(maxMemSize);// maximum size that will be stored
 												// in memory
 
-		factory.setRepository(new File("E:\\temp"));// Location to save data
+		factory.setRepository(new File("F:\\temp"));// Location to save data
 													// that is larger than
 													// maxMemSize.
 
@@ -124,29 +125,27 @@ public class FileUploadServlet extends HttpServlet {
 				} else {
 					if (fi.getFieldName().equals("type")) {
 						fileType = fi.getString();
-						out.println(fileType);
 					}
 				}
 			}
-			out.println("File Upload DOne");
-
-			path = fileName;
-			System.out.println(path);
-			System.out.println("type is " + fileType);
 
 			if (fileType.equals("StudentDetails")) {
-				StudentDetails student = new StudentDetails();
-				student.getStudentDetails(path);
+				Student student = new Student();
+				student.getStudentDetails(fileName);
 			} else if (fileType.equals("MentorDetails")) {
-				MentorDetails mentor = new MentorDetails();
-				mentor.getMentorDetails(path);
-			} else if (fileType.equals("CourseDetails")) {
-				CourseDetails course = new CourseDetails();
-				course.getCourseDetails(path);
+				Mentor mentor = new Mentor();
+				mentor.getMentorDetails(fileName);
+			} else if (fileType.equals("CourseDetails")) {			//if coursedetails is selected
+				Course course = new Course();
+				course.getCourseDetails(fileName);
+			}else if (fileType.equals("AttendanceDetails")) {      //if attendance is selected
+				Attendance attendance = new Attendance();
+				attendance.getAttendanceDetails(fileName);
 			}
 
-		} catch (Exception ex) {
-			System.out.println(ex);
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

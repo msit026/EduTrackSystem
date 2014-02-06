@@ -83,4 +83,6 @@ public class Mentor {
 		}
 		return rs;
 	}
+	public void getMentorDetails(String path)
+	{}
 }

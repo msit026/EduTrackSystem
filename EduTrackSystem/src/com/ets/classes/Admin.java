@@ -7,6 +7,7 @@ import java.sql.*;
  * @author Mani
  * 
  */
+
 public class Admin {
 	private Connection con;
 	private String query;

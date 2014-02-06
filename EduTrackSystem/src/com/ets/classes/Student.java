@@ -74,4 +74,6 @@ public class Student {
 		}
 		return rs;
 	}
+	public void getStudentDetails(String path)
+	{}
 }
