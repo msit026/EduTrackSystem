@@ -11,13 +11,13 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>ForgetPassword</display-name>
-    <servlet-name>ForgetPassword</servlet-name>
-    <servlet-class>com.ets.servlets.ForgetPassword</servlet-class>
-  </servlet>
+    <display-name>forgot</display-name>
+    <servlet-name>forgot</servlet-name>
+    <servlet-class>com.ets.servlets.forgot</servlet-class>
+    </servlet>
   <servlet-mapping>
-    <servlet-name>ForgetPassword</servlet-name>
-    <url-pattern>/ForgetPassword</url-pattern>
+    <servlet-name>forgot</servlet-name>
+    <url-pattern>/forgot</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
