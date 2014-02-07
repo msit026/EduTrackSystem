@@ -1,158 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="EN" dir="ltr" xml:lang="EN"
-	xmlns="http://www.w3.org/1999/xhtml">
-<head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="content-type"
-	content="application/xhtml+xml; charset=iso-8859-1" />
-<title>File Upload Page</title>
-<meta content="no" http-equiv="imagetoolbar" />
-<link type="text/css" href="styles/layout.css" rel="stylesheet" />
-<script src="ValidateRegistration.js"></script>
-<style>
-#regBg {
-	display: none;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background: #333;
-	z-index: 9999998;
-}
+<html lang="EN" dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>File Upload Page</title>
+    <meta content="no" http-equiv="imagetoolbar" />
+    <link type="text/css" href="styles/layout.css" rel="stylesheet" />
+  </head>
+  <body id="top">
+    <div class="wrapper col1">
+      <div id="header">
+        <div id="logo">
+          <h1><a href="#">LC Solutions</a></h1>
+          <p><strong>Helping you build your dream</strong></p>
+        </div>
+        
+        <br class="clear" />
+      </div>
+    </div>
+    <div class="wrapper col2">
+      <div id="topbar">
+        <div style="width:100%;float:right;" id="topnav">
+          <ul style="width:100%;float:right">
+            <li><a href="adminHomePage.html">Home</a></li>
+            <li class="active"><a href="#">Upload Files</a> </li>
+            <li><a href="ShowPendingRequestsServlet">Approve User</a></li>
+    <!--         <li><a href="#">Edit Profile</a></li>    -->
+            <li><a href="userContactUs.html">Contact Us</a></li>
+            <li style="float:right"><a href="Logout">Logout</a></li>
+          </ul>
+        </div>
+        <br class="clear" />
+      </div>
+    </div>
+    
+    <div class="wrapper col4">
+	  <div id="container">
+        <div id="content">
+          <h2>Upload files</h2>
+           <form name = "myForm" id = "myForm" method="post" action="FileUploadServlet" enctype="multipart/form-data" onSubmit="return alertError()" >
+             <fieldset> <legend>NewsLetter</legend>
+             <table>
+              <tr><td width="110px"> <label id = "fileType" name = "fileType">File Regarding</label></td>
+			 <td> 
+			<select NAME="type">
+			  <option value="studentDetails">Student Details</option>
+			  <option value="mentorDetails">Mentor Details</option>
+			  <option value="attendance">Attendance</option>
+			  <option value="courseDetails">Course Details</option>
+			  <option value="grades">Grades</option>
+			</select></td></tr>
+			 <tr><td> <label id = "fileChoose" name = "fileChoose">Choose File</label></td>
+			  <td><input type="file" style = "border:none" id="fileChosen" name="fileChosen" accept=" application/vnd.ms-excel" /></td></tr>
+			  <tr colspan = 2><td style = "align:center"><br/><input type="submit" value="Upload" id="buttonSubmit" name="buttonSubmit" /></td></tr>
+              </table>
+              
+          </form>
+        </div>
+    </div>
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
+	<br class="clear" />
 
-#main {
-	min-width: 350px;
-	position: absolute;
-	left: -99999px;
-	top: 500;
-	background: #fff;
-	z-index: 9999999;
-	border: 3px solid #222;
-	-moz-border-radius: 9px;
-	border-radius: 9px;
-	-webkit-border-radius: 9px;
-	margin: 0;
-	padding: 0;
-	color: #333;
-	text-align: left;
-	font-family: arial, sans-serif;
-	font-size: 13px
-}
-</style>
-<script>
-	function unHide() {
-		document.getElementById("regDiv").style.display = "block";
-		funcDisplay();
-	}
-
-	function hide() {
-		document.getElementById("regDiv").style.display = "none";
-	}
-
-	function resetAll() {
-		document.getElementById("userName").style.border = "solid 1px #7F9DB9";
-		document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
-	}
-
-	function alertError() {
-
-		var flag = 1;
-
-		if (document.myForm.LoginPassword.value == "") {
-			document.getElementById("errMsg").innerHTML = "Password cannot be blank";
-			document.getElementById("LoginPassword").style.border = "solid 1px red";
-			flag = 0;
-		}
-
-		if (document.myForm.userName.value == "") {
-			document.getElementById("errMsg").innerHTML = "Username cannot be blank";
-			document.getElementById("userName").style.border = "solid 1px red";
-			flag = 0;
-		}
-
-		if (flag == 0)
-			return false;
-		else
-			return true;
-	}
-</script>
-</head>
-<body id="top">
-	<div class="wrapper col1">
-		<div id="header">
-			<div id="logo">
-				<h1>
-					<a href="#">LC Solutions</a>
-				</h1>
-				<p>
-					<strong>Helping you build your dream</strong>
-				</p>
-			</div>
-
-			<br class="clear" />
-		</div>
-	</div>
-	<div class="wrapper col2">
-		<div id="topbar">
-			<div id="topnav">
-				<ul>
-					<li><a href="adminHomePage.html">Home</a></li>
-
-					<li class="active"><a href="#">Upload Files</a></li>
-					<li><a href="#">Approve User</a></li>
-					<li><a href="#">Edit Profile</a></li>
-					<li><a href="#">Contact Us</a></li>
-				</ul>
-			</div>
-
-			<br class="clear" />
-		</div>
-	</div>
-
-	<div class="wrapper col4">
-		<div id="container">
-			<div id="content">
-				<h2>Upload files</h2>
-				<div id="respond">
-					<form name="myForm" id="myForm" method="post"
-						action="FileUploadServlet" enctype="multipart/form-data"
-						onSubmit="return alertError()">
-						<fieldset>
-							<legend>NewsLetter</legend>
-							<!-- <input type="text" value="Name&hellip;"  onfocus="this.value=(this.value=='Name&hellip;')? '' : this.value ;" /> -->
-							<label id="fileType" name="fileType">File Regarding</label>
-							<!-- <input type="text" id="userName" name="userName" placeholder="User name&#8230;" onclick = "resetAll()"/> <input
-
-                type="text"  id="LoginPassword" name="LoginPassword" placeholder="Password&#8230;" onclick = "resetAll()"/> -->
-							<!-- <input type="text" value="Email&hellip;"  onfocus="this.value=(this.value=='Email&hellip;')? '' : this.value ;" /> -->
-							<select NAME="type">
-								<option value="studentDetails">Student Details</option>
-								<option value="mentorDetails">Mentor Details</option>
-								<option value="AttendanceDetails">Attendance</option>
-								<option value="courseDetails">Course Details</option>
-								<option value="grades">Grades</option>
-							</select><br> Choose File <input type="file" id="fileChosen"
-								name="fileChosen" accept=" application/vnd.ms-excel" /><br />
-								<br />
-							<input type="submit" value="Upload" id="fileSubmit"
-								name="fileSubmit" /><br /> <br />
-					</form>
-				</div>
-			</div>
-		</div>
-		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
-			class="clear" /> <br class="clear" />
-		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
-			class="clear" /> <br class="clear" />
-		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
-			class="clear" /> <br class="clear" />
-		<br class="clear" /> <br class="clear" /> <br class="clear" />
-		<div class="wrapper col7">
-			<div id="copyright">
-				<p class="fl_left">
-					Copyright Â© 2014 - All Rights Reserved - <a href="#">MSITMedhas</a>
-				</p>
-				<a href="#"></a> <br class="clear" />
-			</div>
-		</div>
-</body>
+    <div class="wrapper col7">
+      <div id="copyright">
+        <p class="fl_left">Copyright © 2014 - All Rights Reserved - <a href="#">MSITMedhas</a></p>
+        <a href="#"></a>
+        <br class="clear" />
+      </div>
+    </div>
+  </body>
 </html>

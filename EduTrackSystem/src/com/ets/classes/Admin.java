@@ -33,11 +33,11 @@ public class Admin {
 	 * 
 	 * Change the password of the Admin
 	 */
-	public boolean changePassword(String password)
+	/*public boolean changePassword(String password)
 	{
 		admin_password = password;
 		return true;
-	}
+	}*/
 
 	/**
 	 * Author Mano
@@ -87,6 +87,35 @@ public class Admin {
 			return true; // if the user is admin return 1
 		}
 		return false; // if nothing matches
+	}
+	
+	/**
+	 * Author: Matha Harika
+	 * This method adds courses to the approved student in student-course table
+	 * @param string
+	 */
+	public boolean addCoursesToStudent(String studentID) 
+	{
+		try
+		{
+			query = "select sd_year_in_course from ets_student_details where sd_student_id = \"" + studentID + "\";";
+			ResultSet rs = st.executeQuery(query);
+			rs.next();
+			int course_year = rs.getInt("sd_year_in_course");
+			query = "select cd_course_id from ets_course_details where cd_course_year = " + course_year + ";";
+			rs = st.executeQuery(query);
+			while(rs.next())
+			{
+				query = "insert into ets_student_course_details values('" + studentID + "', '" + rs.getString("cd_course_id") + "', 0, 'Z', " + course_year + ", 0)";
+				st.executeUpdate(query);
+				return true;
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

@@ -1,327 +1,327 @@
-<html dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml"
-	lang="EN">
-<head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="content-type"
-	content="application/xhtml+xml; charset=iso-8859-1">
-<title>LC Home Page</title>
-<meta content="no" http-equiv="imagetoolbar">
-<link type="text/css" href="styles/layout.css" rel="stylesheet">
-<script language="Javascript" src="scripts/ValidateRegistration.js"></script>
-<style>
-#regBg {
-	display: none;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background: #333;
-	z-index: 9999998;
-}
+<html dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml" lang="EN">
+  <head profile="http://gmpg.org/xfn/11">
+    <meta content="text/html; charset=iso-8859-1" http-equiv="content-type">
+    <title>LC Home Page</title>
+    <meta content="no" http-equiv="imagetoolbar">
+    <link type="text/css" href="styles/layout.css" rel="stylesheet">
+    <script language="Javascript" src="scripts/ValidateRegistration.js"></script>
+    <style>
+	#regBg{
+                display:none;
+                position:fixed;
+                width:100%;
+                top:0;
+                left:0;
+                background:#333;
+                z-index:9999998;
 
-#main {
-	min-width: 350px;
-	position: absolute;
-	left: -99999px;
-	top: 500;
-	background: #fff;
-	z-index: 9999999;
-	border: 3px solid #222;
-	-moz-border-radius: 9px;
-	border-radius: 9px;
-	-webkit-border-radius: 9px;
-	margin: 0;
-	padding: 0;
-	color: #333;
-	text-align: left;
-	font-family: arial, sans-serif;
-	font-size: 13px
-}
-</style>
-<!--  Author : Krishna Somayajulu -->
-<script language="Javascript">
-	function unHide() {
-		document.getElementById("regDiv").style.display = "block";
-		funcDisplay();
-	}
+            }
 
-	function hide() {
-		document.getElementById("regDiv").style.display = "none";
-	}
+            #main{
+                min-width: 350px;
+                position:absolute;
+                left:-99999px;
+                top:500;
+                background:#fff;
+                z-index:9999999;
+                border:3px solid #222;
+                -moz-border-radius:9px;
+                border-radius:9px;
+                -webkit-border-radius:9px;
+                margin:0;
+                padding:0;
+                color:#333;
+                text-align:left;
+                font-family:arial,sans-serif;
+                font-size:13px
 
-	function resetAll() {
-		document.getElementById("userName").style.border = "solid 1px #7F9DB9";
-		document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
-	}
+            }
+	</style>
+    <!--  Author : Krishna Somayajulu -->
+    <script language="Javascript">
+            function unHide()
+            {            	
+                document.getElementById("regDiv").style.display = "block";
+				funcDisplay();
+            }
 
-	function alertError() {
+            function hide()
+            {
+                document.getElementById("regDiv").style.display = "none";
+            }
+            
+			function resetAll(){
+				document.getElementById("userName").style.border = "solid 1px #7F9DB9";
+				document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
+			}
 
-		var flag = 1;
 
-		if (document.myForm.LoginPassword.value == "") {
-			document.getElementById("errMsg").innerHTML = "Password cannot be blank";
-			document.getElementById("LoginPassword").style.border = "solid 1px red";
-			flag = 0;
-		}
+			function alertError(){
+				
+				var flag = 1;
+				
+				if(document.myForm.LoginPassword.value=="")
+				{	
+					document.getElementById("errMsg").innerHTML="Password cannot be blank";
+					document.getElementById("LoginPassword").style.border = "solid 1px red";
+					flag = 0;
+				}
+				
+				if(document.myForm.userName.value=="")
+				{		
+					document.getElementById("errMsg").innerHTML="Username cannot be blank";
+					document.getElementById("userName").style.border = "solid 1px red";
+					flag = 0;
+				}
+						
+				if(flag == 0)
+					return false;
+				else
+					return true;
+			}
+	</script>
+  </head>
+  <body id="top"> <!--  Author: Ujvala -->
+    <div id="regDiv" style="display : none;">
+      <div id="regBg" style=" opacity:0.68; height:643px; display:block" onclick="hide()">
+      </div>
+      <div id="main" style="position: absolute;top:30px;left: 350px; width:530px">
+      <form name="registration" onsubmit="return alertError1()" action="Registrations">
+        <center>
+          <table style="top: 20px; left: 12px; width: 530px; height: 68px;" >
+            <tbody>
+              <tr>
+                <td style="text-align:center; width: 480px">
+                  <h3>
+                    <span style = "color : black"> <b>Registration Form</b></span></h3>
+                </td>
+                <td style="width:20px"><a onclick = "hide()"><img src="images/close_button.png"
 
-		if (document.myForm.userName.value == "") {
-			document.getElementById("errMsg").innerHTML = "Username cannot be blank";
-			document.getElementById("userName").style.border = "solid 1px red";
-			flag = 0;
-		}
+                    alt=""> </a></td>
+              </tr>
+            </tbody>
+          </table>
+        </center>
+        <fieldset name="registrationForm" style="margin:auto; width:600px;  "> <legend>Registration
+            Form</legend>
+          <div id="show2" height="200"> </div>
+          <table style="width:250px" align="center" cellpadding="7">
+            <tbody>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Register
+                    as:</span><font color="red"> *</font></td>
+                <td>
+                  <!--  <select name="role" id="role" required="" onchange="verifyUser();resetFields();setFormat()">  -->
+                  <select name="role" id="role" required="" onchange="verifyUser();resetFields();setFormat()">
+                    <option>--select--</option>
+                    <option>Mentor</option>
+                    <option>Student</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">RegistrationID:</span><font
 
-		if (flag == 0)
-			return false;
-		else
-			return true;
-	}
-</script>
-</head>
-<body id="top">
-	<!--  Author: Ujvala -->
-	<div id="regDiv" style="display: none;">
-		<div id="regBg" style="opacity: 0.68; height: 643px; display: block"
-			onclick="hide()"></div>
-		<div id="main" style="position: absolute; top: 30px; left: 400px;">
-			<form name="registration" onsubmit="return alertError1()"
-				action="Registrations">
-				<center>
-					<h3>
-						<b>Registration Form</b>
-					</h3>
-				</center>
-				<fieldset name="regitrationForm" style="margin: auto; width: 600px;">
-					<legend>Registration Form</legend>
-					<div id="show2" height="200"></div>
-					<table align="center" cellpadding="7" width="70%">
-						<tbody>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Register as:</span><font
-									color="red"> *</font></td>
-								<td>
-									<!--  <select name="role" id="role" required="" onchange="verifyUser();resetFields();setFormat()">  -->
-									<select name="role" id="role" required=""
-									onchange="verifyUser();resetFields();setFormat()">
-										<option>--select--</option>
-										<option>Mentor</option>
-										<option>Student</option>
-								</select>
-								</td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">RegistrationID:</span><font
-									color="red"> *</font></td>
-								<td><input name="ID" id="id" onblur="validateID"
-									placeholder="RegNo" onchange="resetField()" type="text"><span
-									style="color: black;" id="error00"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">First Name:</span><font
-									color="red"> *</font></td>
-								<td><input name="fname" id="fname" size="30"
-									placeholder="First name" onblur="validateName()"
-									onchange="resetField()"> <span style="color: red;"
-									id="error"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Last Name:</span><font
-									color="red"> *</font></td>
-								<td><input name="lname" id="lname" size="30"
-									placeholder="Last name" onblur="validateLname()"
-									onchange="resetField()"> <span style="color: red;"
-									id="error000"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Address:</span><font
-									color="red"> *</font></td>
-								<td><textarea name="address" id="address" rows="5"
-										onblur="validateAdress()" cols="24" placeholder="Address"
-										onchange="resetField()"></textarea><span style="color: red;"
-									id="error1"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Date of birth:</span><font
-									color="red"> *</font></td>
-								<td><input name="dob" id="dob" size="30"
-									placeholder="yyyy-mm-dd" onblur="validateDate()"
-									onchange="resetField()" type="date"> <span
-									style="color: red;" id="error2"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Gender:</span><font
-									color="red"> *</font></td>
-								<td><input name="gender" id="gender" value="male" size="10"
-									onblur="validateGender()" onchange="resetField()" type="radio"><span
-									style="font-size: 14px; color: black">Male</span> <input
-									name="gender" id="gender" value="female" size="10"
-									onblur="validateGender()" onchange="resetField()" type="radio"><span
-									style="font-size: 14px; color: black">Female</span> <span
-									style="color: red;" id="error3"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">MobileNo:</span></td>
-								<td><span style="font-size: 14px; color: black">+91</span>
-									<input name="mobileno" id="mobileno" size="25"
-									placeholder="10 digits" onblur="validateMobile()"
-									onchange="resetField()" type="text"><span
-									style="color: red;" id="error4"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Email Id:</span><font
-									color="red"> *</font></td>
-								<td><input name="emailId" id="emailId" size="30"
-									placeholder="id@example.com" onblur="validateEmail()"
-									onchange="resetField()"> <span style="color: red;"
-									id="error5"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Choose Password:</span><font
-									color="red"> *</font></td>
-								<td><input name="password" id="password"
-									placeholder="min 8 characters" onblur="validatePassword()"
-									onchange="resetField()" type="password"><span
-									style="color: red;" id="error6"> </span></td>
-							</tr>
-							<tr>
-								<td align="right"><span
-									style="font-size: 14px; color: black">Re-Enter Password:</span><font
-									color="red"> *</font></td>
-								<td><input name="reenter" id="reenter" size="30"
-									placeholder="re-enter" onblur="validateRePassword()"
-									onchange="resetField()" type="password"><span
-									style="color: red;" id="error7"> </span></td>
-							</tr>
-							<tr>
-								<td id="fill1" name="fill1" align="right"></td>
-								<td id="fill2" name="fill2"></td>
-							</tr>
-							<tr>
-								<td colspan="3">
-									<center>
-										<input value="Reset" name="reset" id="reset" type="reset"
-											onclick="resetField();resetFields()"> <input
-											value="Register" name="register" id="register" type="submit">
-									</center>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</fieldset>
-			</form>
-		</div>
-	</div>
-	<div class="wrapper col1">
-		<div id="header">
-			<div id="logo">
-				<h1>
-					<a href="#">LC Solutions</a>
-				</h1>
-				<p>
-					<strong>Helping you build your dream</strong>
-				</p>
-			</div>
-			<!-- Author: Sneha -->
-			<div id="newsletter">
-				<form name="myForm" id="myForm" method="post" action="LoginCheck"
-					onsubmit="return alertError()">
-					<fieldset>
-						<legend>NewsLetter</legend>
-						<!-- <input type="text" value="Name&hellip;"  onfocus="this.value=(this.value=='Name&hellip;')? '' : this.value ;" /> -->
-						<label id="errMsg" name="errMsg" style="color: red"></label><br>
-						<br> <input id="userName" name="userName"
-							placeholder="User name" onclick="resetAll()" type="text">
-						<input id="LoginPassword" name="LoginPassword"
-							placeholder="Password" onclick="resetAll()" type="text">
-						<!-- <input type="text" value="Email&hellip;"  onfocus="this.value=(this.value=='Email&hellip;')? '' : this.value ;" /> -->
-						<input value="Sign In" id="news_go" name="news_go" type="submit"><br>
-						<br> <a href="ForgetPassword.html"
-							style="text-decoration: none">&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Forgot Password</a>? &nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
-							style="color: #0000ee;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span><a
-							href="#" onclick="unHide()" style="text-decoration: none">
-							&nbsp;&nbsp; Register</a>
-					</fieldset>
-				</form>
-			</div>
-			<br class="clear">
-		</div>
-	</div>
-	<div class="wrapper col2">
-		<div id="topbar">
-			<div id="topnav">
-				<ul>
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Products</a>
-						<ul>
-							<li><a href="productPage.html">EduTrackSystem</a></li>
-						</ul></li>
-					<li><a href="contactUs.html">Contact Us</a></li>
-				</ul>
-			</div>
-			<br class="clear">
-		</div>
-	</div>
-	<div class="wrapper col4">
-		<div id="container">
-			<div id="content">
-				<!-- Author: Manoj -->
-				<h2>About Us</h2>
-				<p>LC solutions works with Schools and Universities to provide
-					educational solutions and there by improving student learning and
-					achievement.</p>
-				<p>LC offers services that focus on developing new applications
-					that are based on integration of information given by the
-					institutions. It helps Schools and Universities to check student
-					performance.</p>
-				<p>LC also helps students to enhance their effectiveness and
-					lessen the burden for the teachers in generation of reports.</p>
-				<p>You can take look at our products from the products tab and
-					start using them by signing up.</p>
-			</div>
-			<div id="services" style="left: 5%">
-				<ul>
-					<li>
-						<div class="fl_left">
-							<img alt="" src="images/demo/100x180.gif">
-						</div>
-						<div class="fl_right">
-							<h2>Edu Track System</h2>
-							<p>This system keeps track of the performance of the students
-								by taking in the grades of the students.</p>
-							<p class="readmore">
-								<a href="productPage.html">Continue Reading »</a>
-							</p>
-						</div>
-					</li>
-				</ul>
-				<br class="clear">
-			</div>
-		</div>
-		<br class="clear"> <br class="clear"> <br class="clear">
-		<br class="clear"> <br class="clear">
-		<div class="wrapper col7">
-			<div id="copyright">
-				<p class="fl_left">
-					Copyright © 2014 - All Rights Reserved - <a href="#">MSITMedhas</a>
-				</p>
-				<br class="clear">
-			</div>
-		</div>
-	</div>
+                    color="red"> *</font></td>
+                <td><input name="ID" id="id" size="30" onblur="validateID" placeholder="RegNo"
 
-</body>
+                    onchange="resetField()" type="text"><span style="color: black;"
+
+                    id="error00"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">First
+                    Name:</span><font color="red"> *</font></td>
+                <td><input name="fname" id="fname" size="30" placeholder="First name"
+
+                    onblur="validateName()" onchange="resetField()"> <span style="color: red;"
+
+                    id="error"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Last
+                    Name:</span><font color="red"> *</font></td>
+                <td><input name="lname" id="lname" size="30" placeholder="Last name"
+
+                    onblur="validateLname()" onchange="resetField()"> <span style="color: red;"
+
+                    id="error000"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Address:</span><font
+
+                    color="red"> *</font></td>
+                <td><textarea name="address" id="address" rows="5" onblur="validateAdress()"
+
+                    cols="24" placeholder="Address" onchange="resetField()"></textarea><span
+
+                    style="color: red;" id="error1"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Date
+                    of birth:</span><font color="red"> *</font></td>
+                <td><input name="dob" id="dob" size="30" placeholder="yyyy-mm-dd"
+
+                    onblur="validateDate()" onchange="resetField()" type="date">
+                  <span style="color: red;" id="error2"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Gender:</span><font
+
+                    color="red"> *</font></td>
+                <td><input name="gender" id="gender" value="male" size="10" onblur="validateGender()"
+
+                    onchange="resetField()" type="radio"><span style="font-size:14px;color:black">Male</span>
+                  <input name="gender" id="gender" value="female" size="10" onblur="validateGender()"
+
+                    onchange="resetField()" type="radio"><span style="font-size:14px;color:black">Female</span>
+                  <span style="color: red;" id="error3"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">MobileNo:</span></td>
+                <td><span style="font-size:14px;color:black">+91</span> <input
+
+                    name="mobileno" id="mobileno" size="25" placeholder="10 digits"
+
+                    onblur="validateMobile()" onchange="resetField()" type="text"><span
+
+                    style="color: red;" id="error4"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Email
+                    Id:</span><font color="red"> *</font></td>
+                <td><input name="emailId" id="emailId" size="30" placeholder="id@example.com"
+
+                    onblur="validateEmail()" onchange="resetField()"> <span style="color: red;"
+
+                    id="error5"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Choose
+                    Password:</span><font color="red"> *</font></td>
+                <td><input name="password" id="password" placeholder="min 8 characters"
+
+                    onblur="validatePassword()" onchange="resetField()" type="password"><span
+
+                    style="color: red;" id="error6"> </span></td>
+              </tr>
+              <tr>
+                <td align="right"><span style="font-size:14px;color:black">Re-Enter
+                    Password:</span><font color="red"> *</font></td>
+                <td><input name="reenter" id="reenter" size="30" placeholder="re-enter"
+
+                    onblur="validateRePassword()" onchange="resetField()" type="password"><span
+
+                    style="color: red;" id="error7"> </span></td>
+              </tr>
+              <tr>
+                <td id="fill1" name="fill1" align="right"><br>
+                </td>
+                <td id="fill2" name="fill2"><br>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <center> <input value="Reset" name="reset" id="reset" onclick="resetField();resetFields()"
+
+                      type="reset"> <input value="Register" name="register" id="register"
+
+                      type="submit"> </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+    </div>
+    <div class="wrapper col1">
+      <div id="header">
+        <div id="logo">
+          <h1><a href="#">LC Solutions</a></h1>
+          <p><strong>Helping you build your dream</strong></p>
+        </div>
+        <!-- Author: Sneha -->
+        <div id="newsletter">
+          <form name = "myForm" id = "myForm" method="post" action="LoginCheck" onSubmit="return alertError()" >
+            <fieldset> <legend>NewsLetter</legend>
+             <table><tr colspan = "3" ><td>
+              <label id = "errMsg" name = "errMsg" style = "color : red; font-size:14px"></label></td></tr>
+              <tr><td>
+			  <input type="text" id="userName" name="userName" placeholder="User name" onclick = "resetAll()"/></td><td> <input type = "password" 
+			  
+			  id="LoginPassword" name="LoginPassword" placeholder="Password" onclick="resetAll()"></td>
+			  
+              <td>
+              <input type="submit" value="Sign In" id="news_go" name="news_go" /></td></tr>
+             <tr><td></td>
+             <td><a href="ForgetPassword.html" style="text-decoration:none; font-size:14px">Forgot Password?</a> </td>
+             <td><span style="color: #0000ee;"></span><a href="#" onclick="unHide()" style="text-decoration:none"><button id = "news_go" name="news_go" style = "font-size:12px"> Register</button></a></td>
+             </fieldset></table>
+          </form>
+        </div>
+        <br class="clear">
+      </div>
+    </div>
+    <div class="wrapper col2">
+      <div id="topbar">
+        <div id="topnav">
+          <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Products</a>
+              <ul>
+                <li><a href="productPage.html">EduTrackSystem</a></li>
+              </ul>
+            </li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <br class="clear">
+      </div>
+    </div>
+    <div class="wrapper col4">
+      <div id="container">
+        <div id="content">
+          <!-- Author: Manoj -->
+          <h2>About Us</h2>
+          <p>LC solutions works with Schools and Universities to provide
+            educational solutions and there by improving student learning and
+            achievement.</p>
+          <p>LC offers services that focus on developing new applications that
+            are based on integration of information given by the institutions.
+            It helps Schools and Universities to check student performance.</p>
+          <p>LC also helps students to enhance their effectiveness and lessen
+            the burden for the teachers in generation of reports.</p>
+          <p>You can take look at our products from the products tab and start
+            using them by signing up.</p>
+        </div>
+        <div id="services" style="left: 5%">
+          <ul>
+            <li>
+              <div class="fl_left"><img alt="" src="images/logo.png"></div>
+              <div class="fl_right">
+                <h2>Edu Track System</h2>
+                <p>This system keeps track of the performance of the students by
+                  taking in the grades of the students.</p>
+                <p class="readmore"><a href="productPage.html">Continue Reading
+                    »</a></p>
+              </div>
+            </li>
+          </ul>
+          <br class="clear">
+        </div>
+      </div>
+      <br class="clear">
+      <br class="clear">
+      <br class="clear">
+      <br class="clear">
+      <br class="clear">
+      <div class="wrapper col7">
+        <div id="copyright">
+          <p class="fl_left">Copyright © 2014 - All Rights Reserved - <a href="#">MSITMedhas</a></p>
+          <br class="clear">
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

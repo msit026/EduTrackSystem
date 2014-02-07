@@ -12,23 +12,23 @@ table{
 	table-layout:auto;
 	vertical-align:top;
 	margin-bottom:15px;
+	border:0px solid #CCCCCC;
 	}
 
 table thead th{
 	color:#FFFFFF;
 	background-color:#666666;
-	border:1px solid #CCCCCC;
 	border-collapse:collapse;
 	text-align:center;
 	table-layout:auto;
 	vertical-align:middle;
+	border:0px solid #CCCCCC;
 	}
 
 table tbody td{
 	vertical-align:top;
 	border-collapse:collapse;
-	border-left:1px solid #CCCCCC;
-	border-right:1px solid #CCCCCC;
+	border:0px solid #CCCCCC;
 	}
 	
 table thead th, table tbody td{

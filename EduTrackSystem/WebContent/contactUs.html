@@ -1,403 +1,471 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- Author : Harika -->
-<html lang="EN" dir="ltr" xml:lang="EN"
-	xmlns="http://www.w3.org/1999/xhtml">
-<head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="content-type"
-	content="application/xhtml+xml; charset=iso-8859-1" />
-<title>LC Contact Us</title>
-<meta content="no" http-equiv="imagetoolbar" />
-<link type="text/css" href="styles/layout.css" rel="stylesheet" />
-<script src="ValidateRegistration.js"></script>
-<style>
-#regBg {
-	display: none;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background: #333;
-	z-index: 9999998;
-}
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" dir="ltr">
+  <head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>LC Contact Us</title>
+    <meta http-equiv="imagetoolbar" content="no" />
+    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <script src="ValidateRegistration.js"></script>
+    <style>
+	#regBg{
+                display:none;
+                position:fixed;
+                width:100%;
+                top:0;
+                left:0;
+                background:#333;
+                z-index:9999998;
 
-#main {
-	min-width: 350px;
-	position: absolute;
-	left: -99999px;
-	top: 500;
-	background: #fff;
-	z-index: 9999999;
-	border: 3px solid #222;
-	-moz-border-radius: 9px;
-	border-radius: 9px;
-	-webkit-border-radius: 9px;
-	margin: 0;
-	padding: 0;
-	color: #333;
-	text-align: left;
-	font-family: arial, sans-serif;
-	font-size: 13px
-}
-</style>
-<!--  Author : Krishna Somayajulu -->
-<script>
-	function unHide() {
-		document.getElementById("regDiv").style.display = "block";
-		funcDisplay();
-	}
+            }
 
-	function hide() {
-		document.getElementById("regDiv").style.display = "none";
-	}
+            #main{
+                min-width: 350px;
+                position:absolute;
+                left:-99999px;
+                top:500;
+                background:#fff;
+                z-index:9999999;
+                border:3px solid #222;
+                -moz-border-radius:9px;
+                border-radius:9px;
+                -webkit-border-radius:9px;
+                margin:0;
+                padding:0;
+                color:#333;
+                text-align:left;
+                font-family:arial,sans-serif;
+                font-size:13px
 
-	function resetAll() {
-		document.getElementById("userName").style.border = "solid 1px #7F9DB9";
-		document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
-	}
+            }
+	</style>
+    <!--  Author : Krishna Somayajulu -->
+    <script>
+            function unHide()
+            {
+                document.getElementById("regDiv").style.display = "block";
+				funcDisplay();
+            }
 
-	function alertError() {
+            function hide()
+            {
+                document.getElementById("regDiv").style.display = "none";
+            }
+            
+			function resetAll(){
+				document.getElementById("userName").style.border = "solid 1px #7F9DB9";
+				document.getElementById("LoginPassword").style.border = "solid 1px #7F9DB9";
+			}
 
-		var flag = 1;
 
-		if (document.myForm.LoginPassword.value == "") {
-			document.getElementById("errMsg").innerHTML = "Password cannot be blank";
-			document.getElementById("LoginPassword").style.border = "solid 1px red";
-			flag = 0;
-		}
+			function alertError(){
+				
+				var flag = 1;
+				
+				if(document.myForm.LoginPassword.value=="")
+				{	
+					document.getElementById("errMsg").innerHTML="Password cannot be blank";
+					document.getElementById("LoginPassword").style.border = "solid 1px red";
+					flag = 0;
+				}
+				
+				if(document.myForm.userName.value=="")
+				{		
+					document.getElementById("errMsg").innerHTML="Username cannot be blank";
+					document.getElementById("userName").style.border = "solid 1px red";
+					flag = 0;
+				}
+						
+					
+				if(flag == 0)
+					return false;
+				else
+					return true;
+			}
+	</script>
+  </head>
+  <body id="top">
+    <!--  Author: Ujvala -->
+    <div style="display : none;" id="regDiv">
+      <div onclick="hide()" style=" opacity:0.68; height:643px; display:block" id="regBg">
+      </div>
+      <div style="position: absolute;top:30px;left: 400px;" id="main">
+        <form action="Registrations" onsubmit="return alertError1()" name="registration">
+          <center>
+            <table style="top: 20px; left: 12px; width: 626px; height: 68px; border-color : none">
+              <tbody>
+                <tr>
+                  <td style="text-align:center; width: 600px">
+                    <h3> <span style="color : black"> <b>Registration Form</b></span></h3>
+                  </td>
+                  <td style="float:right"><a onclick="hide()"><img alt="" src="images/close_button.png" />
+                    </a></td>
+                </tr>
+              </tbody>
+            </table>
+          </center>
+          <fieldset style="margin:auto; width:600px;  " name="regitrationForm">
+            <legend>Registration Form</legend>
+            <div height="200" id="show2"> </div>
+            <table width="70%" cellpadding="7" align="center" style="top: 137px; height: 597px;">
+              <tbody>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Register
+                      as:</span><font color="red"> *</font></td>
+                  <td>
+                    <!--  <select name="role" id="role" required="" onchange="verifyUser();resetFields();setFormat()">  -->
+                    <select onchange="verifyUser();resetFields();setFormat()" required=""
+                      id="role" name="role">
+                      <option>--select--</option>
+                      <option>Mentor</option>
+                      <option>Student</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">RegistrationID:</span><font
+                      color="red"> *</font></td>
+                  <td><input type="text" onchange="resetField()" placeholder="RegNo"
+                      onblur="validateID" id="id" name="ID" /><span id="error00"
+                      style="color: black;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">First
+                      Name:</span><font color="red"> *</font></td>
+                  <td><input onchange="resetField()" onblur="validateName()" placeholder="First name"
+                      size="30" id="fname" name="fname" /> <span id="error" style="color: red;">
+                    </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Last
+                      Name:</span><font color="red"> *</font></td>
+                  <td><input onchange="resetField()" onblur="validateLname()" placeholder="Last name"
+                      size="30" id="lname" name="lname" /> <span id="error000"
+                      style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Address:</span><font
+                      color="red"> *</font></td>
+                  <td><textarea onchange="resetField()" placeholder="Address" cols="24"
+                      onblur="validateAdress()" rows="5" id="address" name="address"></textarea><span
+                      id="error1" style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Date
+                      of birth:</span><font color="red"> *</font></td>
+                  <td><input type="date" onchange="resetField()" onblur="validateDate()"
+                      placeholder="yyyy-mm-dd" size="30" id="dob" name="dob" />
+                    <span id="error2" style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Gender:</span><font
+                      color="red"> *</font></td>
+                  <td><input type="radio" onchange="resetField()" onblur="validateGender()"
+                      size="10" value="male" id="gender" name="gender" /><span style="font-size:14px;color:black">Male</span>
+                    <input type="radio" onchange="resetField()" onblur="validateGender()"
+                      size="10" value="female" id="gender" name="gender" /><span
+                      style="font-size:14px;color:black">Female</span> <span id="error3"
+                      style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">MobileNo:</span></td>
+                  <td><span style="font-size:14px;color:black">+91</span> <input
+                      type="text" onchange="resetField()" onblur="validateMobile()"
+                      placeholder="10 digits" size="25" id="mobileno" name="mobileno" /><span
+                      id="error4" style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Email
+                      Id:</span><font color="red"> *</font></td>
+                  <td><input onchange="resetField()" onblur="validateEmail()" placeholder="id@example.com"
+                      size="30" id="emailId" name="emailId" /> <span id="error5"
+                      style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Choose
+                      Password:</span><font color="red"> *</font></td>
+                  <td><input type="password" onchange="resetField()" onblur="validatePassword()"
+                      placeholder="min 8 characters" id="password" name="password" /><span
+                      id="error6" style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span style="font-size:14px;color:black">Re-Enter
+                      Password:</span><font color="red"> *</font></td>
+                  <td><input type="password" onchange="resetField()" onblur="validateRePassword()"
+                      placeholder="re-enter" size="30" id="reenter" name="reenter" /><span
+                      id="error7" style="color: red;"> </span></td>
+                </tr>
+                <tr>
+                  <td align="right" name="fill1" id="fill1"><br />
+                  </td>
+                  <td name="fill2" id="fill2"><br />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <center> <input type="reset" onclick="resetField();resetFields()"
+                        id="reset" name="reset" value="Reset" /> <input type="submit"
+                        id="register" name="register" value="Register" /> </center>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="wrapper col1">
+      <div id="header">
+        <div id="logo">
+          <h1><a href="#">LC Solutions</a></h1>
+          <p><strong>Helping you build your dream</strong></p>
+        </div>
+        <!-- Author: Sneha -->
+        <div id="newsletter">
+          <form name = "myForm" id = "myForm" method="post" action="LoginCheck" onSubmit="return alertError()" >
+            <fieldset> <legend>NewsLetter</legend>
+             <table><tr colspan = "3" ><td>
+              <label id = "errMsg" name = "errMsg" style = "color : red; font-size:14px"></label></td></tr>
+              <tr><td>
+			  <input type="text" id="userName" name="userName" placeholder="User name" onclick = "resetAll()"/></td><td> <input type = "password" 
+			  
+			  id="LoginPassword" name="LoginPassword" placeholder="Password" onclick="resetAll()"></td>
+			  
+              <td>
+              <input type="submit" value="Sign In" id="news_go" name="news_go" /></td></tr>
+             <tr><td></td>
+             <td><a href="ForgetPassword.html" style="text-decoration:none; font-size:14px">Forgot Password?</a> </td>
+             <td><span style="color: #0000ee;"></span><a href="#" onclick="unHide()" style="text-decoration:none"><button id = "news_go" name="news_go" style = "font-size:12px"> Register</button></a></td>
+             </fieldset></table>
+          </form>
+        </div>
+        <br class="clear" />
+      </div>
+    </div>
+    <div class="wrapper col2">
+      <div id="topbar">
+        <div id="topnav">
+          <ul>
+            <li><a href="homePage.html">Home</a></li>
+            <li><a href="#">Products</a>
+              <ul>
+                <li><a href="productPage.html">EduTrackSystem</a></li>
+              </ul>
+            </li>
+            <li class="active"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <br class="clear" />
+      </div>
+    </div>
+    <div class="wrapper col4">
+      <div id="container">
+        <div style="width:1000px" id="content">
+          <h3 align="center">Reach us here</h3>
+          <div style="width:100%" id="column1">
+            <div style="width:100%" class="holder">
+              <table style="width: 1009px; height: 525px;">
+                <tbody>
+                  <tr>
+                    <td style="border-right: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;align:center">
+                      <div class="fl_right"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <img src="images/logo.png" alt="" /></div>
+                      <div class="fl_left"> <br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Harika</b><br />
+                        <br />
+                        Contact No:8790208504<br />
+                        <br />
+                        E-mail:matha.harika@gmail.com<br />
+                        <br />
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.facebook.com/rockstreetani?fref=ts"><img
 
-		if (document.myForm.userName.value == "") {
-			document.getElementById("errMsg").innerHTML = "Username cannot be blank";
-			document.getElementById("userName").style.border = "solid 1px red";
-			flag = 0;
-		}
+                            alt="Text Description" src="images/fb.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.twitter.com/"><img
 
-		if (flag == 0)
-			return false;
-		else
-			return true;
-	}
-</script>
-</head>
-<body id="top">
-	<!--  Author: Ujvala -->
-	<div id="regDiv" style="display: none;">
-		<div id="regBg" style="opacity: 0.68; height: 643px; display: block"
-			onclick="hide()"></div>
-		<div id="main" style="position: absolute; top: 30px; left: 400px;">
-			<form name="registration" onSubmit="return alertError()">
-				<center>
-					<h3>
-						<b>Registration Form</b>
-					</h3>
-				</center>
-				<fieldset name="regitrationForm" style="margin: auto; width: 600px;">
-					<legend>Registration Form</legend>
-					<table align="center" cellpadding="7" width="70%">
+                            alt="Text Description" src="images/twitter.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://plus.google.com/"><img
 
-						<tr>
-							<td>Register as:<font color="red"> *</font></td>
-							<td><select name="role" id="role" required=""
-								onchange="verifyUser();resetFields();setFormat()"><span
-									style="color: red;" id="error0" value=""> </span>
-									<option>--select--</option>
-									<option>Mentor</option>
-									<option>Student</option>
-							</select></td>
-						</tr>
-						<tr>
-							<td>RegistrationID:<font color="red"> *</font></td>
-							<td><input type="text" name="ID" id="id" onblur="validateID"
-								placeholder="regNo" onchange="resetField()"><span
-									style="color: black;" id="error00"> </span></td>
+                            alt="Text Description" src="images/gplus.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <br />
+                        <br />
+                        <br />
+                      </div>
+                    </td>
+                    <td style="border-right: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;align:center">
+                      <div class="fl_right"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <img src="images/logo.png" alt="" /></div>
+                      <div class="fl_left"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Sneha PVS</b><br />
+                        <br />
+                        Contact No:7702725478<br />
+                        <br />
+                        E-mail:snehapvs477@gmail.com<br />
+                        <br />
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.facebook.com/rockstreetani?fref=ts"><img
 
-						</tr>
+                            alt="Text Description" src="images/fb.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.twitter.com/"><img
 
-						<tr>
-							<td>First Name:<font color="red"> *</font></td>
-							<td><input name="fname" id="fname" size="30"
-								placeholder="first name" onblur="validateName()"
-								placeholder="first Name" onchange="resetField()"> <span
-									style="color: red;" id="error"> </span></td>
-						</tr>
+                            alt="Text Description" src="images/twitter.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://plus.google.com/"><img
 
-						<tr>
-							<td>Last Name:<font color="red"> *</font></td>
-							<td><input name="lname" id="lname" size="30"
-								placeholder="last name" onblur="validateLname()"
-								onchange="resetField()"> <span style="color: red;"
-									id="error000"> </span></td>
-						</tr>
-						<tr>
-							<td>Address:<font color="red"> *</font></td>
-							<td><textarea name="address" id="address" rows="5"
-									onblur="validateAdress()" cols="24" placeholder="Address"
-									onchange="resetField()"></textarea><span style="color: red;"
-								id="error1"> </span></td>
-						</tr>
+                            alt="Text Description" src="images/gplus.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <br />
+                        <br />
+                        <br />
+                      </div>
+                    </td>
+                    <td style="border-bottom: 1px solid #CCCCCC;">
+                      <div class="fl_right"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <img src="images/logo.png" alt="" /></div>
+                      <div class="fl_left"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Krishna Somayajulu</b><br />
+                        <br />
+                        Contact No:9703060103<br />
+                        <br />
+                        E-mail:krishna1490@gmail.com<br />
+                        <br />
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.facebook.com/rockstreetani?fref=ts"><img
 
-						<tr>
-							<td>Date of birth:<font color="red"> *</font></td>
-							<td><input name="dob" id="dob" size="30"
-								placeholder="yyyy-mm-dd" type="date" onblur="validateDate()"
-								onchange="resetField()"> <span style="color: red;"
-									id="error2"> </span></td>
-						</tr>
+                            alt="Text Description" src="images/fb.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.twitter.com/"><img
 
-						<tr>
-							<td>Gender:<font color="red"> *</font></td>
-							<td><input name="gender" id="gender" value="male" size="10"
-								type="radio" onblur="validateGender()" onchange="resetField()">Male
-									<input name="gender" id="gender" value="female" size="10"
-									type="radio" onblur="validateGender()" onchange="resetField()">Female
-										<span style="color: red;" id="error3"> </span></td>
-						</tr>
+                            alt="Text Description" src="images/twitter.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://plus.google.com/"><img
 
-						<tr>
-							<td>MobileNo:</td>
-							<td>+91 <input name="mobileno" id="mobileno" size="25"
-								placeholder="10 digits" type="text" onblur="validateMobile()"
-								onchange="resetField()"><span style="color: red;"
-									id="error4"> </span></td>
-						</tr>
+                            alt="Text Description" src="images/gplus.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <br />
+                        <br />
+                        <br />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-right: 1px solid #CCCCCC;align:center">
+                      <div class="fl_right"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <img src="images/logo.png" alt="" /></div>
+                      <div class="fl_left"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Manoj Kumar</b><br />
+                        <br />
+                        Contact No:9441940141<br />
+                        <br />
+                        E-mail:mano2mail@gmail.com<br />
+                        <br />
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.facebook.com/rockstreetani?fref=ts"><img
 
-						<tr>
-							<td>emailId:<font color="red"> *</font></td>
-							<td><input name="emailId" id="emailId" size="30"
-								placeholder="id@example.com" onblur="validateEmail()"
-								onchange="resetField()"> <span style="color: red;"
-									id="error5"> </span></td>
-						</tr>
-						<tr>
-							<td>Choose Password:<font color="red"> *</font></td>
-							<td><input name="password" id="password" type="password"
-								placeholder="min 8 characters" onblur="validatePassword()"
-								onchange="resetField()"><span style="color: red;"
-									id="error6"> </span></td>
-						</tr>
-						<tr>
-							<td>Re-Enter Password:<font color="red"> *</font></td>
-							<td><input name="reenter" id="reenter" type="password"
-								size="30" placeholder="re-enter" onblur="validateRePassword()"
-								onchange="resetField()"><span style="color: red;"
-									id="error7"> </span></td>
-						</tr>
+                            alt="Text Description" src="images/fb.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.twitter.com/"><img
 
-						<tr>
-							<td id="fill1" name="name1"></td>
-							<td id="fill2" name="name2"></td>
-						</tr>
+                            alt="Text Description" src="images/twitter.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://plus.google.com/"><img
 
-						<div id="show2" height="200">
-							<tr>
-								<td colspan="3">
-									<center>
-										<input type="reset" value="Reset" name="reset" id="reset">
-											<input type="submit" value="Register" name="register"
-											id="register">
-									</center>
-								</td>
-							</tr>
-						</div>
-					</table>
-				</fieldset>
-				</center>
-			</form>
-		</div>
-	</div>
-	<div class="wrapper col1">
-		<div id="header">
-			<div id="logo">
-				<h1>
-					<a href="#">LC Solutions</a>
-				</h1>
-				<p>
-					<strong>Helping you build your dream</strong>
-				</p>
-			</div>
-			<!-- Author: Sneha -->
-			<div id="newsletter">
-				<form name="myForm" id="myForm" method="post" action="LoginCheck"
-					onSubmit="return alertError()">
-					<fieldset>
-						<legend>NewsLetter</legend>
-						<!-- <input type="text" value="Name&hellip;"  onfocus="this.value=(this.value=='Name&hellip;')? '' : this.value ;" /> -->
-						<label id="errMsg" name="errMsg" style="color: red"></label><br />
-						<br /> <input type="text" id="userName" name="userName"
-							placeholder="User name" onclick="resetAll()" /> <input
-							type="text" id="LoginPassword" name="LoginPassword"
-							placeholder="Password" onclick="resetAll()" />
-						<!-- <input type="text" value="Email&hellip;"  onfocus="this.value=(this.value=='Email&hellip;')? '' : this.value ;" /> -->
-						<input type="submit" value="Sign In" id="news_go" name="news_go" /><br />
-						<br /> <a href="ForgetPassword.html"
-							style="text-decoration: none">&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forgot
-							Password</a>? &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #0000ee;">&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp; </span><a href="#" onclick="unHide()"
-							style="text-decoration: none">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Register</a>
-					</fieldset>
-				</form>
-			</div>
-			<br class="clear" />
-		</div>
-	</div>
-	<div class="wrapper col2">
-		<div id="topbar">
-			<div id="topnav">
-				<ul>
-					<li><a href="homePage.html">Home</a></li>
+                            alt="Text Description" src="images/gplus.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <br />
+                        <br />
+                        <br />
+                      </div>
+                    </td>
+                    <td style="border-right: 1px solid #CCCCCC;align:center">
+                      <div class="fl_right"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <img src="images/logo.png" alt="" /></div>
+                      <div class="fl_left"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Ujvala</b><br />
+                        <br />
+                        Contact No:9563249963<br />
+                        <br />
+                        E-mail:ujvala.9040@gmail.com<br />
+                        <br />
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.facebook.com/rockstreetani?fref=ts"><img
 
-					<li><a href="#">Products</a>
-						<ul>
-							<li><a href="productPage.html">EduTrackSystem</a></li>
-						</ul></li>
-					<li class="active"><a href="#">Contact Us</a></li>
-				</ul>
-			</div>
+                            alt="Text Description" src="images/fb.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.twitter.com/"><img
 
-			<br class="clear" />
-		</div>
-	</div>
+                            alt="Text Description" src="images/twitter.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://plus.google.com/"><img
 
-	<div class="wrapper col4">
-		<div id="container">
-			<div id="content">
-				<h3 align="center">Reach us here</h3>
-				<div id="column1">
-					<div class="holder">
-						<ul id="latestnews">
-							<li><b>Harika</b><br><br> Contact No:9876543210<br><br>
-												E-mail:matha.harika@gmail.com<br><br> <a
-														href="
-						https://www.facebook.com/rockstreetani?fref=ts"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/fb.png" alt="Text Description"></a> <a
-														href="
-						https://www.twitter.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/twitter.png" alt="Text Description"></a> <a
-														href="
-						https://plus.google.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/gplus.png" alt="Text Description"></a></li>
-							<li><b>Sneha PVS</b><br><br> Contact No:7702725478<br><br>
-												E-mail:snehapvs477@gmail.com<br><br> <a
-														href="
-						https://www.facebook.com/rockstreetani?fref=ts"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/fb.png" alt="Text Description"></a> <a
-														href="
-						https://www.twitter.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/twitter.png" alt="Text Description"></a> <a
-														href="
-						https://plus.google.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/gplus.png" alt="Text Description"></a></li>
-							<li><b>Krishna Somayajulu</b><br><br> Contact
-										No:9876543210<br><br> E-mail:krishna1490@gmail.com<br><br>
+                            alt="Text Description" src="images/gplus.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <br />
+                        <br />
+                        <br />
+                      </div>
+                    </td>
+                    <td>
+                      <div class="fl_right"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <img src="images/logo.png" alt="" /></div>
+                      <div class="fl_left"><br />
+                        <br />
+                        <br />
+                        <br />
+                        <b>Suneel Singh</b><br />
+                        <br />
+                        Contact No:8106199128<br />
+                        <br />
+                        E-mail:sun30nil@gmail.com<br />
+                        <br />
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.facebook.com/rockstreetani?fref=ts"><img
 
-														<a
-														href="
-						https://www.facebook.com/rockstreetani?fref=ts"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/fb.png" alt="Text Description"></a> <a
-														href="
-						https://www.twitter.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/twitter.png" alt="Text Description"></a> <a
-														href="
-						https://plus.google.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/gplus.png" alt="Text Description"></a></li>
-							<li><b>Manoj Kumar</b><br><br> Contact
-										No:9441940141<br><br> E-mail:mano2mail@gmail.com<br><br>
+                            alt="Text Description" src="images/fb.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://www.twitter.com/"><img
 
-														<a
-														href="
-						https://www.facebook.com/rockstreetani?fref=ts"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/fb.png" alt="Text Description"></a> <a
-														href="
-						https://www.twitter.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/twitter.png" alt="Text Description"></a> <a
-														href="
-						https://plus.google.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/gplus.png" alt="Text Description"></a></li>
-							<li><b>Ujvala</b><br><br> Contact No:9563249963<br><br>
-												E-mail:ujvala.9040@gmail.com<br><br> <a
-														href="
-						https://www.facebook.com/rockstreetani?fref=ts"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/fb.png" alt="Text Description"></a> <a
-														href="
-						https://www.twitter.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/twitter.png" alt="Text Description"></a> <a
-														href="
-						https://plus.google.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/gplus.png" alt="Text Description"></a></li>
-							<li><b>Suneel Singh</b><br><br> Contact
-										No:9876543210<br><br> E-mail:sun30nil@gmail.com<br><br>
+                            alt="Text Description" src="images/twitter.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <a title="Mouseover Description" href="%0A%09%09%09%09%09%09https://plus.google.com/"><img
 
-														<a
-														href="
-						https://www.facebook.com/rockstreetani?fref=ts"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/fb.png" alt="Text Description"></a> <a
-														href="
-						https://www.twitter.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/twitter.png" alt="Text Description"></a> <a
-														href="
-						https://plus.google.com/"
-														title="Mouseover Description"><img
-															style="width: 30px; height: 30px; border: 0;"
-															src="images/gplus.png" alt="Text Description"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
-				class="clear" /> <br class="clear" /> <br class="clear" /> <br
-				class="clear" /> <br class="clear" /> <br class="clear" /> <br
-				class="clear" />
-
-		</div>
-	</div>
-
-	<div class="wrapper col7">
-		<div id="copyright">
-			<p class="fl_left">
-				Copyright Â© 2014 - All Rights Reserved - <a href="#">MSITMedhas</a>
-			</p>
-			<a href="#"></a> <br class="clear" />
-		</div>
-	</div>
-</body>
+                            alt="Text Description" src="images/gplus.png" style="width: 30px; height: 30px; border: 0;" /></a>
+                        <br />
+                        <br />
+                        <br />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br class="clear" />
+        <br class="clear" /><br class="clear"><br class="clear">
+      </div>
+    </div>
+		
+      
+    <div class="wrapper col7">
+      <div id="copyright">
+        <p class="fl_left">Copyright © 2014 - All Rights Reserved - <a href="#">MSITMedhas</a></p>
+        <a href="#"></a> <br class="clear" />
+      </div>
+    </div>
+  </body>
 </html>

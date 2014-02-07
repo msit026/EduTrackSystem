@@ -134,4 +134,34 @@
     <servlet-name>ShowUnRegisteredStudentsServlet</servlet-name>
     <url-pattern>/ShowUnRegisteredStudentsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminEditProfile</display-name>
+    <servlet-name>AdminEditProfile</servlet-name>
+    <servlet-class>com.ets.servlets.AdminEditProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminEditProfile</servlet-name>
+    <url-pattern>/AdminEditProfile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetPassword</display-name>
+    <servlet-name>GetPassword</servlet-name>
+    <servlet-class>com.ets.servlets.GetPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetPassword</servlet-name>
+    <url-pattern>/GetPassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>com.ets.servlets.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -156,17 +156,18 @@ function verifyUser()
 	
 		if(v1=="Mentor")
 		{
-		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Designation</span>";
-		document.getElementById('fill2').innerHTML ="<select id='designation' name='designation' required> <option>Select</option><option>D1</option><option>D2</option></select>";
+		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Department</span>";
+		document.getElementById('fill2').innerHTML ="<select id='department' name='department' required> <option>Select</option><option>IT</option><option>SS</option></select>";
 		 document.getElementById("fill1").style.visibility="visible";
 		 document.getElementById("fill2").style.visibility="visible";
 		}
 		if(v1=="Student")
 		{
-		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Programme</span>";
-		document.getElementById('fill2').innerHTML ="<select id='programme' name='programme' required> <option>Select</option><option>MSIT 2 Years</option><option>MSIT 3 Years</option></select>";
+		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Current Year</span>";
+		document.getElementById('fill2').innerHTML ="<select id='currentYear' name='currentYear' required> <option>Select</option><option>1</option><option>2</option></select>";
 		 document.getElementById("fill1").style.visibility="visible";
 		 document.getElementById("fill2").style.visibility="visible";
+			
 		}
 }
 
@@ -246,10 +247,10 @@ function alertError1(){
 		document.getElementById("designation").style.border = "solid 1px red";
 		flag = 0;
 	}	
-	if(document.registration.programme != null && document.registration.programme.value=="")
+	if(document.registration.currentYear != null && document.registration.currentYear.value=="")
 	{
-		document.getElementById("programme").style.display="block";
-		document.getElementById("programme").style.border = "solid 1px red";
+		document.getElementById("currentYear").style.display="block";
+		document.getElementById("currentYear").style.border = "solid 1px red";
 		flag = 0;
 	}
 	if(flag == 0)
@@ -295,7 +296,7 @@ function setFormat()
 
 	if(document.getElementById("role").value=="Mentor")
 	{
-		   document.getElementById("error00").innerHTML="(XXXXXXXX) ";
+		   document.getElementById("error00").innerHTML="(CIHL XXXX) ";
 		  
 	}
 }

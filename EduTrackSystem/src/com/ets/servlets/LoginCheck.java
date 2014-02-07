@@ -47,12 +47,13 @@ public class LoginCheck extends HttpServlet {
 			if (s.isValidUser(request.getParameter("userName"),
 					request.getParameter("LoginPassword"))) {
 
-				out.println("Welcome Student!");
+				response.sendRedirect("studentHomePage.html");
 			} else if (m.isValidUser(request.getParameter("userName"),
 					request.getParameter("LoginPassword"))) {
-				out.println("Welcome Mentor!");
+				response.sendRedirect("mentorHomePage.html");
 			} else {
-				out.println("Sorry ... Invalid credentials");
+				request.setAttribute("invalid", "invalid");
+				response.sendRedirect("invalid.jsp");
 			}
 		}
 		// later we can write for the sessions
