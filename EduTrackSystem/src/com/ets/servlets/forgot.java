@@ -5,13 +5,15 @@ import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbcConnect.mySQL;
-
+import com.ets.classes.PasswordGenerator;
+import com.ets.classes.SendMail;
+import com.ets.classes.passwordHelper;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
@@ -84,8 +86,10 @@ public class forgot extends HttpServlet {
 			
 			if(verify==true)
 			{
-				out.println("<h1>Your password has been sent to :"+email+"<h1>");
-				response.setHeader("Refresh", "3;url=Login.html"); //to auto redirect to login
+				/*out.println("<h1>Your password has been sent to :"+email+"<h1>");
+				response.setHeader("Refresh", "3;url=Login.html"); //to auto redirect to login*/
+				RequestDispatcher rd= request.getRequestDispatcher("SentMailNotify.html");
+				rd.forward(request, response);
 			}
 			
 			else

@@ -50,7 +50,7 @@ public class Mentor {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
-		return false; // if nothing matches
+		return false; // if nothing matches or if the user is not approved
 	}
 
 	/**

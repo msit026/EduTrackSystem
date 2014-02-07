@@ -2,9 +2,6 @@ package com.ets.classes;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import jdbcConnect.mySQL;
-
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
@@ -18,7 +15,7 @@ public class passwordHelper
 	public passwordHelper() 
 	{
 		
-		Connection c=(Connection) mySQL.connectToDB();
+		Connection c=(Connection) MySQLCon.connectToDB();
 		try {
 			s=(Statement) c.createStatement();
 		} catch (SQLException e) {

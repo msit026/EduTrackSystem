@@ -42,7 +42,7 @@ public class Registrations extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
 		String role=request.getParameter("role");
-		System.out.println("Inserted Successfully...."+role);
+		//System.out.println("Inserted Successfully...."+role);
 		String ID=request.getParameter("ID");
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("lname");
@@ -73,7 +73,7 @@ public class Registrations extends HttpServlet {
 		if(role.equalsIgnoreCase("Mentor"))
 		{
 			
-			String str = "UPDATE  ets_mentor_details set  md_email='"+emailId +"',md_password='"+password+"',md_dob='"+dob+"',md_phone='"+mobileno+"',md_address='"+address+"',md_gender='"+ gender+"',md_department'"+ designation+"',md_status='"+ flag+"'where md_mentor_id='"+ ID+"' ;" ;
+			String str = "UPDATE  ets_mentor_details set  md_email='"+emailId +"',md_password='"+password+"',md_dob='"+dob+"',md_phone='"+mobileno+"',md_address='"+address+"',md_gender='"+ gender+"',md_department'"+ designation+"',md_status='a' where md_mentor_id='"+ ID+"' ;" ;
 			System.out.println(str);
 			int value = stmt.executeUpdate(str);
 			//int value1 = stmt.executeUpdate(str1);

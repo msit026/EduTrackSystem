@@ -3,7 +3,7 @@
 <html dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml" lang="EN">
   <head profile="http://gmpg.org/xfn/11">
     <meta content="text/html; charset=iso-8859-1" http-equiv="content-type">
-    <title>LC Home Page</title>
+    <title>Successful Registration</title>
     <meta content="no" http-equiv="imagetoolbar">
     <link type="text/css" href="styles/layout.css" rel="stylesheet">
     <script language="Javascript" src="scripts/ValidateRegistration.js"></script>
