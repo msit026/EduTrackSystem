@@ -77,16 +77,15 @@ public class Mentor {
 	 * @param studentId
 	 * @return
 	 */
-	public ResultSet getGrades(String studentId)// Returns grades of the student
+	public ResultSet getGrades(String n)// Returns grades of the student
 	{
 		try {
 
-			query = "select scd.scd_student_id,sd.sd_name,cd.cd_name,scd.scd_grades from ets_student_course_details scd,ets_student_details sd,ets_course_details cd where scd.scd_student_id = '"
-					+ studentId
-					+ "' and "
+			query = "select scd.scd_student_id,sd.sd_name,cd.cd_name,scd.scd_grade from ets_student_course_details scd,ets_student_details sd,ets_course_details cd where "
 					+ "scd.scd_student_id = sd.sd_student_id"
 					+ " and "
 					+ "scd.scd_course_id = cd_course_id;";
+			System.out.println(query);
 			rs = st.executeQuery(query);
 		} catch (SQLException e) {
 			e.printStackTrace();

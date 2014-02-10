@@ -14,7 +14,7 @@
     <display-name>forgot</display-name>
     <servlet-name>forgot</servlet-name>
     <servlet-class>com.ets.servlets.forgot</servlet-class>
-    </servlet>
+  </servlet>
   <servlet-mapping>
     <servlet-name>forgot</servlet-name>
     <url-pattern>/forgot</url-pattern>
@@ -163,5 +163,25 @@
   <servlet-mapping>
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>check</display-name>
+    <servlet-name>check</servlet-name>
+    <servlet-class>com.ets.servlets.check</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>check</servlet-name>
+    <url-pattern>/check</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>start</display-name>
+    <servlet-name>start</servlet-name>
+    <servlet-class>com.ets.servlets.start</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>start</servlet-name>
+    <url-pattern>/start</url-pattern>
   </servlet-mapping>
 </web-app>

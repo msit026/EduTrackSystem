@@ -81,7 +81,7 @@
 			<td colspan=3>No Courses are to Display</td>
 		<tr>
 			<%
-			response.setHeader("Refresh", "3; URL=ShowCourses.html");
+			response.setHeader("Refresh", "3; URL=adminHomePage.html");
 				}
 			rs.close();
 			

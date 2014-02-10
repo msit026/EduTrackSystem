@@ -53,7 +53,7 @@ public class LoginCheck extends HttpServlet {
 				response.sendRedirect("mentorHomePage.html");
 			} else {
 				request.setAttribute("invalid", "invalid");
-				response.sendRedirect("invalid.jsp");
+				response.sendRedirect("invalid.html");
 			}
 		}
 		// later we can write for the sessions

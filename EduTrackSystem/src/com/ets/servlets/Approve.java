@@ -43,15 +43,17 @@ public class Approve extends HttpServlet {
     	boolean flag = admin.ApproveStudetns(selectedStudents);
     	if(flag)
     	{
-    		out.println("Approved");
-    		RequestDispatcher dispatch = request.getRequestDispatcher("ShowPendingRequestsServlet");
-    		dispatch.include(request, response);
+    		out.println("<center><h5>Approved</h5></center>");
+    		response.setHeader("refresh","3;URL=ShowPendingRequestsServlet");
+    		//RequestDispatcher dispatch = request.getRequestDispatcher("ShowPendingRequestsServlet");
+    		//dispatch.include(request, response);
     	}
     	else
     	{
-    		out.println("Not Approved");
-    		RequestDispatcher dispatch = request.getRequestDispatcher("ShowPendingRequestsServlet");
-    		dispatch.include(request, response);
+    		out.println("<center><h5>Not Approved</h5></center>");
+    		response.setHeader("refresh","3;URL = ShowPendingRequestsServlet");
+//    		RequestDispatcher dispatch = request.getRequestDispatcher("ShowPendingRequestsServlet");
+//    		dispatch.include(request, response);
     	}
     	
     }

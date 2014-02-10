@@ -4,24 +4,11 @@
 <!-- 
 	@author Mani
  -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>UnRegistered Students Display</title>
-</head>
-<body>
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="java.sql.*;"%>
-<!-- 
-	@author Mani
- -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" dir="ltr">
   <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
-    <title>Unregistere students</title>
+    <title>Unregistered students</title>
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
   </head>
@@ -48,7 +35,7 @@
             	<ul>
                 <li><a href="ShowRegisteredStudentsServlet">Registered Students</a></li>
                 <li><a href="ShowUnRegisteredStudentsServlet">Unregistered Students</a></li>
-                <li><a href="#">Courses</a></li>
+                <li><a href="ShowCoursesServelt">Courses</a></li>
                 <li><a href="ShowGradesServlet">Grades</a></li>
               </ul>
             </li>

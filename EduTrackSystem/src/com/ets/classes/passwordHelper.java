@@ -21,7 +21,6 @@ public class passwordHelper
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		////establish databases connection and verify the email.
 	}
 	
 	public int findUser(String userMail)

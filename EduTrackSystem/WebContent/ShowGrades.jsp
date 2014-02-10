@@ -69,7 +69,7 @@
 			<td><%=rs.getString("scd_student_id")%></td>
 			<td><%=rs.getString("sd_name")%></td>
 			<td><%=rs.getString("cd_name")%></td>
-			<td><%=rs.getString("scd_grades")%></td>
+			<td><%=rs.getString("scd_grade")%></td>
 		</tr>
 		<%
 			}
@@ -79,7 +79,7 @@
 			<td colspan=3>No Grades are to Display On this Student</td>
 		</tr>
 		<%
-		response.setHeader("Refresh", "3; URL=ShowGrades.html");
+		response.setHeader("Refresh", "3; URL=adminHomePage.html");
 			}
 			rs.close();
 			
