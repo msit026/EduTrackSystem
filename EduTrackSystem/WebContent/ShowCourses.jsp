@@ -8,7 +8,7 @@
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" dir="ltr">
   <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
-    <title>Admin Home Page</title>
+    <title>Courses Page</title>
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
   </head>
@@ -22,6 +22,13 @@
         <br class="clear" />
       </div>
     </div>
+    <!-- Change the menu according to the user accessing the page -->
+    
+    <%
+    	if(session.getAttribute("userType").toString().equalsIgnoreCase("admin"))
+    	{
+    %>
+   
     <div class="wrapper col2">
       <div id="topbar">
         <div style="width:100%;float:right;" id="topnav">
@@ -46,6 +53,54 @@
         <br class="clear" />
       </div>
     </div>
+    <%	
+    	}
+    	else if(session.getAttribute("userType").toString().equalsIgnoreCase("mentor"))
+    	{
+    %>
+     <div class="wrapper col2">
+      <div id="topbar">
+        <div style="width:100%;float:right;" id="topnav">
+          <ul style="width:100%;float:right">
+            <li><a href="MentorHomePage.html">Home</a></li>
+            <li class="active"><a href="#">View Reports</a> 
+            	<ul>
+                <li><a href="#">Course Report</a></li>
+                <li><a href="#">Student Performance</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Give feedback</a></li>
+      		<li><a href="#">Send Request</a></li>
+             <li><a href="#">Edit Profile</a></li>
+            <li style="float:right"><a href="Logout">Logout</a></li>
+          </ul>
+        </div>
+        <br class="clear" />
+      </div>
+    </div>
+    <%
+    	}
+    	else
+    	{
+    %>
+    <div class="wrapper col2">
+      <div id="topbar">
+        <div style="width:100%;float:right;" id="topnav">
+          <ul style="width:100%;float:right">
+            <li><a href="StudentHomePage.html">Home</a></li>
+            <li class="active"><a href="#">View Courses</a></li>
+            <li><a href="#">View Result</a></li>
+            <li><a href="#">View feedback</a></li>
+       		<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
+            <li style="float:right"><a href="Logout">Logout</a></li>
+          </ul>
+        </div>
+        <br class="clear" />
+      </div>
+    </div>
+    <%
+    	}
+    %>
     <div class="wrapper col4">
       <div id="container">
         <div id="content">
@@ -59,7 +114,7 @@
 			<th>Id</th>
 			<th>Name</th>
 			<th>Credits</th>
-			<th>Duration</th>
+			<th>Duration<br />(in weeks)</th>
 			<th>Year</th>
 		</tr>
 		<%
@@ -69,8 +124,8 @@
 		<tr>
 			<td><%=rs.getString("cd_course_id")%></td>
 			<td><%=rs.getString("cd_name")%></td>
-			<td><%=rs.getString("cd_credits")%></td>
-			<td><%=rs.getString("cd_duration")%></td>
+			<td><%=(int)Double.parseDouble(rs.getString("cd_credits"))%></td>
+			<td><%=(int)Double.parseDouble(rs.getString("cd_duration"))%></td>
 			<td><%=rs.getString("cd_course_year")%></td>
 		</tr>
 		<%

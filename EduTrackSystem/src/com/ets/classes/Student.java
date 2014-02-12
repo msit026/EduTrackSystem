@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -21,6 +22,7 @@ public class Student {
 	private String query;
 	private Statement st;
 	private ResultSet rs;
+	private String userName;
 
 	public Student() {
 		con = MySQLCon.connectToDB();
@@ -49,12 +51,11 @@ public class Student {
 		}
 		return false; // if nothing matches
 	}
-
+	
 	/**
-	 * Author sneha
+	 * Author Mano
 	 * 
 	 * It Returns the registered Students list
-	 * 
 	 * @return
 	 */
 	public ResultSet getRegisteredStudentsList() {
@@ -72,10 +73,10 @@ public class Student {
 	 * Author Mano
 	 * 
 	 * It Returns the UnRegistered Students List
-	 * 
 	 * @return
 	 */
-	public ResultSet getUnRegisteredStudents() {
+	public ResultSet getUnRegisteredStudents()
+	{
 		try {
 			query = "select * from ets_student_details where sd_status = 'p'";
 			rs = st.executeQuery(query);
@@ -85,18 +86,7 @@ public class Student {
 		}
 		return rs;
 	}
-
-	public ResultSet getSelectedYearStudents(String year) {
-		try {
-			query = "select sd_student_id from ets_student_details where sd_year_in_course = "
-					+ year;
-			rs = st.executeQuery(query);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return rs;
-	}
-
+	
 	/**
 	 * @Author Sneha
 	 * 
@@ -106,9 +96,9 @@ public class Student {
 	@SuppressWarnings("rawtypes")
 	public ResultSet getStudentDetails(String filename) {
 		try {
-
+			
 			String s = "E:\\data\\" + filename;
-
+			
 			InputStream input = new BufferedInputStream(new FileInputStream(s));
 			POIFSFileSystem fs = new POIFSFileSystem(input);
 			HSSFWorkbook wb = new HSSFWorkbook(fs);
@@ -182,6 +172,33 @@ public class Student {
 				rowCount++;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	public ResultSet getAllDetails(String username) {
+		HashMap<String,String> map = new HashMap<String,String>();
+		try {
+			String query = "select * from ets_student_details where sd_student_id = '"
+					+ username + "'"; // query
+																			// for
+																			// the
+																			// database
+			rs = st.executeQuery(query);
+			
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
+		return null; // if nothing matches
+	}
+	
+	public ResultSet getSelectedYearStudents(String year) {
+		try {
+			query = "select sd_student_id from ets_student_details where sd_year_in_course = "
+					+ year;
+			rs = st.executeQuery(query);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return rs;

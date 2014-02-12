@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ets.classes.Admin;
 import com.ets.classes.Mentor;
@@ -36,22 +37,36 @@ public class LoginCheck extends HttpServlet {
 		out.println("<html>");
 		out.println("<body>");
 		Admin a = new Admin();
+		HttpSession session = request.getSession();
 
 		if (a.isValidUser(request.getParameter("userName"),
 				request.getParameter("LoginPassword"))) {
+			
+			session.setAttribute("userType", "admin");
+			session.setAttribute("userId", a.getAdmin_username());
 			response.sendRedirect("adminHomePage.html");
-		} else {
+		}
+		
+		else {
 			Student s = new Student();
 			Mentor m = new Mentor();
 
 			if (s.isValidUser(request.getParameter("userName"),
 					request.getParameter("LoginPassword"))) {
-
-				response.sendRedirect("studentHomePage.html");
-			} else if (m.isValidUser(request.getParameter("userName"),
+				request.getSession().setAttribute("userType", "student");
+				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));   
+				response.sendRedirect("StudentHomePage.html");
+			} 
+			
+			else if (m.isValidUser(request.getParameter("userName"),
 					request.getParameter("LoginPassword"))) {
-				response.sendRedirect("mentorHomePage.html");
-			} else {
+				
+				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));
+				request.getSession().setAttribute("userType", "mentor");
+				response.sendRedirect("MentorHomePage.html");
+			} 
+			
+			else {
 				request.setAttribute("invalid", "invalid");
 				response.sendRedirect("invalid.html");
 			}

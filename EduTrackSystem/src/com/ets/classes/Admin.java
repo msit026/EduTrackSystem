@@ -16,8 +16,8 @@ public class Admin {
 	private String query;
 	private Statement st;
 	private ResultSet rs;
-	String admin_username = "admin";
-	String admin_password = "admin";
+	private String admin_username = "admin";
+	private String admin_password = "admin";
 
 	public Admin() {
 		con = MySQLCon.connectToDB();
@@ -83,7 +83,7 @@ public class Admin {
 	}
 
 	public boolean isValidUser(String username, String password) {
-		if (username.equals(admin_username) && password.equals(admin_password)) {
+		if (username.equals(getAdmin_username()) && password.equals(getAdmin_password())) {
 			return true; // if the user is admin return 1
 		}
 		return false; // if nothing matches
@@ -118,4 +118,11 @@ public class Admin {
 		return false;
 	}
 
+	public String getAdmin_username() {
+		return admin_username;
+	}
+
+	public String getAdmin_password() {
+		return admin_password;
+	}
 }
