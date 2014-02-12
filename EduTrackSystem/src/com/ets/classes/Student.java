@@ -203,4 +203,16 @@ public class Student {
 		}
 		return rs;
 	}
+
+	public ResultSet getFeedBackNotifications(String userName) {
+		System.out.println("user name: " + userName);
+		try {
+			query = "select * from ets_mentor_feedback where mf_open_status = 'notopen' and mf_student_id = '" + userName + "';";
+			System.out.println(query);
+			rs = st.executeQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 }

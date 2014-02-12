@@ -88,11 +88,19 @@ public class LoginCheck extends HttpServlet {
 			Student s = new Student();
 			Mentor m = new Mentor();
 
-			if (s.isValidUser(request.getParameter("userName"),
-					request.getParameter("LoginPassword"))) {
+			if (s.isValidUser(request.getParameter("userName"),request.getParameter("LoginPassword"))) {
+				
 				request.getSession().setAttribute("userType", "student");
-				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));   
-				response.sendRedirect("StudentHomePage.html");
+				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));
+				
+				/**
+				 * Get the feedback notifications from the database and display them on student home page
+				 */
+				ResultSet rs = s.getFeedBackNotifications(request.getParameter("userName"));
+				System.out.println("--> login check "+rs);
+				request.setAttribute("feedBackNotificationsResultSet",rs);
+				RequestDispatcher rd = request.getRequestDispatcher("StudentHomePage.jsp");
+				rd.include(request,response);
 			} 
 			
 			else if (m.isValidUser(request.getParameter("userName"),
