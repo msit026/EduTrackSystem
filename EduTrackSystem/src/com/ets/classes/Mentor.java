@@ -32,6 +32,21 @@ public class Mentor {
 		}
 	}
 
+	public void addFeedback(String mentorName, String year, String studentId,
+			String title, String description) {
+		try {
+			
+			String query = "insert into ets_mentor_feedback "
+					+ "(`mf_student_id`, `mf_title`, `mf_description`, `mf_open_status`, `mf_mentor_name`) values "
+					+ "('" + studentId + "','" + title + "','" + description
+					+ "','notopen','" + mentorName + "');";
+			rs = st.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public boolean isValidUser(String username, String password) {
 
 		try {
@@ -55,8 +70,9 @@ public class Mentor {
 
 	/**
 	 * Author Mano
-	 *  
+	 * 
 	 * It Returns the Courses of all the years
+	 * 
 	 * @return
 	 */
 	public ResultSet showCourses()// Returns courses resultset
@@ -74,6 +90,7 @@ public class Mentor {
 	 * Author Mano
 	 * 
 	 * It Returns the Grades of the given Student
+	 * 
 	 * @param studentId
 	 * @return
 	 */
@@ -92,7 +109,7 @@ public class Mentor {
 		}
 		return rs;
 	}
-	
+
 	/**
 	 * @author Sneha
 	 * 
@@ -105,7 +122,7 @@ public class Mentor {
 
 			String s = "E:\\data\\" + filename;
 			System.out.println(s);
-			
+
 			InputStream input = new BufferedInputStream(new FileInputStream(s));
 			POIFSFileSystem fs = new POIFSFileSystem(input);
 			HSSFWorkbook wb = new HSSFWorkbook(fs);

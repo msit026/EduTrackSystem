@@ -49,11 +49,12 @@ public class Student {
 		}
 		return false; // if nothing matches
 	}
-	
+
 	/**
-	 * Author Mano
+	 * Author sneha
 	 * 
 	 * It Returns the registered Students list
+	 * 
 	 * @return
 	 */
 	public ResultSet getRegisteredStudentsList() {
@@ -71,10 +72,10 @@ public class Student {
 	 * Author Mano
 	 * 
 	 * It Returns the UnRegistered Students List
+	 * 
 	 * @return
 	 */
-	public ResultSet getUnRegisteredStudents()
-	{
+	public ResultSet getUnRegisteredStudents() {
 		try {
 			query = "select * from ets_student_details where sd_status = 'p'";
 			rs = st.executeQuery(query);
@@ -84,7 +85,18 @@ public class Student {
 		}
 		return rs;
 	}
-	
+
+	public ResultSet getSelectedYearStudents(String year) {
+		try {
+			query = "select sd_student_id from ets_student_details where sd_year_in_course = "
+					+ year;
+			rs = st.executeQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
 	/**
 	 * @Author Sneha
 	 * 
@@ -94,9 +106,9 @@ public class Student {
 	@SuppressWarnings("rawtypes")
 	public ResultSet getStudentDetails(String filename) {
 		try {
-			
+
 			String s = "E:\\data\\" + filename;
-			
+
 			InputStream input = new BufferedInputStream(new FileInputStream(s));
 			POIFSFileSystem fs = new POIFSFileSystem(input);
 			HSSFWorkbook wb = new HSSFWorkbook(fs);

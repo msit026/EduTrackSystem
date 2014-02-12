@@ -184,4 +184,34 @@
     <servlet-name>start</servlet-name>
     <url-pattern>/start</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CourseChart</display-name>
+    <servlet-name>CourseChart</servlet-name>
+    <servlet-class>com.ets.servlets.CourseChart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseChart</servlet-name>
+    <url-pattern>/CourseChart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RetreiveStudents</display-name>
+    <servlet-name>RetreiveStudents</servlet-name>
+    <servlet-class>com.ets.servlets.RetreiveStudents</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetreiveStudents</servlet-name>
+    <url-pattern>/RetreiveStudents</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FeedbackServlet</display-name>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>com.ets.servlets.FeedbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/FeedbackServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
