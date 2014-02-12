@@ -125,4 +125,47 @@ public class Admin {
 	public String getAdmin_password() {
 		return admin_password;
 	}
+
+	public ResultSet getMentorPendingRequests() {
+		try {
+			query = "select * from ets_mentor_details where md_status = 'p';";
+
+			rs = st.executeQuery(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return rs;
+	}
+	
+	public int getNumberOfPendingStudentRequests()
+	{
+		try {
+			query = "select count(*) as count from ets_student_details where sd_status = 'p';";
+
+			rs = st.executeQuery(query);
+			rs.next();
+			return rs.getInt("count");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public int getNumberOfPendingMentorRequests()
+	{
+		try {
+			query = "select count(*) as count from ets_mentor_details where md_status = 'p';";
+
+			rs = st.executeQuery(query);
+			rs.next();
+			return rs.getInt("count");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 }

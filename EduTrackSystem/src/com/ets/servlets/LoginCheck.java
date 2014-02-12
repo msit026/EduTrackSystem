@@ -2,7 +2,10 @@ package com.ets.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +35,32 @@ public class LoginCheck extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		try {
+			processRequest(request,response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		try {
+			processRequest(request,response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	protected void processRequest(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException, SQLException
+	{
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
@@ -44,7 +73,15 @@ public class LoginCheck extends HttpServlet {
 			
 			session.setAttribute("userType", "admin");
 			session.setAttribute("userId", a.getAdmin_username());
-			response.sendRedirect("adminHomePage.html");
+			
+			/**
+			 * get the pending requests and display them on adminHomePage
+			 */
+			
+			request.setAttribute("StudentPendingRequests", a.getNumberOfPendingStudentRequests());
+			request.setAttribute("MentorPendingRequests", a.getNumberOfPendingMentorRequests());
+			RequestDispatcher rd = request.getRequestDispatcher("adminHomePage.jsp");
+			rd.include(request, response);
 		}
 		
 		else {
@@ -71,15 +108,5 @@ public class LoginCheck extends HttpServlet {
 				response.sendRedirect("invalid.html");
 			}
 		}
-		// later we can write for the sessions
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 }
