@@ -100,8 +100,10 @@ public class forgot extends HttpServlet {
 		
 		else
 		{
-			out.println("<h1>Sorry Invalid Email. <h1>");
-			response.setHeader("Refresh", "3;url=ForgetPassword.html");
+			//out.println("<html><head><link type=\"text/css\" href=\"styles/layout.css\" rel=\"stylesheet\"><h1>Sorry Invalid Email. </h1></head></html>");
+			out.println("<html><head><link type=\"text/css\" href=\"styles/layout.css\" rel=\"stylesheet\"><script type='text/javascript'>alert('Sorry, Invalid email ID');</script></head></html>");
+			response.setHeader("Refresh", "0;url=ForgetPassword.html");
+			//out.println("<html><head><script type='text/javascript'>alert('Sorry, Invalid Email');</script></head></html>");
 			//response.sendRedirect("ForgetPassword.html");  
 		}
 	
