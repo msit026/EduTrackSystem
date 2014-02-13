@@ -187,4 +187,18 @@ public class Course {
 
 		return rs;
 	}
+	
+	public ResultSet getCourseDetails()
+	{
+		try {
+			System.out.println("hiiii  courses");
+			query = "select * from  ets_course_details cd ";
+			System.out.println(query);
+			rs = st.executeQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+		
+	}
 }

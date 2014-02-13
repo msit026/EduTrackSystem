@@ -1,6 +1,15 @@
+
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+  <%
+  if(session.getAttribute("userType")==null)
+  	{
+  		response.sendRedirect("Logout");
+  	}else
+  	{
+  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" dir="ltr">
   <head profile="http://gmpg.org/xfn/11">
@@ -50,11 +59,11 @@
          <center></center><h4>Welcome Admin</h4></center>
           <ul>
           	<li>
-          		<%=Integer.parseInt(request.getAttribute("StudentPendingRequests").toString())%> requests are pending.
+          		<%=Integer.parseInt(session.getAttribute("StudentPendingRequests").toString())%> Student requests are pending.
           		<a href = "ShowPendingRequestsServlet"><input type = "submit" id = "buttonSubmit" name = "buttonSubmit" value = "Show pending requests"></button></a> 
           	</li>
           	<li>
-          		<%=Integer.parseInt(request.getAttribute("MentorPendingRequests").toString())%> requests are pending.
+          		<%=Integer.parseInt(session.getAttribute("MentorPendingRequests").toString())%> Mentor requests are pending.
           		<a href = "ShowPendingRequestsServlet"><input type = "submit" id = "buttonSubmit" name = "buttonSubmit" value = "Show pending requests"></button></a> 
           	</li>
           </ul>
@@ -78,3 +87,4 @@
     </div>
   </body>
 </html>
+<%} %>

@@ -87,6 +87,19 @@ public class Student {
 		return rs;
 	}
 	
+	public ResultSet getSelectedCGPA(String rollNo) {
+		try {
+			
+			query = "select scd_total,cd_credits,cd_name from ets_student_course_details scd join ets_course_details cd on scd.scd_course_id=cd.cd_course_id where scd_student_id ='"
+					+ rollNo+"'";
+			System.out.println(query);
+			rs = st.executeQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
 	/**
 	 * @Author Sneha
 	 * 

@@ -52,7 +52,6 @@ public class LoginCheck extends HttpServlet {
 		try {
 			processRequest(request,response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -65,21 +64,22 @@ public class LoginCheck extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<body>");
-		Admin a = new Admin();
+		Admin admin = new Admin();
 		HttpSession session = request.getSession();
 
-		if (a.isValidUser(request.getParameter("userName"),
+		if (admin.isValidUser(request.getParameter("userName"),
 				request.getParameter("LoginPassword"))) {
 			
 			session.setAttribute("userType", "admin");
-			session.setAttribute("userId", a.getAdmin_username());
+			session.setAttribute("userId", admin.getAdmin_username());
 			
 			/**
 			 * get the pending requests and display them on adminHomePage
 			 */
 			
-			request.setAttribute("StudentPendingRequests", a.getNumberOfPendingStudentRequests());
-			request.setAttribute("MentorPendingRequests", a.getNumberOfPendingMentorRequests());
+			session.setAttribute("StudentPendingRequests", admin.getNumberOfPendingStudentRequests());
+			session.setAttribute("MentorPendingRequests", admin.getNumberOfPendingMentorRequests());
+			
 			RequestDispatcher rd = request.getRequestDispatcher("adminHomePage.jsp");
 			rd.include(request, response);
 		}

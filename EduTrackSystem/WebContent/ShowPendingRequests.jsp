@@ -32,7 +32,7 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li class="active"><a href="adminHomePage.html">Home</a></li>
+					<li class="active"><a href="adminHomePage.jsp">Home</a></li>
 					<li><a href="fileUploadPage.html">Upload Files</a></li>
 					<li class="active"><a href="#">Approve User</a></li>
 					<!--       <li><a href="#">Edit Profile</a></li>   -->

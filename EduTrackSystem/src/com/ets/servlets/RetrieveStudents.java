@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.ets.classes.Student;
 
@@ -45,11 +44,13 @@ public class RetrieveStudents extends HttpServlet {
 				out.println("<td>");
 				out.println("<label for = 'Studentid'>Student Id : </label></td>"
 						+ "<td>");
-				out.println("<select name='studentsList' id = 'studentsList' >");
+				if(request.getParameter("prediction") != null)//for the purpose of prediction tool
+					out.println("<select name='studentsList' id = 'studentsList' onchange='showCGPA()'>");
+				else//for the purpose of feedback tool
+					out.println("<select name='studentsList' id = 'studentsList'>");
 
 				try {
 					while (rs.next()) {
-
 						out.println("<option value="
 								+ rs.getString("sd_student_id") + ">"
 								+ rs.getString("sd_student_id") + "</option>");

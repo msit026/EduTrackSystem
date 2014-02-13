@@ -1,3 +1,10 @@
+
+<%
+	if (session.getAttribute("userType") == null) {
+		response.sendRedirect("Logout");
+	} else {
+%>
+
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -48,8 +55,8 @@
 					<ul>
 						<%
 							ResultSet rs = (ResultSet) request
-									.getAttribute("feedBackNotificationsResultSet");
-							while (rs.next()) {
+										.getAttribute("feedBackNotificationsResultSet");
+								while (rs.next()) {
 						%>
 						<li><%=rs.getString("mf_mentor_name")%> has sent you a
 							feedback with title <%=rs.getString("mf_title")%></li>
@@ -76,3 +83,6 @@
 	</div>
 </body>
 </html>
+<%
+	}
+%>

@@ -1,10 +1,17 @@
+
+<%
+	if (session.getAttribute("userType") == null) {
+		response.sendRedirect("Logout");
+	} else {
+%>
+
 <html>
 <head profile="http://gmpg.org/xfn/11">
 
 <!--Load the AJAX API-->
 <script type="text/javascript"
-src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script>
 	function showStudents() {
 		alert('In Show Students');
@@ -19,7 +26,7 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 
 
-    <center>
+<center>
 	<form name="feedbackForm" action="FeedbackServlet">
 		<table>
 			<tr>
@@ -58,3 +65,6 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </center>
 </body>
 </html>
+<%
+	}
+%>

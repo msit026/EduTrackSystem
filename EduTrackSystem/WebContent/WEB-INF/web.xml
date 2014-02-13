@@ -214,4 +214,44 @@
     <servlet-name>FeedbackServlet</servlet-name>
     <url-pattern>/FeedbackServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RetrieveStudents</display-name>
+    <servlet-name>RetrieveStudents</servlet-name>
+    <servlet-class>com.ets.servlets.RetrieveStudents</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetrieveStudents</servlet-name>
+    <url-pattern>/RetrieveStudents</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EstimateCGPA</display-name>
+    <servlet-name>EstimateCGPA</servlet-name>
+    <servlet-class>com.ets.servlets.EstimateCGPA</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EstimateCGPA</servlet-name>
+    <url-pattern>/EstimateCGPA</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PredictionTool</display-name>
+    <servlet-name>PredictionTool</servlet-name>
+    <servlet-class>com.ets.servlets.PredictionTool</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PredictionTool</servlet-name>
+    <url-pattern>/PredictionTool</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RetrieveCGPA</display-name>
+    <servlet-name>RetrieveCGPA</servlet-name>
+    <servlet-class>com.ets.servlets.RetrieveCGPA</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetrieveCGPA</servlet-name>
+    <url-pattern>/RetrieveCGPA</url-pattern>
+  </servlet-mapping>
 </web-app>

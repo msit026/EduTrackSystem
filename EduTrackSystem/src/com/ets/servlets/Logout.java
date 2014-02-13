@@ -9,6 +9,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Logout
@@ -21,7 +22,6 @@ public class Logout extends HttpServlet {
      */
     public Logout() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -46,9 +46,9 @@ public class Logout extends HttpServlet {
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 		try
 		{
-			request.getSession().invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("homePage.html");
-			rd.forward(request, response);
+			HttpSession session = request.getSession(false);
+			session.invalidate();
+			response.sendRedirect("homePage.html");
 		}
 		catch(Exception e)
 		{
