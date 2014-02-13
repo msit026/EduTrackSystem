@@ -106,7 +106,7 @@ public class LoginCheck extends HttpServlet {
 			else if (m.isValidUser(request.getParameter("userName"),
 					request.getParameter("LoginPassword"))) {
 				
-				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));
+				session.setAttribute("userDetails", m.getAllDetails(request.getParameter("userName")));
 				request.getSession().setAttribute("userType", "mentor");
 				response.sendRedirect("MentorHomePage.jsp");
 			} 

@@ -79,7 +79,7 @@
 					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
 					<!--      <li><a href="#">Edit Profile</a></li>     -->
 
-					<li class="active"><a href="#">View Data</a>
+					<li><a href="#">View Data</a>
 						<ul>
 							<li><a href="ShowRegisteredStudentsServlet">Registered
 									Students</a></li>
@@ -109,7 +109,7 @@
 							<li><a href="#">Course Report</a></li>
 							<li><a href="#">Student Performance</a></li>
 						</ul></li>
-					<li><a href="PredictionTool.jsp">Predict CGPA</a></li>
+					<li  class="active"><a href="PredictionTool.jsp">Predict CGPA</a></li>
 					<li><a href="#">Give feedback</a></li>
 					<li><a href="#">Send Request</a></li>
 					<li><a href="#">Edit Profile</a></li>
