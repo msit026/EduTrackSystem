@@ -46,7 +46,7 @@ public class Logout extends HttpServlet {
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 		try
 		{
-			HttpSession session = request.getSession(false);
+			HttpSession session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("homePage.html");
 		}

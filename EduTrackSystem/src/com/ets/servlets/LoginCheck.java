@@ -108,7 +108,7 @@ public class LoginCheck extends HttpServlet {
 				
 				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));
 				request.getSession().setAttribute("userType", "mentor");
-				response.sendRedirect("MentorHomePage.html");
+				response.sendRedirect("MentorHomePage.jsp");
 			} 
 			
 			else {
