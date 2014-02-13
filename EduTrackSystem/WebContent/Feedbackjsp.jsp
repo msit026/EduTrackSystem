@@ -14,7 +14,6 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script>
 	function showStudents() {
-		alert('In Show Students');
 		var url = 'RetrieveStudents?cYear='
 				+ document.getElementById("year").value;
 		var someStudents = $.get(url, function(responseText) {

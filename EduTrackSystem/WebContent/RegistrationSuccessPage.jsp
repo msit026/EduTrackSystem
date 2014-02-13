@@ -104,7 +104,7 @@
 		<div id="topbar">
 			<div id="topnav">
 				<ul>
-					<li><a href="homePage.html">Home</a></li>
+					<li><a href="homePage.jsp">Home</a></li>
 					<li><a href="#">Products</a>
 						<ul>
 							<li><a href="productPage.html">EduTrackSystem</a></li>

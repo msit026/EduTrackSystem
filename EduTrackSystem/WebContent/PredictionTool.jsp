@@ -4,6 +4,12 @@
 <!-- 
 	@author Ujvala
  -->
+
+<%
+	if (session.getAttribute("userType") == null) {
+		response.sendRedirect("Logout");
+	} else {
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN"
 	dir="ltr">
@@ -20,7 +26,7 @@
 			alert("Please select the batch");
 		} else {
 			var url = 'RetrieveStudents?cYear='
-					+ document.getElementById("year").value+"&prediction='p'";
+					+ document.getElementById("year").value + "&prediction='p'";
 			var someStudents = $.get(url, function(responseText) {
 				var res = responseText;
 				document.getElementById('studentId').innerHTML = res;
@@ -61,15 +67,15 @@
 
 	<%
 		if (session.getAttribute("userType").toString()
-				.equalsIgnoreCase("admin")) {
+					.equalsIgnoreCase("admin")) {
 	%>
 
 	<div class="wrapper col2">
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li><a href="adminHomePage.html">Home</a></li>
-					<li><a href="fileUploadPage.html">Upload Files</a></li>
+					<li><a href="adminHomePage.jsp">Home</a></li>
+					<li><a href="fileUploadPage.jsp">Upload Files</a></li>
 					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
 					<!--      <li><a href="#">Edit Profile</a></li>     -->
 
@@ -82,7 +88,7 @@
 							<li><a href="#">Courses</a></li>
 							<li><a href="ShowGradesServlet">Grades</a></li>
 						</ul></li>
-					<li><a href="userContactUs.html">Contact Us</a></li>
+					<li><a href="userContactUs.jsp">Contact Us</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
 			</div>
@@ -91,13 +97,13 @@
 	</div>
 	<%
 		} else if (session.getAttribute("userType").toString()
-				.equalsIgnoreCase("mentor")) {
+					.equalsIgnoreCase("mentor")) {
 	%>
 	<div class="wrapper col2">
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li><a href="MentorHomePage.html">Home</a></li>
+					<li><a href="MentorHomePage.jsp">Home</a></li>
 					<li class="active"><a href="#">View Reports</a>
 						<ul>
 							<li><a href="#">Course Report</a></li>
@@ -120,7 +126,7 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li><a href="StudentHomePage.html">Home</a></li>
+					<li><a href="StudentHomePage.jsp">Home</a></li>
 					<li class="active"><a href="#">View Courses</a></li>
 					<li><a href="#">View Result</a></li>
 					<li><a href="#">View feedback</a></li>
@@ -175,3 +181,6 @@
 	</div>
 </body>
 </html>
+<%
+	}
+%>

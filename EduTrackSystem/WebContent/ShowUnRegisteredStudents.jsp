@@ -39,8 +39,8 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li><a href="adminHomePage.html">Home</a></li>
-					<li><a href="fileUploadPage.html">Upload Files</a></li>
+					<li><a href="adminHomePage.jsp">Home</a></li>
+					<li><a href="fileUploadPage.jsp">Upload Files</a></li>
 					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
 					<!--      <li><a href="#">Edit Profile</a></li>     -->
 
@@ -53,7 +53,7 @@
 							<li><a href="ShowCoursesServelt">Courses</a></li>
 							<li><a href="ShowGradesServlet">Grades</a></li>
 						</ul></li>
-					<li><a href="userContactUs.html">Contact Us</a></li>
+					<li><a href="userContactUs.jsp">Contact Us</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
 			</div>

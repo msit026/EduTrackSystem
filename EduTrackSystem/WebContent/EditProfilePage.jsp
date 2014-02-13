@@ -25,12 +25,12 @@
         <br class="clear" />
       </div>
     </div>
-    <%if(session.getAttribute("userType") != null && session.getAttribute("userType").toString().equalsIgnoreCase("mentor")){ %>
+    <%if(session.getAttribute("userType") != null && session.getAttribute("userType").toString().equalsIgnoreCase("student")){ %>
     <div class="wrapper col2">
       <div id="topbar">
         <div style="width:100%;float:right;" id="topnav">
           <ul style="width:100%;float:right">
-            <li><a href="StudentHomePage.html">Home</a></li>
+            <li><a href="StudentHomePage.jsp">Home</a></li>
             <li><a href="ShowCoursesServelt">View Courses</a></li>
             <li><a href="#">View Result</a></li>
             <li><a href="#">View feedback</a></li>
@@ -41,12 +41,12 @@
         <br class="clear" />
       </div>
     </div>
-    <%}else if(session.getAttribute("userType") != null && session.getAttribute("userType").toString().equalsIgnoreCase("student")){ %>
+    <%}else if(session.getAttribute("userType") != null && session.getAttribute("userType").toString().equalsIgnoreCase("mentor")){ %>
     <div class="wrapper col2">
       <div id="topbar">
         <div style="width:100%;float:right;" id="topnav">
           <ul style="width:100%;float:right">
-            <li><a href="MentorHomePage.html">Home</a></li>
+            <li><a href="MentorHomePage.jsp">Home</a></li>
             <li><a href="#">View Reports</a> 
             	<ul>
                 <li><a href="#">Course Report</a></li>
