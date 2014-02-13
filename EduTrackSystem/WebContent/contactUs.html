@@ -6,7 +6,7 @@
     <title>LC Contact Us</title>
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-    <script src="ValidateRegistration.js"></script>
+    <script src="scripts/ValidateRegistration.js"></script>
     <style>
 	#regBg{
                 display:none;
@@ -104,115 +104,136 @@
               </tbody>
             </table>
           </center>
-          <fieldset style="margin:auto; width:600px;  " name="regitrationForm">
-            <legend>Registration Form</legend>
-            <div height="200" id="show2"> </div>
-            <table width="70%" cellpadding="7" align="center" style="top: 137px; height: 597px;">
-              <tbody>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Register
-                      as:</span><font color="red"> *</font></td>
-                  <td>
-                    <select onchange="verifyUser();resetFields();setFormat()" required=""
-                      id="role" name="role">
-                      <option>--select--</option>
-                      <option>Mentor</option>
-                      <option>Student</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">RegistrationID:</span><font
-                      color="red"> *</font></td>
-                  <td><input type="text" onchange="resetField()" placeholder="RegNo"
-                      onblur="validateID" id="id" name="ID" /><span id="error00"
-                      style="color: black;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">First
-                      Name:</span><font color="red"> *</font></td>
-                  <td><input onchange="resetField()" onblur="validateName()" placeholder="First name"
-                      size="30" id="fname" name="fname" /> <span id="error" style="color: red;">
-                    </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Last
-                      Name:</span><font color="red"> *</font></td>
-                  <td><input onchange="resetField()" onblur="validateLname()" placeholder="Last name"
-                      size="30" id="lname" name="lname" /> <span id="error000"
-                      style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Address:</span><font
-                      color="red"> *</font></td>
-                  <td><textarea onchange="resetField()" placeholder="Address" cols="24"
-                      onblur="validateAdress()" rows="5" id="address" name="address"></textarea><span
-                      id="error1" style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Date
-                      of birth:</span><font color="red"> *</font></td>
-                  <td><input type="date" onchange="resetField()" onblur="validateDate()"
-                      placeholder="yyyy-mm-dd" size="30" id="dob" name="dob" />
-                    <span id="error2" style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Gender:</span><font
-                      color="red"> *</font></td>
-                  <td><input type="radio" onchange="resetField()" onblur="validateGender()"
-                      size="10" value="male" id="gender" name="gender" /><span style="font-size:14px;color:black">Male</span>
-                    <input type="radio" onchange="resetField()" onblur="validateGender()"
-                      size="10" value="female" id="gender" name="gender" /><span
-                      style="font-size:14px;color:black">Female</span> <span id="error3"
-                      style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">MobileNo:</span></td>
-                  <td><span style="font-size:14px;color:black">+91</span> <input
-                      type="text" onchange="resetField()" onblur="validateMobile()"
-                      placeholder="10 digits" size="25" id="mobileno" name="mobileno" /><span
-                      id="error4" style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Email
-                      Id:</span><font color="red"> *</font></td>
-                  <td><input onchange="resetField()" onblur="validateEmail()" placeholder="id@example.com"
-                      size="30" id="emailId" name="emailId" /> <span id="error5"
-                      style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Choose
-                      Password:</span><font color="red"> *</font></td>
-                  <td><input type="password" onchange="resetField()" onblur="validatePassword()"
-                      placeholder="min 8 characters" id="password" name="password" /><span
-                      id="error6" style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right"><span style="font-size:14px;color:black">Re-Enter
-                      Password:</span><font color="red"> *</font></td>
-                  <td><input type="password" onchange="resetField()" onblur="validateRePassword()"
-                      placeholder="re-enter" size="30" id="reenter" name="reenter" /><span
-                      id="error7" style="color: red;"> </span></td>
-                </tr>
-                <tr>
-                  <td align="right" name="fill1" id="fill1"><br />
-                  </td>
-                  <td name="fill2" id="fill2"><br />
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <center> <input type="reset" onclick="resetField();resetFields()"
-                        id="reset" name="reset" value="Reset" /> <input type="submit"
-                        id="register" name="register" value="Register" /> </center>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </fieldset>
-        </form>
-      </div>
+          <fieldset name="registrationForm"
+					style="margin: auto; width: 600px;">
+					<legend>Registration Form</legend>
+					<div id="show2" height="400"></div>
+					<table style="width: 600px" align="center" cellpadding="10" cellspacing="5">
+						<tbody>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Register as:</span><font
+									color="red"> *</font></td>
+								<td>
+									
+									<select name="role" id="role" required=""onchange=" verifyUser(); resetFields();setFormat()">
+										<option>--select--</option>
+										<option>Mentor</option>
+										<option>Student</option>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">RegistrationID:</span><font
+									color="red"> *</font></td>
+								<td><input name="ID" id="id" size="30" onblur="validateID"
+									placeholder="RegNo" onchange="resetField()" type="text"><span
+									style="color: black;" id="error00"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">First Name:</span><font
+									color="red"> *</font></td>
+								<td><input name="fname" id="fname" size="30"
+									placeholder="First name" onblur="validateName()"
+									onchange="resetField()"> <span style="color: red;"
+									id="error"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Last Name:</span><font
+									color="red"> *</font></td>
+								<td><input name="lname" id="lname" size="30"
+									placeholder="Last name" onblur="validateLname()"
+									onchange="resetField()"> <span style="color: red;"
+									id="error000"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Address:</span><font
+									color="red"> *</font></td>
+								<td><textarea name="address" id="address" rows="5"
+										onblur="validateAdress()" cols="24" placeholder="Address"
+										onchange="resetField()"></textarea><span style="color: red;"
+									id="error1"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Date of birth:</span><font
+									color="red"> </font></td>
+								<td><input name="dob" id="dob" size="30"
+									placeholder="yyyy-mm-dd" onblur="validateDate()"
+									onchange="resetField()" type="date"> <span
+									style="color: red;" id="error2"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Gender:</span><font
+									color="red"> </font></td>
+								<td><input name="gender" id="gender" value="male" size="10"
+									onblur="validateGender()" onchange="resetField()" type="radio"><span
+									style="font-size: 14px; color: black">Male</span> <input
+									name="gender" id="gender" value="female" size="10"
+									onblur="validateGender()" onchange="resetField()" type="radio"><span
+									style="font-size: 14px; color: black">Female</span> <span
+									style="color: red;" id="error3"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">MobileNo:</span></td>
+								<td><span style="font-size: 14px; color: black">+91</span>
+									<input name="mobileno" id="mobileno" size="25"
+									placeholder="10 digits" onblur="validateMobile()"
+									onchange="resetField()" type="text"><span
+									style="color: red;" id="error4"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Email Id:</span><font
+									color="red"> *</font></td>
+								<td><input name="emailId" id="emailId" size="30"
+									placeholder="id@example.com" onblur="validateEmail()"
+									onchange="resetField()"> <span style="color: red;"
+									id="error5"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Choose Password:</span><font
+									color="red"> *</font></td>
+								<td><input name="password" id="password"
+									placeholder="min 8 characters" onblur="validatePassword()"
+									onchange="resetField()" type="password"><span
+									style="color: red;" id="error6"> </span></td>
+							</tr>
+							<tr>
+								<td align="right"><span
+									style="font-size: 14px; color: black">Re-Enter Password:</span><font
+									color="red"> *</font></td>
+								<td><input name="reenter" id="reenter" size="30"
+									placeholder="re-enter" onblur="validateRePassword()"
+									onchange="resetField()" type="password"><span
+									style="color: red;" id="error7"> </span></td>
+							</tr>
+							<tr>
+								<td id="fill1" name="fill1" align="right"><br></td>
+								<td id="fill2" name="fill2"><br></td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<center>
+										<input value="Reset" name="reset" id="reset"
+											onclick="resetField();resetFields()" type="reset"> <input
+											value="Register" name="register" id="register" type="submit">
+									</center>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</fieldset>
+			</form>
     </div>
+				</div>
     <div class="wrapper col1">
       <div id="header">
         <div id="logo">

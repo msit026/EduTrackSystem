@@ -117,7 +117,7 @@ function validateAdress()
 {
   if( document.registration.address.value == "" )
   {
-     document.getElementById("error1").innerHTML="Please provide your Address!" ;
+     document.getElementById("error1").innerHTML="Provide Address" ;
      document.registration.address.focus() ;
      return false;
   } 
@@ -130,7 +130,7 @@ function validateMobile()
 {
   if( document.registration.mobileno.value == "" || isNaN( document.registration.mobileno.value) ||  document.registration.mobileno.value.length != 10 )
   {
-     document.getElementById("error4").innerHTML="Please provide a Mobile No in the format 123." ;
+     document.getElementById("error4").innerHTML="Enter digits(0-9)" ;
      //document.registration.mobileno.focus() ;
      return false;
   }
@@ -153,7 +153,6 @@ function verifyUser()
 {
 	var e = document.getElementById("role");
 	var v1=e.options[e.selectedIndex].value;
-	
 		if(v1=="Mentor")
 		{
 		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Department</span>";
