@@ -42,7 +42,7 @@ public class RetrieveStudents extends HttpServlet {
 				PrintWriter out = response.getWriter();
 
 				out.println("<td>");
-				out.println("<label for = 'Studentid'>Student Id : </label></td>"
+				out.println("<label for = 'Studentid' style='color:black ;font-size:12px'>Student Id : </label></td>"
 						+ "<td>");
 				if(request.getParameter("prediction") != null)//for the purpose of prediction tool
 					out.println("<select name='studentsList' id = 'studentsList' onchange='showCGPA()'>");

@@ -40,6 +40,7 @@
 							<li><a href="#">Course Report</a></li>
 							<li><a href="#">Student Performance</a></li>
 						</ul></li>
+					<li><a href="PredictionTool.jsp">Predict CGPA</a></li>
 					<li><a href="Feedbackjsp.jsp">Give feedback</a></li>
 					<li><a href="#">Send Request</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>

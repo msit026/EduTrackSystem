@@ -32,7 +32,7 @@
           <ul style="width:100%;float:right">
             <li><a href="StudentHomePage.jsp">Home</a></li>
             <li><a href="ShowCoursesServelt">View Courses</a></li>
-            <li><a href="#">View Result</a></li>
+            <li><a href="ViewResult.jsp"">View Result</a></li>
             <li><a href="#">View feedback</a></li>
        		<li class = "active"><a href="#">Edit Profile</a></li>
             <li style="float:right"><a href="Logout">Logout</a></li>

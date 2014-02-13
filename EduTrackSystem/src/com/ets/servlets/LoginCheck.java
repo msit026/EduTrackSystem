@@ -98,7 +98,9 @@ public class LoginCheck extends HttpServlet {
 				 */
 				ResultSet rs = s.getFeedBackNotifications(request.getParameter("userName"));
 				System.out.println("--> login check "+rs);
-				request.setAttribute("feedBackNotificationsResultSet",rs);
+				session.setAttribute("feedBackNotificationsResultSet",rs);
+				String uname=request.getParameter("userName");
+				session.setAttribute("uname", uname);
 				RequestDispatcher rd = request.getRequestDispatcher("StudentHomePage.jsp");
 				rd.include(request,response);
 			} 
@@ -106,7 +108,7 @@ public class LoginCheck extends HttpServlet {
 			else if (m.isValidUser(request.getParameter("userName"),
 					request.getParameter("LoginPassword"))) {
 				
-				session.setAttribute("userDetails", s.getAllDetails(request.getParameter("userName")));
+				session.setAttribute("userDetails", m.getAllDetails(request.getParameter("userName")));
 				request.getSession().setAttribute("userType", "mentor");
 				response.sendRedirect("MentorHomePage.jsp");
 			} 

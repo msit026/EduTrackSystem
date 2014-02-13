@@ -38,7 +38,7 @@
 				<ul style="width: 100%; float: right">
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="ShowCoursesServelt">View Courses</a></li>
-					<li><a href="#">View Result</a></li>
+					<li><a href="ViewResult.jsp">View Result</a></li>
 					<li><a href="#">View feedback</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
@@ -54,7 +54,7 @@
 				<form name="feedback" action="ShowFeedBackServlet">
 					<ul>
 						<%
-							ResultSet rs = (ResultSet) request
+							ResultSet rs = (ResultSet) session
 										.getAttribute("feedBackNotificationsResultSet");
 								while (rs.next()) {
 						%>
