@@ -83,7 +83,7 @@ public class Admin {
 	}
 
 	public boolean isValidUser(String username, String password) {
-		if (username.equals(getAdmin_username()) && password.equals(getAdmin_password())) {
+		if (username.equalsIgnoreCase(getAdmin_username()) && password.equals(getAdmin_password())) {
 			return true; // if the user is admin return 1
 		}
 		return false; // if nothing matches

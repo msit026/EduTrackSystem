@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*"%>
 <!-- 
-	@author Mani
+	@author Ujvala
  -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN"

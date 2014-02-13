@@ -22,7 +22,6 @@ public class Student {
 	private String query;
 	private Statement st;
 	private ResultSet rs;
-	private String userName;
 
 	public Student() {
 		con = MySQLCon.connectToDB();
@@ -35,6 +34,7 @@ public class Student {
 
 	public boolean isValidUser(String username, String password) {
 		try {
+			username = username.toUpperCase();
 			String query = "select sd_status from ets_student_details where sd_student_id = '"
 					+ username + "' and sd_password = '" + password + "' "; // query
 																			// for

@@ -36,6 +36,7 @@ public class Mentor {
 	public boolean isValidUser(String username, String password) {
 
 		try {
+			username = username.toUpperCase();
 			String query = "select md_status from ets_mentor_details where md_mentor_id = '"
 					+ username + "' and md_password = '" + password + "' "; // query
 																			// for
