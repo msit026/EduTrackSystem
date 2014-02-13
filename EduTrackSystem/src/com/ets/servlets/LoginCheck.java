@@ -98,7 +98,9 @@ public class LoginCheck extends HttpServlet {
 				 */
 				ResultSet rs = s.getFeedBackNotifications(request.getParameter("userName"));
 				System.out.println("--> login check "+rs);
-				request.setAttribute("feedBackNotificationsResultSet",rs);
+				session.setAttribute("feedBackNotificationsResultSet",rs);
+				String uname=request.getParameter("userName");
+				session.setAttribute("uname", uname);
 				RequestDispatcher rd = request.getRequestDispatcher("StudentHomePage.jsp");
 				rd.include(request,response);
 			} 

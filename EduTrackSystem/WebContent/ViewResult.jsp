@@ -1,16 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<!-- 
+	@author Ujvala
+ -->
+
 <%
 	if (session.getAttribute("userType") == null) {
 		response.sendRedirect("Logout");
 	} else {
 %>
-
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="java.sql.*"%>
-<!-- 
-	@author Mani
- -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN"
 	dir="ltr">
@@ -18,10 +17,29 @@
 <meta http-equiv="content-type"
 	content="application/xhtml+xml; charset=iso-8859-1" />
 <title>Courses Page</title>
+<script type="text/javascript"
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+	function getResult() {
+	
+		<%String studentId=session.getAttribute("uname").toString();%>
+		var studentID="<%=studentId%>";
+		
+			var url = 'ViewResults?rollNo='	+ studentID;
+			var someStudents = $.get(url, function(responseText) {
+				var res = responseText;
+				document.getElementById('result').innerHTML = res;
+			});
+	}
+	
+</script>
 <meta http-equiv="imagetoolbar" content="no" />
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 </head>
-<body id="top">
+<% 
+%>
+<body id="top" onload="getResult()">
 	<div class="wrapper col1">
 		<div id="header">
 			<div id="logo">
@@ -51,7 +69,7 @@
 					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
 					<!--      <li><a href="#">Edit Profile</a></li>     -->
 
-					<li class="active"><a href="#">View Data</a>
+					<li><a href="#">View Data</a>
 						<ul>
 							<li><a href="ShowRegisteredStudentsServlet">Registered
 									Students</a></li>
@@ -81,6 +99,7 @@
 							<li><a href="#">Course Report</a></li>
 							<li><a href="#">Student Performance</a></li>
 						</ul></li>
+					<li  class="active"><a href="PredictionTool.jsp">Predict CGPA</a></li>
 					<li><a href="#">Give feedback</a></li>
 					<li><a href="#">Send Request</a></li>
 					<li><a href="#">Edit Profile</a></li>
@@ -100,11 +119,12 @@
 					
 					
 					<li><a href="StudentHomePage.jsp">Home</a></li>
-					<li class="active"><a href="ShowCoursesServelt">View Courses</a></li>
-					<li><a href="ViewResult.jsp">View Result</a></li>
+					<li ><a href="ShowCoursesServelt">View Courses</a></li>
+					<li class="active"><a href="ViewResult.jsp">View Result</a></li>
 					<li><a href="#">View feedback</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
+					
 				</ul>
 			</div>
 			<br class="clear" />
@@ -116,47 +136,10 @@
 	<div class="wrapper col4">
 		<div id="container">
 			<div id="content">
-				<%
-					ResultSet rs = (ResultSet) request.getAttribute("showCourses");
-						boolean flag = true;
-				%>
 
-				<table>
-					<tr>
-						<th>Id</th>
-						<th>Name</th>
-						<th>Credits</th>
-						<th>Duration<br />(in weeks)
-						</th>
-						<th>Year</th>
-					</tr>
-					<%
-						while (rs.next()) {
-								flag = false;
-					%>
-					<tr>
-						<td><%=rs.getString("cd_course_id")%></td>
-						<td><%=rs.getString("cd_name")%></td>
-						<td><%=(int) Double.parseDouble(rs
-							.getString("cd_credits"))%></td>
-						<td><%=(int) Double.parseDouble(rs
-							.getString("cd_duration"))%></td>
-						<td><%=rs.getString("cd_course_year")%></td>
-					</tr>
-					<%
-						}
-							if (flag) {
-					%>
-					<tr>
-						<td colspan=3>No Courses are to Display</td>
-						<tr>
-							<%
-								response.setHeader("Refresh", "3; URL=adminHomePage.html");
-									}
-									rs.close();
-							%>
-						
-				</table>
+					<span name='result' id='result' required="required"></span>
+				</form>
+				</center>
 			</div>
 		</div>
 		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
