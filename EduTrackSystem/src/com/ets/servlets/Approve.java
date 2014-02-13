@@ -43,17 +43,19 @@ public class Approve extends HttpServlet {
     	boolean flag = admin.ApproveStudetns(selectedStudents);
     	if(flag)
     	{
-    		out.println("<center><h5>Approved</h5></center>");
-    		response.setHeader("refresh","3;URL=ShowPendingRequestsServlet");
-    		//RequestDispatcher dispatch = request.getRequestDispatcher("ShowPendingRequestsServlet");
-    		//dispatch.include(request, response);
+    		//out.println("<center><h5>Approved</h5></center>");
+    		//response.setHeader("refresh","3;URL=ShowPendingRequestsServlet");
+    		request.setAttribute("approvalStatus", "APPROVED");
+    		RequestDispatcher dispatch = request.getRequestDispatcher("ApprovalStatusPage.jsp");
+    		dispatch.include(request, response);
     	}
     	else
     	{
-    		out.println("<center><h5>Not Approved</h5></center>");
-    		response.setHeader("refresh","3;URL = ShowPendingRequestsServlet");
-//    		RequestDispatcher dispatch = request.getRequestDispatcher("ShowPendingRequestsServlet");
-//    		dispatch.include(request, response);
+    		//out.println("<center><h5>Not Approved</h5></center>");
+    		request.setAttribute("approvalStatus", "NOT APPROVED");
+    		//response.setHeader("refresh","3;URL = ShowPendingRequestsServlet");
+    		RequestDispatcher dispatch = request.getRequestDispatcher("ApprovalStatusPage.jsp");
+    		dispatch.include(request, response);
     	}
     	
     }
