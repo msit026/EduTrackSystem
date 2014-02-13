@@ -1,6 +1,7 @@
 package com.ets.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -33,15 +34,19 @@ public class FeedbackServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String description = request.getParameter("feedback");
 		HttpSession session = request.getSession();
+		//System.out.println(session.getAttribute("userDetails"));
 		ResultSet rsSession = (ResultSet)session.getAttribute("userDetails");
+		
 		try {
 			if(rsSession.next())
 			{
 				String mentorName = rsSession.getString("md_name");
 				Mentor mentor = new Mentor();
 				mentor.addFeedback(mentorName,year,studentId,title,description);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("MentorHomePage.html");
-				dispatcher.forward(request, response);
+				PrintWriter out=response.getWriter();
+				out.println("<html><head><script>alert('Submitted feedback successfully');</script></head></html>");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("MentorHomePage.jsp");
+				dispatcher.include(request, response);
 			}
 			else
 			{

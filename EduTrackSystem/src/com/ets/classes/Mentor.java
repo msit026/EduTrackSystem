@@ -202,7 +202,7 @@ public class Mentor {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
-		return null; // if nothing matches
+		return rs; // if nothing matches
 	}
 	
 	public void addFeedback(String mentorName, String year, String studentId,
@@ -213,7 +213,7 @@ public class Mentor {
 					+ "(`mf_student_id`, `mf_title`, `mf_description`, `mf_open_status`, `mf_mentor_name`) values "
 					+ "('" + studentId + "','" + title + "','" + description
 					+ "','notopen','" + mentorName + "');";
-			rs = st.executeQuery(query);
+			int ret= st.executeUpdate(query);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

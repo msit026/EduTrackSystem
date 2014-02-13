@@ -203,7 +203,7 @@ public class Student {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
-		return null; // if nothing matches
+		return rs; // if nothing matches
 	}
 	
 	public ResultSet getSelectedYearStudents(String year) {
