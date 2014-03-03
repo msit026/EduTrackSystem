@@ -60,7 +60,7 @@ public class Registrations extends HttpServlet {
 				gender = "f";
 			}
 			
-			String mobileno = request.getParameter("mobileno");
+			String mobileno = request.getParameter("mobileno").trim();
 			String name = null;
 			String emailId = request.getParameter("emailId");
 			String password = request.getParameter("password");
@@ -74,7 +74,7 @@ public class Registrations extends HttpServlet {
 			if (role.equalsIgnoreCase("Mentor")) {
 				System.out.println("mentor");
 				String query = "select * from ets_mentor_details where md_mentor_id = '"
-						+ ID + "' and md_status != 'p' and md_status != 'a'";
+						+ ID + "' and md_status = 'R'";
 				System.out.println(query);
 				ResultSet rs = stmt.executeQuery(query);
 
@@ -84,8 +84,8 @@ public class Registrations extends HttpServlet {
 							+ emailId + "',md_password='" + password
 							+ "',md_dob='" + dob + "',md_phone='" + mobileno
 							+ "',md_address='" + address + "',md_gender='"
-							+ gender + "',md_department'" + designation
-							+ "',md_status='a' where md_mentor_id='" + ID
+							+ gender + "',md_department='" + designation
+							+ "',md_status='p' where md_mentor_id='" + ID
 							+ "' ;";
 					System.out.println(str);
 					int value = stmt.executeUpdate(str);
@@ -97,12 +97,12 @@ public class Registrations extends HttpServlet {
 						System.out
 								.println("Problem in mentor details Insertion....");
 						request.setAttribute("isSuccess", "false");
-						response.setContentType("text/html");
-						RequestDispatcher rd = request.getRequestDispatcher("RegistrationSuccessPage.jsp");
-						rd.include(request, response);
 					}
+					response.setContentType("text/html");
+					RequestDispatcher rd = request.getRequestDispatcher("RegistrationSuccessPage.jsp");
+					rd.forward(request, response);
 				} else {
-					System.out.println("hello");
+
 					PrintWriter out = response.getWriter();
 					out.println("<html><head><script type='text/javascript'>alert('You are already registered.please wait for the Admin approval');</script></head></html>");
 				}
@@ -119,7 +119,6 @@ public class Registrations extends HttpServlet {
 					System.out.println(query1);
 					ResultSet rs1 = stmt.executeQuery(query1);
 					if (rs1.next()) {
-						System.out.println("Noooo");
 						String str = "UPDATE ets_student_details set sd_email='"
 								+ emailId
 								+ "',sd_password='"
@@ -144,16 +143,17 @@ public class Registrations extends HttpServlet {
 						System.out.println(str);
 						if (value > 0) {
 							System.out
-									.println("Inserted mentor details Successfully....");
+									.println("Inserted Student details Successfully....");
 							request.setAttribute("isSuccess", "true");
 						} else {
 							System.out
-									.println("Problem in mentor details Insertion....");
+									.println("Problem in Student details Insertion....");
 							request.setAttribute("isSuccess", "false");
-							response.setContentType("text/html");
-							RequestDispatcher rd = request.getRequestDispatcher("RegistrationSuccessPage.jsp");
-							rd.include(request, response);
+							
 						}
+						response.setContentType("text/html");
+						RequestDispatcher rd = request.getRequestDispatcher("RegistrationSuccessPage.jsp");
+						rd.forward(request, response);
 					} else {
 						System.out.println("yes!!");
 						PrintWriter out = response.getWriter();
@@ -162,7 +162,6 @@ public class Registrations extends HttpServlet {
 					response.setContentType("text/html");
 					RequestDispatcher rd = request.getRequestDispatcher("homePage.html");
 					rd.include(request, response);
-					//response.sendRedirect("RegistrationSuccessPage.jsp");
 
 				}
 

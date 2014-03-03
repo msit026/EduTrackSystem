@@ -1,3 +1,4 @@
+
 <%
 	if (session.getAttribute("userType") == null) {
 		response.sendRedirect("Logout");
@@ -48,23 +49,36 @@
 				<ul style="width: 100%; float: right">
 					<li><a href="adminHomePage.jsp">Home</a></li>
 					<li><a href="fileUploadPage.jsp">Upload Files</a></li>
-					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
-					<!--      <li><a href="#">Edit Profile</a></li>     -->
+					<li><a href="#">Approve User</a>
+						<ul>
+							<li><a href="ShowPendingRequestsServlet">Students</a></li>
+							<li><a href="ShowMentorsPendingRequestsServlet">Mentors</a></li>
+						</ul></li>
 
 					<li class="active"><a href="#">View Data</a>
 						<ul>
-							<li><a href="ShowRegisteredStudentsServlet">Registered
+							<li><a href="ShowRegisteredStudents.jsp">Registered
 									Students</a></li>
-							<li><a href="ShowUnRegisteredStudentsServlet">Unregistered
+							<li><a href="ShowUnRegisteredStudents.jsp">Unregistered
 									Students</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="ShowGradesServlet">Grades</a></li>
+							<li><a href="ShowRegisteredMentors">Registered Mentors</a></li>
+							<li><a href="ShowUnregisteredMentors">UnRegistered
+									Mentors</a></li>
+							<li><a href="ShowCoursesServelt">Courses</a></li>
+							<li><a href="ShowGrades.jsp">Grades</a></li>
 						</ul></li>
+
+					<li><a href="Templates.jsp">Templates</a></li>
 					<li><a href="userContactUs.jsp">Contact Us</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
 			</div>
 			<br class="clear" />
+		</div>
+	</div>
+	<div class="wrapper col4">
+		<div id="container">
+			<div id="content"></div>
 		</div>
 	</div>
 	<%
@@ -97,12 +111,13 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					
-					
+
+
 					<li><a href="StudentHomePage.jsp">Home</a></li>
-					<li class="active"><a href="ShowCoursesServelt">View Courses</a></li>
+					<li class="active"><a href="ShowCoursesServelt">View
+							Courses</a></li>
 					<li><a href="ViewResult.jsp">View Result</a></li>
-					<li><a href="#">View feedback</a></li>
+					<li  ><a href="viewStudentFeedback.jsp">View feedback</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
@@ -160,6 +175,8 @@
 			</div>
 		</div>
 		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /><br class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" /> <br class="clear" /> <br class="clear" />
 		<div class="wrapper col7">

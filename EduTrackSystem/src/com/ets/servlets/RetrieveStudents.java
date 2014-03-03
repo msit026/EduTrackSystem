@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ets.classes.Student;
 
@@ -27,30 +28,40 @@ public class RetrieveStudents extends HttpServlet {
 
 	public void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
-		//HttpSession session = request.getSession();
-		//ResultSet rsSession = (ResultSet) session.getAttribute("userDetails") ; 
-		//try {
-			//if (rs.next()) {
-				//response.sendRedirect("logout");
-			//} else {
-			
+
+		HttpSession session = request.getSession();
+
+		try {
+			if (session.getAttribute("userId") == null && session.getAttribute("uname") == null ) {
+				response.sendRedirect("logout");
+			} else {
+
 				String year = request.getParameter("cYear");
 				Student student = new Student();
 				ResultSet rs = student.getSelectedYearStudents(year);
-
+				System.out.println(year);
+				System.out.println("--->"+rs);
 				PrintWriter out = response.getWriter();
 
 				out.println("<td>");
 				out.println("<label for = 'Studentid' style='color:black ;font-size:12px'>Student Id : </label></td>"
 						+ "<td>");
-				if(request.getParameter("prediction") != null)//for the purpose of prediction tool
+				if (request.getParameter("grades") != null) {
+					out.println("<select name='studentsList' id = 'studentsList' onchange='showGrades()'>");
+				} else if (request.getParameter("prediction") != null)// for the
+																		// purpose
+																		// of
+																		// prediction
+																		// tool
 					out.println("<select name='studentsList' id = 'studentsList' onchange='showCGPA()'>");
-				else//for the purpose of feedback tool
+				else
+					// for the purpose of feedback tool
 					out.println("<select name='studentsList' id = 'studentsList'>");
-
+				
+				out.println("<option value='select'>Select</option>");
 				try {
 					while (rs.next()) {
+						System.out.println("inside");
 						out.println("<option value="
 								+ rs.getString("sd_student_id") + ">"
 								+ rs.getString("sd_student_id") + "</option>");
@@ -59,10 +70,10 @@ public class RetrieveStudents extends HttpServlet {
 					e.printStackTrace();
 				}
 				out.println("</select></td>");
-			//}
-		//} catch (SQLException e) {
-			//e.printStackTrace();
-		//}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

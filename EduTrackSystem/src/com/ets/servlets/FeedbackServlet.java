@@ -30,11 +30,10 @@ public class FeedbackServlet extends HttpServlet {
 	public void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String year = request.getParameter("year");
-		String studentId = request.getParameter("studentList");
+		String studentId = request.getParameter("studentsList");
 		String title = request.getParameter("title");
 		String description = request.getParameter("feedback");
 		HttpSession session = request.getSession();
-		//System.out.println(session.getAttribute("userDetails"));
 		ResultSet rsSession = (ResultSet)session.getAttribute("userDetails");
 		
 		try {

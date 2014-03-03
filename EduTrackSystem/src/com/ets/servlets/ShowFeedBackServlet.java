@@ -20,7 +20,7 @@ public class ShowFeedBackServlet extends HttpServlet {
     }
 
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String feedbackid = request.getParameter("feedbackid");
+    	
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

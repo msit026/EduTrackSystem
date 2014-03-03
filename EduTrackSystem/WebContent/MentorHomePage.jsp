@@ -34,15 +34,28 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="MentorHomePage.jsp">Home</a></li>
 					<li><a href="#">View Reports</a>
 						<ul>
-							<li><a href="#">Course Report</a></li>
-							<li><a href="#">Student Performance</a></li>
+							<li><a
+								href="http://localhost:80/phpFiles/CourseMarksGraph.html">year
+									Wise Student Report</a></li>
+							<li><a href="http://localhost/phpFiles/gradeAnalysis.html">Overall
+									Performance Grade Wise </a></li>
+							<li><a href="http://localhost/phpFiles/gradesAjax.html">Overall
+									Performance Course Wise </a></li>
+							<li><a href="http://localhost/phpFiles/rollNumberAjax.html">Course
+									Wise Student Report</a></li>
+							<li><a
+								href="http://localhost/phpFiles/studentGradesForCourse.html">Batch
+									Analysis Course Wise</a></li>
+							<li><a
+								href="http://localhost/phpFiles/studentsCGPAGraph.html">Batch
+									Wise CGPA Analysis</a></li>
 						</ul></li>
 					<li><a href="PredictionTool.jsp">Predict CGPA</a></li>
 					<li><a href="Feedbackjsp.jsp">Give feedback</a></li>
-					<li><a href="#">Send Request</a></li>
+					<li><a href="ViewFeedback.jsp">View feedback</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
@@ -52,15 +65,20 @@
 	</div>
 	<div class="wrapper col4">
 		<div id="container">
-			<div id="content"></div>
+			<div id="content">
+				<p>Welcome to EduTrack Portal. You can check your students'
+					course wise performance, attendance and grades here. Analytic tools
+					are provided to make the analysis more effective. You can suggest
+					any improvements for your students through the feedback tool.</p>
+			</div>
 		</div>
 		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" /> <br class="clear" /> <br class="clear" /> <br
-			class="clear" /> <br class="clear" /> <br class="clear" />
-		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" /> <br class="clear" /> <br class="clear" /> <br
-			class="clear" /> <br class="clear" /> <br class="clear" />
-		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" />
 
 		<div class="wrapper col7">

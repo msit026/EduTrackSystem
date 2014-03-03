@@ -38,7 +38,6 @@ public class LoginCheck extends HttpServlet {
 		try {
 			processRequest(request,response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -97,7 +96,6 @@ public class LoginCheck extends HttpServlet {
 				 * Get the feedback notifications from the database and display them on student home page
 				 */
 				ResultSet rs = s.getFeedBackNotifications(request.getParameter("userName"));
-				System.out.println("--> login check "+rs);
 				session.setAttribute("feedBackNotificationsResultSet",rs);
 				String uname=request.getParameter("userName");
 				session.setAttribute("uname", uname);
@@ -110,12 +108,14 @@ public class LoginCheck extends HttpServlet {
 				
 				session.setAttribute("userDetails", m.getAllDetails(request.getParameter("userName")));
 				request.getSession().setAttribute("userType", "mentor");
-				response.sendRedirect("MentorHomePage.jsp");
+				session.setAttribute("uname", request.getParameter("userName"));
+				RequestDispatcher rd = request.getRequestDispatcher("MentorHomePage.jsp");
+				rd.include(request, response);
 			} 
 			
 			else {
 				request.setAttribute("invalid", "invalid");
-				response.sendRedirect("invalid.html");
+				response.sendRedirect("invalid.jsp");
 			}
 		}
 	}

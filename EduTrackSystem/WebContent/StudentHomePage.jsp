@@ -1,6 +1,8 @@
-
+<!-- 
+	@author Mani
+ -->
 <%
-	if (session.getAttribute("userType") == null) {
+	if (session.getAttribute("uname") == null) {
 		response.sendRedirect("Logout");
 	} else {
 %>
@@ -36,10 +38,10 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li class="active"><a href="#">Home</a></li>
+					<li class = active><a href="#">Home</a></li>
 					<li><a href="ShowCoursesServelt">View Courses</a></li>
 					<li><a href="ViewResult.jsp">View Result</a></li>
-					<li><a href="#">View feedback</a></li>
+					<li><a href="viewStudentFeedback.jsp">View Feed back</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
@@ -50,8 +52,11 @@
 	<div class="wrapper col4">
 		<div id="container">
 			<div id="content">
+				<p>Welcome to EduTrack Portal You can check your course wise
+					performance and attendance here. Your mentor have suggestions for
+					your improvement. You can also check your feedback here.</p>
 				<h1>Notifications</h1>
-				<form name="feedback" action="ShowFeedBackServlet">
+				<form name="feedback" action="viewStudentFeedback.jsp">
 					<ul>
 						<%
 							ResultSet rs = (ResultSet) session
@@ -64,7 +69,7 @@
 							}
 						%>
 						<input type="submit" id="buttonSubmit" name="buttonSubmit"
-							value="Show pending requests">
+							value="Show feedback">
 				</form>
 				</ul>
 			</div>

@@ -51,11 +51,12 @@ public class Student {
 		}
 		return false; // if nothing matches
 	}
-	
+
 	/**
 	 * Author Mano
 	 * 
 	 * It Returns the registered Students list
+	 * 
 	 * @return
 	 */
 	public ResultSet getRegisteredStudentsList() {
@@ -69,14 +70,39 @@ public class Student {
 		return rs;
 	}
 
+	public ResultSet getUnRegisteredStudents(String year) {
+		try {
+			query = "select * from ets_student_details where sd_status = 'p' and sd_admitted_year = '"
+					+ year + "'";
+			rs = st.executeQuery(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	public ResultSet getRegisteredStudentsList(String cYear) {
+		try {
+			query = "select * from ets_student_details where sd_status = 'a' and sd_admitted_year = '"
+					+ cYear + "'";
+			System.out.println("query: " + query);
+			rs = st.executeQuery(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
 	/**
 	 * Author Mano
 	 * 
 	 * It Returns the UnRegistered Students List
+	 * 
 	 * @return
 	 */
-	public ResultSet getUnRegisteredStudents()
-	{
+	public ResultSet getUnRegisteredStudents() {
 		try {
 			query = "select * from ets_student_details where sd_status = 'p'";
 			rs = st.executeQuery(query);
@@ -86,12 +112,12 @@ public class Student {
 		}
 		return rs;
 	}
-	
+
 	public ResultSet getSelectedCGPA(String rollNo) {
 		try {
-			
+
 			query = "select scd_total,cd_credits,cd_name from ets_student_course_details scd join ets_course_details cd on scd.scd_course_id=cd.cd_course_id where scd_student_id ='"
-					+ rollNo+"'";
+					+ rollNo + "'";
 			System.out.println(query);
 			rs = st.executeQuery(query);
 		} catch (SQLException e) {
@@ -99,7 +125,7 @@ public class Student {
 		}
 		return rs;
 	}
-	
+
 	/**
 	 * @Author Sneha
 	 * 
@@ -109,9 +135,9 @@ public class Student {
 	@SuppressWarnings("rawtypes")
 	public ResultSet getStudentDetails(String filename) {
 		try {
-			
+
 			String s = "E:\\data\\" + filename;
-			
+
 			InputStream input = new BufferedInputStream(new FileInputStream(s));
 			POIFSFileSystem fs = new POIFSFileSystem(input);
 			HSSFWorkbook wb = new HSSFWorkbook(fs);
@@ -169,13 +195,16 @@ public class Student {
 				}
 
 				if (rowCount >= 1) {
-					query = "insert into ets.ets_student_details set sd_student_id=\""
+					/*query = "insert into ets.ets_student_details values( sd_student_id=\""
 							+ rollNo
 							+ "\" , sd_name=\""
 							+ studentName
 							+ "\", sd_email=\""
 							+ email
-							+ "\", sd_password=\"\", sd_dob=\"0000-00-00\", sd_phone=\"\", sd_address=\"\", sd_gender=\"\",  sd_status=\"\", sd_year_in_course=\"0\";";
+							+ "\", sd_password=\"\", sd_dob=\"0000-00-00\", sd_phone=\"\", sd_address=\"\", sd_gender=\"\",  sd_status=\"\", sd_year_in_course=\"0\");";*/
+					
+					query = "insert into ets_student_details (sd_student_id,sd_name,sd_email,sd_dob,sd_year_in_course)values ( '"+rollNo+"', '"+studentName+"','"+email+"','"
+							+ "0000-00-00',0) on duplicate key update sd_name = '"+studentName+"', sd_email = '"+email+"', sd_dob = '0000-00-00', sd_year_in_course = 0;";
 					try {
 						st.executeUpdate(query);
 					} catch (Exception e) {
@@ -191,24 +220,24 @@ public class Student {
 	}
 
 	public ResultSet getAllDetails(String username) {
-		HashMap<String,String> map = new HashMap<String,String>();
+		HashMap<String, String> map = new HashMap<String, String>();
 		try {
 			String query = "select * from ets_student_details where sd_student_id = '"
 					+ username + "'"; // query
-																			// for
-																			// the
-																			// database
+										// for
+										// the
+										// database
 			rs = st.executeQuery(query);
-			
+
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
 		return rs; // if nothing matches
 	}
-	
+
 	public ResultSet getSelectedYearStudents(String year) {
 		try {
-			query = "select sd_student_id from ets_student_details where sd_year_in_course = "
+			query = "select sd_student_id from ets_student_details where sd_admitted_year = "
 					+ year;
 			rs = st.executeQuery(query);
 		} catch (SQLException e) {
@@ -220,7 +249,8 @@ public class Student {
 	public ResultSet getFeedBackNotifications(String userName) {
 		System.out.println("user name: " + userName);
 		try {
-			query = "select * from ets_mentor_feedback where mf_open_status = 'notopen' and mf_student_id = '" + userName + "';";
+			query = "select * from ets_mentor_feedback where mf_open_status = 'notopen' and mf_student_id = '"
+					+ userName + "';";
 			System.out.println(query);
 			rs = st.executeQuery(query);
 		} catch (SQLException e) {

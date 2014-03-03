@@ -171,6 +171,9 @@ public class Attendance {
 							+ "','"
 							+ absentdays
 							+ "')";
+					
+					//query = "insert into ets_attendance_details (scd_student_id,scd_course_id,scd_grade,scd_year,scd_total)values ( '"+studentId+"', '"+courseId+"','"+grade+"','"
+						//	+ year +",'"+total+"') on duplicate key update scd_grade = '"+grade+"', scd_year = '"+year+"', scd_total = "+ total +";";
 					System.out.println(query);
 					try {
 						st.executeUpdate(query);

@@ -264,4 +264,54 @@
     <servlet-name>ViewResults</servlet-name>
     <url-pattern>/ViewResults</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowMentorsPendingRequestsServlet</display-name>
+    <servlet-name>ShowMentorsPendingRequestsServlet</servlet-name>
+    <servlet-class>com.ets.servlets.ShowMentorsPendingRequestsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowMentorsPendingRequestsServlet</servlet-name>
+    <url-pattern>/ShowMentorsPendingRequestsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowRegisteredMentors</display-name>
+    <servlet-name>ShowRegisteredMentors</servlet-name>
+    <servlet-class>com.ets.servlets.ShowRegisteredMentors</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowRegisteredMentors</servlet-name>
+    <url-pattern>/ShowRegisteredMentors</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowUnregisteredMentors</display-name>
+    <servlet-name>ShowUnregisteredMentors</servlet-name>
+    <servlet-class>com.ets.servlets.ShowUnregisteredMentors</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowUnregisteredMentors</servlet-name>
+    <url-pattern>/ShowUnregisteredMentors</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateProfiles</display-name>
+    <servlet-name>UpdateProfiles</servlet-name>
+    <servlet-class>com.ets.servlets.UpdateProfiles</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateProfiles</servlet-name>
+    <url-pattern>/UpdateProfiles</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindFeeds</display-name>
+    <servlet-name>FindFeeds</servlet-name>
+    <servlet-class>com.ets.servlets.FindFeeds</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindFeeds</servlet-name>
+    <url-pattern>/FindFeeds</url-pattern>
+  </servlet-mapping>
 </web-app>

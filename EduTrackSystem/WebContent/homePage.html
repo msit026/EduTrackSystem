@@ -240,11 +240,12 @@
 			</div>
 			<!-- Author: Sneha -->
 			<div id="newsletter">
-				<form name="myForm" id="myForm" method="post" action="LoginCheck"
-					onSubmit="return alertError()">
+				
 					<fieldset>
 						<legend>NewsLetter</legend>
 						<table>
+						<form name="myForm" id="myForm" method="post" action="LoginCheck"
+					onSubmit="return alertError()">
 							<tr colspan="3">
 								<td><label id="errMsg" name="errMsg"
 									style="color: red; font-size: 14px"></label></td>
@@ -261,16 +262,16 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td><a href="ForgetPassword.html"
+								<td><a href="ForgetPassword.jsp"
 									style="text-decoration: none; font-size: 14px">Forgot
-										Password?</a></td>
+										Password?</a></td></form>
 								<td><span style="color: #0000ee;"></span><a href="#"
-									onclick="unHide()" style="text-decoration: none"><button
+									onclick="unHide()" style="text-decoration: none"><button onclick="unHide()"
 											id="news_go" name="news_go" style="font-size: 12px">
 											Register</button></a></td>
 								</fieldset>
 						</table>
-				</form>
+				
 			</div>
 			<br class="clear">
 		</div>

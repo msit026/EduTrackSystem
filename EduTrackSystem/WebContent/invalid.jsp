@@ -1,9 +1,5 @@
 
-<%
-	if (session.getAttribute("userType") == null) {
-		response.sendRedirect("Logout");
-	} else {
-%>
+
 <html dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml"
 	lang="EN">
 <head profile="http://gmpg.org/xfn/11">
@@ -139,6 +135,3 @@
 	</div>
 </body>
 </html>
-<%
-	}
-%>

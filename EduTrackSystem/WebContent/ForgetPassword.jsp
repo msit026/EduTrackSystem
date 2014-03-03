@@ -1,9 +1,5 @@
 
-<%
-	if (session.getAttribute("userType") == null) {
-		response.sendRedirect("Logout");
-	} else {
-%>
+
 
 <html dir="ltr" xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml"
 	lang="EN">
@@ -71,6 +67,3 @@
 	</div>
 </body>
 </html>
-<%
-	}
-%>

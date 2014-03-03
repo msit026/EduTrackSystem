@@ -53,14 +53,14 @@ public class ViewResults extends HttpServlet {
 				total_credits += credits;
 			}
 			cgpa = total_marks / total_credits;
-			out.println("<form action=EstimateCGPA method=get><input type=text id=cgpa value="
+			out.println("<form action=EstimateCGPA method=get><input readonly=\"readonly\" type=text id=cgpa value="
 					+ cgpa + ">" + "</td></tr></table>");
 
 			rs.beforeFirst();
 			out.println("<hr><center><table>");
 			while (rs.next()) {
 				out.println("<tr > <td> " + rs.getString("cd_name")
-						+ ":</td><td><input type=text id="
+						+ ":</td><td><input readonly=\"readonly\" type=text id="
 						+ rs.getString("cd_name") + " name="
 						+ rs.getString("cd_name") + " value= "
 						+ rs.getInt("scd_total") + "></td></tr>");

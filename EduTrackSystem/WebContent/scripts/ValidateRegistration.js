@@ -163,7 +163,7 @@ function verifyUser()
 		if(v1=="Student")
 		{
 		document.getElementById('fill1').innerHTML ="<span style = \"font-size:14px;color:black\">Current Year</span>";
-		document.getElementById('fill2').innerHTML ="<select id='currentYear' name='currentYear' required> <option>Select</option><option>1</option><option>2</option></select>";
+		document.getElementById('fill2').innerHTML ="<select id='currentYear' name='currentYear' required='required'> <option>Select</option><option>1</option><option>2</option></select>";
 		 document.getElementById("fill1").style.visibility="visible";
 		 document.getElementById("fill2").style.visibility="visible";
 			

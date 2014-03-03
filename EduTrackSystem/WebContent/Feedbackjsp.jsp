@@ -18,6 +18,7 @@
 	function showStudents() {
 		var url = 'RetrieveStudents?cYear='
 				+ document.getElementById("year").value;
+		
 		var someStudents = $.get(url, function(responseText) {
 			var res = responseText;
 			document.getElementById('studentId').innerHTML = res;
@@ -54,21 +55,29 @@
 		<div id="topbar">
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
-					<li><a href="adminHomePage.jsp">Home</a></li>
-					<li><a href="fileUploadPage.jsp">Upload Files</a></li>
-					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
-					<!--      <li><a href="#">Edit Profile</a></li>     -->
-
-					<li class="active"><a href="#">View Data</a>
+					<li class="active"><a href="MentorHomePage.jsp">Home</a></li>
+					<li><a href="#">View Reports</a>
 						<ul>
-							<li><a href="ShowRegisteredStudentsServlet">Registered
-									Students</a></li>
-							<li><a href="ShowUnRegisteredStudentsServlet">Unregistered
-									Students</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="ShowGradesServlet">Grades</a></li>
+							<li><a
+								href="http://localhost:80/phpFiles/CourseMarksGraph.html">year
+									Wise Student Report</a></li>
+							<li><a href="http://localhost/phpFiles/gradeAnalysis.html">Overall
+									Performance Grade Wise </a></li>
+							<li><a href="http://localhost/phpFiles/gradesAjax.html">Overall
+									Performance Course Wise </a></li>
+							<li><a href="http://localhost/phpFiles/rollNumberAjax.html">Course
+									Wise Student Report</a></li>
+							<li><a
+								href="http://localhost/phpFiles/studentGradesForCourse.html">Batch
+									Analysis Course Wise</a></li>
+							<li><a
+								href="http://localhost/phpFiles/studentsCGPAGraph.html">Batch
+									Wise CGPA Analysis</a></li>
 						</ul></li>
-					<li><a href="userContactUs.jsp">Contact Us</a></li>
+					<li><a href="PredictionTool.jsp">Predict CGPA</a></li>
+					<li><a href="Feedbackjsp.jsp">Give feedback</a></li>
+					<li><a href="ViewFeedback.jsp">View feedback</a></li>
+					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
 			</div>
@@ -84,14 +93,27 @@
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
 					<li><a href="MentorHomePage.jsp">Home</a></li>
-					<li ><a href="#">View Reports</a>
+					<li><a href="#">View Reports</a>
 						<ul>
-							<li><a href="#">Course Report</a></li>
-							<li><a href="#">Student Performance</a></li>
+							<li><a
+								href="http://localhost:80/phpFiles/CourseMarksGraph.html">year
+									Wise Student Report</a></li>
+							<li><a href="http://localhost/phpFiles/gradeAnalysis.html">Overall
+									Performance Grade Wise </a></li>
+							<li><a href="http://localhost/phpFiles/gradesAjax.html">Overall
+									Performance Course Wise </a></li>
+							<li><a href="http://localhost/phpFiles/rollNumberAjax.html">Course
+									Wise Student Report</a></li>
+							<li><a
+								href="http://localhost/phpFiles/studentGradesForCourse.html">Batch
+									Analysis Course Wise</a></li>
+							<li><a
+								href="http://localhost/phpFiles/studentsCGPAGraph.html">Batch
+									Wise CGPA Analysis</a></li>
 						</ul></li>
 					<li><a href="PredictionTool.jsp">Predict CGPA</a></li>
-					<li class="active"><a href="#">Give feedback</a></li>
-					<li><a href="#">Send Request</a></li>
+					<li class="active"><a href="Feedbackjsp.jsp">Give feedback</a></li>
+					<li><a href="ViewFeedback.jsp">View feedback</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
@@ -133,8 +155,8 @@
 				<td><select name='year' id='year' onchange="showStudents()"
 					required="required">
 						<option value="select">Select Year</option>
-						<option value='2'>2012</option>
-						<option value='1'>2013</option>
+						<option value='2012'>2012</option>
+						<option value='2013'>2013</option>
 				</select></td>
 			</tr>
 
@@ -155,7 +177,7 @@
 			<tr>
 				<td colspan=2>
 					<center>
-						<input type="submit" value="Send Feedback">
+						<input type="submit" id="buttonSubmit" name="buttonSubmit" value="Send Feedback">
 					</center>
 				</td>
 			</tr>

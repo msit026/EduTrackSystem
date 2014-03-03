@@ -20,6 +20,31 @@
 <title>Grades Page</title>
 <meta http-equiv="imagetoolbar" content="no" />
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+<!--Load the AJAX API-->
+<script type="text/javascript"
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+<%ResultSet rs;%>
+	function showStudents() {
+		var url = 'RetrieveStudents?cYear='
+				+ document.getElementById("year").value+'&grades=true';
+		var someStudents = $.get(url, function(responseText) {
+			var res = responseText;
+			document.getElementById('students').innerHTML = res;
+		});
+	}
+	
+	function showGrades()
+	{
+		var url = 'ShowGradesServlet?studentId='
+			+ document.getElementById("studentsList").value;
+		var someStudents = $.get(url, function(responseText) {
+		var res = responseText;
+		document.getElementById('details').innerHTML = res;
+	});
+	}
+</script>
 </head>
 <body id="top">
 	<div class="wrapper col1">
@@ -41,67 +66,57 @@
 				<ul style="width: 100%; float: right">
 					<li><a href="adminHomePage.jsp">Home</a></li>
 					<li><a href="fileUploadPage.jsp">Upload Files</a></li>
-					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
-					<!--      <li><a href="#">Edit Profile</a></li>     -->
+					<li><a href="#">Approve User</a>
+						<ul>
+							<li><a href="ShowPendingRequestsServlet">Students</a></li>
+							<li><a href="ShowMentorsPendingRequestsServlet">Mentors</a></li>
+						</ul></li>
 
 					<li class="active"><a href="#">View Data</a>
 						<ul>
-							<li><a href="ShowRegisteredStudentsServlet">Registered
+							<li><a href="ShowRegisteredStudents.jsp">Registered
 									Students</a></li>
-							<li><a href="ShowUnRegisteredStudentsServlet">Unregistered
+							<li><a href="ShowUnRegisteredStudents.jsp">Unregistered
 									Students</a></li>
-							<li><a href="ShowCoursesServlet">Courses</a></li>
-							<li><a href="#">Grades</a></li>
+							<li><a href="ShowRegisteredMentors">Registered Mentors</a></li>
+							<li><a href="ShowUnregisteredMentors">UnRegistered
+									Mentors</a></li>
+							<li><a href="ShowCoursesServelt">Courses</a></li>
+							<li><a href="ShowGrades.jsp">Grades</a></li>
 						</ul></li>
+
+					<li><a href="Templates.jsp">Templates</a></li>
 					<li><a href="userContactUs.jsp">Contact Us</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
-			</div>
-			<br class="clear" />
-		</div>
-	</div>
-	<div class="wrapper col4">
-		<div id="container">
-			<div id="content">
+        </div>
+        <br class="clear" />
+      </div>
+    </div>
+    <div class="wrapper col4">
+      <div id="container">
+        <div id="content">
+	
 
-				<%
-					ResultSet rs = (ResultSet) request.getAttribute("showGrades");
-						boolean flag = true;
-				%>
-				<table>
-					<tr>
-						<th>Id</th>
-						<th>Name</th>
-						<th>Course Name</th>
-						<th>Grades</th>
-					</tr>
-					<%
-						while (rs.next()) {
-								flag = false;
-					%>
-					<tr>
-						<td><%=rs.getString("scd_student_id")%></td>
-						<td><%=rs.getString("sd_name")%></td>
-						<td><%=rs.getString("cd_name")%></td>
-						<td><%=rs.getString("scd_grade")%></td>
-					</tr>
-					<%
-						}
-							if (flag) {
-					%>
-					<tr>
-						<td colspan=3>No Grades are to Display On this Student</td>
-					</tr>
-					<%
-						response.setHeader("Refresh", "3; URL=adminHomePage.html");
-							}
-							rs.close();
-					%>
+				 <label for='year' style="color:black; font-size:12px">Year : </label>
+						<select name='year' id='year' onchange="showStudents()"
+							required="required">
+								<option value="select">Select Year</option>
+								<option value='2012'>2012</option>
+								<option value='2013'>2013</option>
+						</select>
 
-				</table>
+				
+					<span id = 'students' name = 'students'></span></br></br>
+					<span id = 'details' name = 'details'></span>
+					
 			</div>
 		</div>
 		<br class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /><br class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /> <br
+			class="clear" /> <br class="clear" /> <br class="clear" /><br class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" /> <br class="clear" /> <br class="clear" /> <br
 			class="clear" /> <br class="clear" /> <br class="clear" />
 		<div class="wrapper col7">

@@ -121,7 +121,7 @@
 					<li><a href="StudentHomePage.jsp">Home</a></li>
 					<li ><a href="ShowCoursesServelt">View Courses</a></li>
 					<li class="active"><a href="ViewResult.jsp">View Result</a></li>
-					<li><a href="#">View feedback</a></li>
+					<li><a href="viewStudentFeedback.jsp">View feedback</a></li>
 					<li><a href="EditProfilePage.jsp">Edit Profile</a></li>
 					<li style="float: right"><a href="Logout">Logout</a></li>
 					

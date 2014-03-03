@@ -34,20 +34,29 @@
 			<div style="width: 100%; float: right;" id="topnav">
 				<ul style="width: 100%; float: right">
 					<li><a href="adminHomePage.jsp">Home</a></li>
-					<li class="active"><a href="#">Upload Files</a></li>
-					<li><a href="ShowPendingRequestsServlet">Approve User</a></li>
-					<!--         <li><a href="#">Edit Profile</a></li>    -->
+					<li class="active"><a href="fileUploadPage.jsp">Upload Files</a></li>
+					<li><a href="#">Approve User</a>
+						<ul>
+							<li><a href="ShowPendingRequestsServlet">Students</a></li>
+							<li><a href="ShowMentorsPendingRequestsServlet">Mentors</a></li>
+						</ul></li>
+
 					<li><a href="#">View Data</a>
 						<ul>
-							<li><a href="ShowRegisteredStudentsServlet">Registered
+							<li><a href="ShowRegisteredStudents.jsp">Registered
 									Students</a></li>
-							<li><a href="ShowUnRegisteredStudentsServlet">Unregistered
+							<li><a href="ShowUnRegisteredStudents.jsp">Unregistered
 									Students</a></li>
+							<li><a href="ShowRegisteredMentors">Registered Mentors</a></li>
+							<li><a href="ShowUnregisteredMentors">UnRegistered
+									Mentors</a></li>
 							<li><a href="ShowCoursesServelt">Courses</a></li>
-							<li><a href="ShowGradesServlet">Grades</a></li>
-						</ul>
-						<li><a href="userContactUs.jsp">Contact Us</a></li>
-						<li style="float: right"><a href="Logout">Logout</a></li>
+							<li><a href="ShowGrades.jsp">Grades</a></li>
+						</ul></li>
+
+					<li><a href="Templates.jsp">Templates</a></li>
+					<li><a href="userContactUs.jsp">Contact Us</a></li>
+					<li style="float: right"><a href="Logout">Logout</a></li>
 				</ul>
 			</div>
 			<br class="clear" />
@@ -82,9 +91,8 @@
 									name="fileChosen" accept=" application/vnd.ms-excel" /></td>
 							</tr>
 							<tr colspan=2>
-								<td style="align: center"><br />
-								<input type="submit" value="Upload" id="buttonSubmit"
-									name="buttonSubmit" /></td>
+								<td style="align: center"><br /> <input type="submit"
+									value="Upload" id="buttonSubmit" name="buttonSubmit" /></td>
 							</tr>
 						</table>
 				</form>

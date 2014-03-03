@@ -163,7 +163,7 @@ public class Course {
 				}
 
 				if (rowCount >= 1) {
-					query = "insert into ets.ets_course_details set cd_course_id=\""
+					/*query = "insert into ets.ets_course_details set cd_course_id=\""
 							+ courseId
 							+ "\" , cd_name=\""
 							+ name
@@ -171,7 +171,11 @@ public class Course {
 							+ credits
 							+ "\", cd_duration=\""
 							+ duration
-							+ "\", cd_course_year=\"" + year + "\";";
+							+ "\", cd_course_year=\"" + year + "\";";*/
+					
+					query = "insert into ets_course_details (cd_course_id,cd_name,cd_credits,cd_duration,cd_course_year)values ( '"+courseId+"', '"+name+"',"+credits+","
+							+ duration +","+year+") on duplicate key update cd_name = '"+name+"', cd_credits = '"+credits+"', cd_duration = "+ duration +", cd_course_year = "+year+";";
+					
 					System.out.println(query);
 					try {
 						st.executeUpdate(query);

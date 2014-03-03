@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -55,6 +54,28 @@ public class Mentor {
 		return false; // if nothing matches or if the user is not approved
 	}
 
+	public ResultSet getRegisteredMentorsList() {
+		try {
+			query = "select * from ets_mentor_details where md_status = 'a'";
+			rs = st.executeQuery(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public ResultSet getUnRegisteredMentors()
+	{
+		try {
+			query = "select * from ets_mentor_details where md_status = 'p'";
+			rs = st.executeQuery(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 	/**
 	 * Author Mano
 	 *  
@@ -84,8 +105,8 @@ public class Mentor {
 		try {
 
 			query = "select scd.scd_student_id,sd.sd_name,cd.cd_name,scd.scd_grade from ets_student_course_details scd,ets_student_details sd,ets_course_details cd where "
-					+ "scd.scd_student_id = sd.sd_student_id"
-					+ " and "
+					+ "scd.scd_student_id = '"+n
+					+ "' and "
 					+ "scd.scd_course_id = cd_course_id;";
 			System.out.println(query);
 			rs = st.executeQuery(query);
@@ -168,14 +189,17 @@ public class Mentor {
 				}
 
 				if (rowCount >= 1) {
-					query = "insert into ets.ets_mentor_details set md_mentor_id=\""
+					/*query = "insert into ets.ets_mentor_details set md_mentor_id=\""
 							+ mentorId
 							+ "\" , md_name=\""
 							+ name
 							+ "\", md_email=\""
 							+ email
 							+ "\", md_password=\"\", md_dob=\"0000-00-00\", md_phone=\"\", md_address=\"\", md_gender=\"\",   md_department=\""
-							+ department + "\",md_status=\"\";";
+							+ department + "\",md_status=\"\";";*/					
+					query = "insert into ets_mentor_details (md_mentor_id,md_name,md_email,md_dob,md_department)values ( '"+mentorId+"', '"+name+"','"+email+"','"
+							+ "0000-00-00','" + department+"') on duplicate key update md_name = '"+name+"', md_email = '"+email+"', md_dob = '0000-00-00', md_department = "+department+";";
+					
 					try {
 						st.executeUpdate(query);
 					} catch (Exception e) {

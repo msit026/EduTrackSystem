@@ -4,8 +4,10 @@ package com.ets.servlets;
  * @author Mani
  */
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +33,32 @@ public class ShowGradesServlet extends HttpServlet {
 		Mentor mentor = new Mentor();
 		String studentId = request.getParameter("studentId");
 
-		request.setAttribute("showGrades", mentor.getGrades(studentId));
-		RequestDispatcher dispatch = request
-				.getRequestDispatcher("ShowGrades.jsp");
-		dispatch.forward(request, response);
+		//request.setAttribute("showGrades", mentor.getGrades(studentId));
+		ResultSet rs = mentor.getGrades(studentId);
+		PrintWriter out = response.getWriter();
+		out.println("<table>"
+		+ "<tr>"
+		+ "<th>Id</th>"
+		+	"<th>Name</th>"
+		+	"<th>Course Name</th>"
+		+	"<th>Grades</th>"
+		+ "</tr>");
+		try {
+			while(rs.next())
+			{
+				out.println("<tr>"
+					+	"<td>" + rs.getString("scd_student_id") + "</td>"
+					+	"<td>" + rs.getString("sd_name") + "</td>"
+					+	"<td>" + rs.getString("cd_name") + "</td>"
+					+	"<td>" + rs.getString("scd_grade") + "</td>"
+					+ "</tr>");
+				
+			}
+			out.println("</table>");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

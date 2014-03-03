@@ -20,25 +20,15 @@ public class Admin {
 	private String admin_password = "admin";
 
 	public Admin() {
-		con = MySQLCon.connectToDB();
+
 		try {
+			con = MySQLCon.connectToDB();
 			st = con.createStatement();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	/**
-	 * @author Mano
-	 * 
-	 * Change the password of the Admin
-	 */
-	/*public boolean changePassword(String password)
-	{
-		admin_password = password;
-		return true;
-	}*/
-
 	/**
 	 * Author Mano
 	 * 
@@ -60,7 +50,7 @@ public class Admin {
 	}
 
 	/**
-	 * Author Mano
+	 * Author sneha
 	 * 
 	 * It Approves the selected users
 	 * 
@@ -122,10 +112,18 @@ public class Admin {
 		return admin_username;
 	}
 
+	/**
+	 * @author Mani
+	 * @return
+	 */
 	public String getAdmin_password() {
 		return admin_password;
 	}
 
+	/**
+	 * @author Mani
+	 * @return
+	 */
 	public ResultSet getMentorPendingRequests() {
 		try {
 			query = "select * from ets_mentor_details where md_status = 'p';";
@@ -139,6 +137,10 @@ public class Admin {
 		return rs;
 	}
 	
+	/**
+	 * @author Sneha
+	 * @return
+	 */
 	public int getNumberOfPendingStudentRequests()
 	{
 		try {
@@ -154,6 +156,10 @@ public class Admin {
 		return -1;
 	}
 	
+	/**
+	 * @author Sneha
+	 * @return
+	 */
 	public int getNumberOfPendingMentorRequests()
 	{
 		try {
@@ -167,5 +173,26 @@ public class Admin {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	/**
+	 * @author Sneha
+	 * 
+	 * It Approves the mentors
+	 * @param selectedMentors
+	 * @return
+	 */
+	public boolean ApproveMentors(String[] selectedMentors) {
+		boolean flag = false;
+		try {
+			for (int i = 0; i < selectedMentors.length; i++) {
+				query = "update ets_mentor_details set md_status = 'a' where md_mentor_id = '"
+						+ selectedMentors[i] + "'";
+				st.executeUpdate(query);
+				flag = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }
